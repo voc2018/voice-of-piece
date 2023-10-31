@@ -1,0 +1,174 @@
+<?xml version="1.01" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">루트 베이직 레이아웃</title>
+    <title xml:lang="en">Root Basic Layout</title>
+    <description xml:lang="ko">루트 베이직 레이아웃</description>
+    <description xml:lang="en">Root basic layout</description>
+    <version>1.2.2</version>
+    <date>2017-12-22</date>
+    
+	<author email_address="luna27@daum.net" link="http://xsitelab.com/">
+        <name xml:lang="ko">XSITELAB</name>
+        <name xml:lang="en">XSITELAB</name>
+    </author>
+    
+	<menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">글로벌 네비게이션 메뉴</title>
+        </menu>
+        <menu name="footer_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">하단 메뉴</title>
+        </menu>
+    </menus>
+	
+	<extra_vars>
+		<group>
+		
+			<title xml:lang="ko">기본설정</title>
+			
+			<var name="layout_type" type="select">
+				<title xml:lang="ko">레이아웃 기본타입 선택</title>
+				<description xml:lang="ko">원하시는 레이아웃 형태를 선택해주세요.</description>
+				
+				<options value="main">
+				<title xml:lang="ko">메인페이지 레이아웃</title>
+				</options>
+			</var>
+			
+			<var name="logo_image" type="image">
+				<title xml:lang="ko">상단 로고이미지</title>
+				<description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 등록하세요. (사이즈 260px＊60px 이하가 좋습니다.)</description>
+			</var>
+			
+			<var name="index_url" type="text">
+				<title xml:lang="ko">홈 페이지 URL</title>
+				<description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.(http:// 필수)</description>
+			</var>
+			  
+			<var name="logo_image_alt" type="text">
+				<title xml:lang="ko">로고이미지 대체문자</title>
+				<description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지 대체문자를 입력하세요.</description>
+			</var>	
+			  
+			<var name="logo_txt_color" type="text">
+				<title xml:lang="ko">로고문자 컬러 지정</title>
+				<description xml:lang="ko">로고문자 컬러를 지정합니다.(hex code 색상표 참조. 비워두시면 기본색상으로 적용됩니다. 입력예시: #000)</description>
+			</var>
+			
+			<var name="root_search" type="select">
+				<title xml:lang="ko">검색 사용</title>
+				<description xml:lang="ko">검색 사용여부를 선택합니다.</description>
+				<options value="y">
+					 <title xml:lang="ko">사용함</title>
+				</options>					
+				<options value="n">
+					 <title xml:lang="ko">사용안함</title>
+				</options>					
+			</var>
+			
+			<var name="root_login" type="select">
+				<title xml:lang="ko">로그인 사용</title>
+				<description xml:lang="ko">로그인 사용여부를 선택합니다.</description>
+				<options value="y">
+					 <title xml:lang="ko">사용함</title>
+				</options>					
+				<options value="n">
+					 <title xml:lang="ko">사용안함</title>
+				</options>					
+			</var>
+		
+		</group>
+			
+		<group>
+			<title xml:lang="ko">메인 상단 이미지</title>
+			
+			<var name="header_img" type="image">
+				<title xml:lang="ko">메인 상단 이미지</title>
+				<description xml:lang="ko">메인 상단 이미지를 등록합니다.(권장 사이즈: 가로 1024px 이상, 세로 640px 이상.)</description>
+			</var>
+			
+			<var name="section_title_0" type="text">
+				<title xml:lang="ko">메인 상단 이미지 타이틀</title>
+				<description xml:lang="ko">메인 상단 이미지 타이틀을 입력해 주세요.</description>
+			</var>
+			<var name="section_desc_0" type="text">
+				<title xml:lang="ko">메인 상단 이미지 설명</title>
+				<description xml:lang="ko">메인 상단 이미지 설명을 입력해 주세요.</description>
+			</var>
+			<var name="section_0_button" type="text">
+				<title xml:lang="ko">메인 상단 이미지 버튼</title>
+				<description xml:lang="ko">메인 상단 이미지 버튼 내용을 입력해 주세요.</description>
+			</var>
+				<var name="section_0_button_url" type="text">
+				<title xml:lang="ko">메인 상단 이미지 버튼 url</title>
+				<description xml:lang="ko">메인 상단 이미지 버튼 클릭시 이동할 주소를 입력해 주세요.(http:// 필수, #이동할 섹션의 메뉴이름을 입력하면 스크롤됩니다.)</description>
+			</var>
+						  		 
+		</group>
+			
+			
+			
+		<group>
+		
+			<title xml:lang="ko">섹션 설정</title>
+					
+			<var name="menu_section_1" type="text">
+				<title xml:lang="ko">메뉴 스크롤 섹션1</title>
+				<description xml:lang="ko">메뉴 클릭시에 섹션1로 스크롤할 메뉴 이름을 입력해 주세요.(대소문자 구분, 띄어쓰기 없음(메뉴와 똑같이))</description>
+			</var>
+			
+			<var name="menu_section_2" type="text">
+				<title xml:lang="ko">메뉴 스크롤 섹션2</title>
+				<description xml:lang="ko">메뉴 클릭시에 섹션2로 스크롤할 메뉴 이름을 입력해 주세요.(대소문자 구분, 띄어쓰기 없음(메뉴와 똑같이))</description>
+			</var>
+			
+			<var name="menu_section_3" type="text">
+				<title xml:lang="ko">메뉴 스크롤 섹션3</title>
+				<description xml:lang="ko">메뉴 클릭시에 섹션3로 스크롤할 메뉴 이름을 입력해 주세요.(대소문자 구분, 띄어쓰기 없음(메뉴와 똑같이))</description>
+			</var>
+					
+			<var name="menu_section_4" type="text">
+				<title xml:lang="ko">메뉴 스크롤 섹션4</title>
+				<description xml:lang="ko">메뉴 클릭시에 섹션4로 스크롤할 메뉴 이름을 입력해 주세요.(대소문자 구분, 띄어쓰기 없음(메뉴와 똑같이))</description>
+			</var>
+			
+			<var name="menu_section_5" type="text">
+				<title xml:lang="ko">메뉴 스크롤 섹션5</title>
+				<description xml:lang="ko">메뉴 클릭시에 섹션5로 스크롤할 메뉴 이름을 입력해 주세요.(대소문자 구분, 띄어쓰기 없음(메뉴와 똑같이))</description>
+			</var>
+
+		</group>
+		
+		
+		
+		<group>
+		
+			<title xml:lang="ko">푸터 설정</title>	
+			
+			<var name="root_footer" type="select">
+				<title xml:lang="ko">footer</title>
+				<description xml:lang="ko">footer 사용여부를 선택합니다.</description>
+				<options value="y">
+					 <title xml:lang="ko">사용함</title>
+				</options>
+				<options value="n">
+					 <title xml:lang="ko">사용하지 않음</title>
+				</options>
+			</var>  			  					  			  					  	  				  			  			
+			
+			<var name="root_sns" type="select">
+				<title xml:lang="ko">하단 sns</title>
+				<description xml:lang="ko">sns 사용여부를 선택합니다.</description>
+				<options value="y">
+					 <title xml:lang="ko">사용함</title>
+				</options>
+				<options value="n">
+					 <title xml:lang="ko">사용하지 않음</title>
+				</options>
+			</var>
+			  			  								  			  					
+		</group>
+		
+		
+	</extra_vars>
+</layout>
