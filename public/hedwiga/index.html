@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hedwiga Medard Tairo — Voice of Piece</title>
+<meta name="description" content="Hedwiga Medard Tairo works across realism, surrealism and murals. Her personal work opens conversations about mental health.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#F6F4F0; --ink:#1F1D1A; --soft:#6F6A62; --line:rgba(31,29,26,.14); --accent:#8C6A2A; --gold:#C9A46A;
+    --serif:"Cormorant Garamond","Cormorant",Garamond,Georgia,serif; --sans:"Montserrat","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    --jg-h:250px;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-behavior:smooth;scroll-padding-top:16px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font:300 15px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  .eyebrow{margin:0 0 10px;font:500 10.5px/1.6 var(--sans);letter-spacing:.45em;text-transform:uppercase}
+  .h2{margin:0;font:300 clamp(36px,4.6vw,64px)/1.02 var(--serif);letter-spacing:.02em;text-transform:uppercase}
+  .h2 em{font-style:italic;text-transform:none;letter-spacing:0}
+  .btn{display:inline-block;padding:14px 28px;border:1px solid currentColor;font:500 10.5px/1 var(--sans);letter-spacing:.4em;text-transform:uppercase;text-decoration:none;transition:background-color .2s,color .2s,border-color .2s;background:none;cursor:pointer}
+  .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .facts{list-style:none;margin:0;padding:0;display:grid;gap:8px;font:500 10.5px/1.6 var(--sans);letter-spacing:.24em;text-transform:uppercase}
+  .facts li{display:flex;align-items:center;gap:14px}
+  .facts li::before{content:"";flex:0 0 22px;height:1px;background:var(--accent)}
+  .rule{width:40px;height:1px;background:var(--accent);margin:22px 0}
+  .top{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px;padding:0 clamp(20px,3vw,44px);font:500 10.5px var(--sans);letter-spacing:.35em;text-transform:uppercase}
+  .top a{text-decoration:none}
+  .top a:hover{color:var(--accent)}
+  .top b{font-weight:500;color:var(--gold)}
+  .top nav{display:flex;gap:24px}
+  @media (max-width:640px){.top nav .opt{display:none}}
+
+  /* Words (white) */
+  .words{background:#FFFFFF;color:#1F1D1A;border-top:1px solid rgba(31,29,26,.1);padding:clamp(80px,9vw,130px) 0 clamp(60px,7vw,100px)}
+  .words-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:50px}
+  .words-head .note{margin:14px 0 0;font-size:13px;color:#6F6A62}
+  .lang{display:inline-flex;gap:4px;border:1px solid rgba(31,29,26,.14);padding:4px}
+  .lang button{background:none;border:0;cursor:pointer;padding:8px 16px;font:500 10.5px var(--sans);letter-spacing:.25em;text-transform:uppercase;color:#1F1D1A}
+  .lang button[aria-pressed="true"]{background:#1F1D1A;color:#fff}
+  .entry{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:34px 0;border-top:1px solid rgba(31,29,26,.12)}
+  .entry h3{margin:0;font:italic 400 22px/1.3 var(--serif);color:var(--accent)}
+  .entry p{margin:0;max-width:38em;font:400 clamp(20px,1.7vw,23px)/1.7 var(--serif)}
+  [data-lang="en"] .ko,[data-lang="en"] .sw,[data-lang="ko"] .en,[data-lang="ko"] .sw,[data-lang="sw"] .en,[data-lang="sw"] .ko{display:none}
+  .words [lang="ko"]{font-family:"Gowun Batang","Noto Serif KR",serif;word-break:keep-all}
+  .entry p[lang="ko"]{font-size:clamp(17px,1.4vw,19.5px);line-height:1.95}
+  .words-head .h2 span[lang="ko"]{font-size:.72em}
+
+  @media (max-width:760px){.entry{grid-template-columns:1fr;gap:10px}}
+
+  /* Gallery: justified rows — every picture in a row shares top and bottom lines */
+  .gallery{padding:clamp(80px,9vw,120px) 0}
+  .gallery-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,60px)}
+  .gallery-head .count{font:italic 300 22px var(--serif);color:var(--soft)}
+  .group{margin-top:56px}
+  .group:first-of-type{margin-top:0}
+  .group h3{margin:0 0 22px;padding-bottom:12px;border-bottom:1px solid var(--line);font:500 10.5px var(--sans);letter-spacing:.45em;text-transform:uppercase}
+  .jg{display:flex;flex-wrap:wrap;gap:clamp(12px,1.4vw,20px)}
+  .jg::after{content:"";flex-grow:999999}
+  .jg button{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;text-align:left;color:inherit}
+  .jg .ph{position:relative;display:block;background:rgba(0,0,0,.05);overflow:hidden}
+  .jg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .jg button:hover img{transform:scale(1.03)}
+  .jg .cap{display:block;height:22px;margin-top:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:italic 400 16px/22px var(--serif);color:var(--soft)}
+  @media (max-width:700px){:root{--jg-h:170px}}
+  @media (prefers-reduced-motion:reduce){.jg img{transition:none}}
+
+  .lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(18,17,16,.95);padding:60px 70px}
+  .lb.open{display:grid}
+  .lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .lb p{margin:16px 0 0;text-align:center;font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+  .lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font:300 40px/1 var(--serif);padding:12px 16px;opacity:.8}
+  .lb button:hover{opacity:1;color:var(--gold)}
+  .lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:18px;font:500 10.5px var(--sans);letter-spacing:.4em}
+  .lb .prev{left:10px;top:50%;transform:translateY(-50%)}
+  .lb .next{right:10px;top:50%;transform:translateY(-50%)}
+  @media (max-width:600px){.lb{padding:60px 12px 80px}.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}}
+
+  .record{padding:clamp(70px,8vw,110px) 0;border-top:1px solid var(--line)}
+  .cv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:44px}
+  .cv-grid h3{margin:0 0 14px;font:500 10.5px var(--sans);letter-spacing:.45em;text-transform:uppercase;color:var(--accent)}
+  .cv-grid ul{list-style:none;margin:0;padding:0}
+  .cv-grid li{padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.7}
+
+  .enquire{padding:clamp(80px,9vw,120px) 0;text-align:center;border-top:1px solid var(--line)}
+  .enquire h2{margin:0 0 16px;font:italic 300 clamp(34px,4vw,54px)/1.15 var(--serif)}
+  .enquire p{max-width:34em;margin:0 auto 34px;color:var(--soft)}
+  .enquire .back{display:inline-block;margin-top:28px;font:500 10.5px var(--sans);letter-spacing:.35em;text-transform:uppercase;text-decoration:none;color:var(--soft)}
+  .foot{background:#1E1E1E;color:#D6D3CE;border-top:1px solid rgba(201,164,106,.45)}
+  .foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:34px;padding-bottom:34px}
+  .foot a{font:400 11px var(--sans);letter-spacing:.5em;text-transform:uppercase;text-decoration:none}
+  .foot a b{font-weight:400;color:var(--gold)}
+  .foot small{font-size:12px;color:#9C9891}
+  .social{display:flex;gap:14px;flex-wrap:wrap}
+  .social a{display:inline-flex;align-items:center;gap:12px}
+
+  body{--bg:#F3F0EA;--accent:#A4492A}
+  .m-page{display:grid;grid-template-columns:220px 1fr;max-width:1320px;margin:0 auto;padding:0 clamp(20px,3vw,40px)}
+  .m-index{position:sticky;top:0;align-self:start;padding:40px 24px 40px 0;font:500 10px/2.2 var(--sans);letter-spacing:.3em;text-transform:uppercase}
+  .m-index p{margin:0 0 26px;color:var(--soft)}
+  .m-index a{display:block;text-decoration:none}
+  .m-index a:hover{color:var(--accent)}
+  .m-main{border-left:1px solid var(--line);padding:30px 0 60px clamp(20px,3vw,40px)}
+  .m-mast{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-bottom:16px;border-bottom:1px solid var(--line);font:500 10px var(--sans);letter-spacing:.35em;text-transform:uppercase;color:var(--soft)}
+  .m-cover{margin:26px 0 0}
+  .m-cover img{width:100%;max-height:78vh;object-fit:cover}
+  .m-title{display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px;margin:30px 0 40px}
+  .m-title h1{margin:0;font:300 clamp(46px,6.4vw,100px)/.95 var(--serif)}
+  .m-title h1 em{font-style:italic}
+  .m-spread{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,3vw,44px);margin-bottom:50px}
+  .m-spread img{width:100%;object-fit:cover}
+  .m-cols{columns:2 16em;column-gap:32px;font:400 18px/1.7 var(--serif)}
+  .m-cols p{margin:0 0 1em}
+  .m-cols p:first-child::first-letter{float:left;font:400 5em/.8 var(--serif);padding:6px 10px 0 0;color:var(--accent)}
+  .m-small{display:grid;grid-template-columns:.6fr 1.4fr;gap:clamp(24px,3vw,44px);align-items:start}
+  .m-small img{width:100%}
+  .m-small h2{margin:0 0 14px;font:italic 400 30px/1.2 var(--serif)}
+  @media (max-width:900px){.m-page{grid-template-columns:1fr}.m-index{position:static;padding:20px 0;display:flex;flex-wrap:wrap;gap:4px 18px}.m-index p{width:100%;margin:0}.m-main{border-left:0;padding-left:0}.m-spread,.m-small,.m-title{grid-template-columns:1fr}.m-title .btn{justify-self:start}}</style>
+<style id="vop-dark">
+html,body{background:#0b0b0b!important;color:#ECE7DF!important}
+body{--bg:#0b0b0b;--ink:#ECE7DF;--soft:#A9A399;--line:rgba(255,255,255,.12);--accent:#C9A46A;--gold:#C9A46A}
+:root{--jg-h:clamp(240px,31vw,430px)!important}
+.jg .ph{background:rgba(255,255,255,.04)!important}
+.lang{border-color:rgba(255,255,255,.12)!important}
+.lang button{color:#A9A399!important}
+.lang button[aria-pressed="true"]{background:#C9A46A!important;color:#111!important}
+.btn:hover{background:#C9A46A!important;border-color:#C9A46A!important;color:#111!important}
+.foot{background:#070707!important}
+::selection{background:#C9A46A;color:#111}
+body > header:nth-child(1){color:#ECE7DF!important}
+body > div:nth-child(2){color:#ECE7DF!important}
+body > div:nth-child(2) > aside:nth-child(1) > p:nth-child(1){color:#A9A399!important}
+body > div:nth-child(2) > article:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(2) > article:nth-child(2) > div:nth-child(1){color:#A9A399!important;border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(2) > article:nth-child(2) > div:nth-child(3) > a:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3){background-color:#101010!important;color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(3){color:#A9A399!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(4){color:#A9A399!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(5){color:#A9A399!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(3) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(4) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(5) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(6){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(6) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(7){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(7) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(8){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(8) > h3:nth-child(1){color:#C9A46A!important}
+body > section:nth-child(4){color:#ECE7DF!important}
+body > section:nth-child(4) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2){color:#A9A399!important}
+body > div:nth-child(5){color:#ECE7DF!important}
+body > div:nth-child(5) > section:nth-child(1){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > h3:nth-child(1){color:#C9A46A!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(1){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(6){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(7){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > ul:nth-child(2) > li:nth-child(8){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > h3:nth-child(1){color:#C9A46A!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(2) > ul:nth-child(2) > li:nth-child(1){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > h3:nth-child(1){color:#C9A46A!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(1){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > div:nth-child(5) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(3) > ul:nth-child(2) > li:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(6){color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(6) > div:nth-child(1) > p:nth-child(1){color:#A9A399!important}
+body > section:nth-child(6) > div:nth-child(1) > p:nth-child(3){color:#A9A399!important}
+body > section:nth-child(6) > div:nth-child(1) > a:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(6) > div:nth-child(1) > a:nth-child(6){color:#A9A399!important}
+body > footer:nth-child(7){border-color:rgba(255,255,255,.12)!important}
+body > footer:nth-child(7) > div:nth-child(1) > small:nth-child(2){color:#A9A399!important}</style>
+</head>
+<body class="v10">
+<header class="top"><a href="../">Voice <b>of</b> Piece</a><nav aria-label="Page"><a class="opt" href="#words">Words</a><a class="opt" href="#gallery">Gallery</a><a href="#contact">Contact</a></nav></header>
+<div class="m-page">
+  <aside class="m-index"><p>Artist profile</p><a href="#profile">Profile</a><a href="#words">In her words</a><a href="#gallery">Gallery</a><a href="#record">Record</a><a href="#contact">Contact</a></aside>
+  <article class="m-main" id="profile">
+    <div class="m-mast"><span>Voice of Piece</span><span>Dar es Salaam</span><span>Painting since 2019</span></div>
+    <figure class="m-cover"><img src="gallery/01.jpg" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></figure>
+    <div class="m-title"><h1>Hedwiga<br><em>Medard Tairo</em></h1><a class="btn" href="mailto:voiceofpiece2024@gmail.com?subject=About%20Hedwiga%20Medard%20Tairo">Ask about this artist</a></div>
+    <div class="m-spread"><img src="gallery/06.jpg" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"><div class="m-cols"><p>I work in realism, surrealism and graffiti or murals, depending on the place and the subject. In my personal work I speak about mental health and mental illness. I make these works to open conversations about why knowledge matters, and how to respond well, so that we can support people facing mental health challenges in our communities.</p><p>I began learning to paint in 2019. Since then I have shown my work in exhibitions including Art of Buna, a group exhibition in Germany in 2024. I illustrated the children&#x27;s book Every Queen Deserves a Crown, and taught watercolour in the Art Academy programme at Nafasi Art Space.</p><p>I research by watching documentaries or films about mental illness, and I read books and articles. I make several sketches and choose one to develop, and I look for a symbolic language to express it. I keep refining the drawing and choose my colours, connecting the idea with my own experience and with reality. Then I paint. Afterwards I write a description of the work and photograph it for the record.</p></div></div>
+    <div class="m-small"><img src="gallery/07.jpg" alt="Young, by Hedwiga Medard Tairo" loading="lazy"><div><h2>Young, 2023</h2><p>Young, acrylic on canvas, 100 × 100 cm, 2023. It shows children playing different games in different surroundings. I used a new way of painting inspired by what I studied at university, the science of rocks, and I keep developing it as the signature of my work. The painting reminds us how freely we felt as children: playing, laughing, even crying. Through it I want to remind people that feelings matter, and that mental health matters for each person and for the nation.</p><ul class="facts"><li>Dar es Salaam</li><li>Painting since 2019</li><li>Acrylic, watercolour, murals</li></ul></div></div>
+  </article>
+</div>
+
+<section class="words" id="words"><div class="wrap" id="words-body" data-lang="en">
+  <div class="words-head"><div><p class="eyebrow"><span class="en">In the artist's words</span><span class="ko" lang="ko">작가의 말</span><span class="sw" lang="sw">Kwa maneno ya msanii</span></p><h2 class="h2"><span class="en">About <em>the work</em></span><span class="ko" lang="ko">작품 <em>이야기</em></span><span class="sw" lang="sw">Kuhusu <em>kazi</em></span></h2>
+    <p class="note en">Translated from the artist's own answers in Kiswahili, lightly edited for clarity.</p><p class="note ko" lang="ko">작가가 스와힐리어로 직접 쓴 답변을 옮기고 읽기 쉽게 다듬었습니다.</p><p class="note sw" lang="sw">Kwa maneno ya msanii mwenyewe, yamehaririwa kidogo ili yasomeke vizuri.</p></div>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">English</button><button type="button" data-set="ko" aria-pressed="false" lang="ko">한국어</button><button type="button" data-set="sw" aria-pressed="false" lang="sw">Kiswahili</button></div></div>
+<div class="entry"><h3><span class="en">How it began</span><span class="ko" lang="ko">시작</span><span class="sw" lang="sw">Nilivyoanza</span></h3><div><p class="en">I began learning to paint in 2019. Since then I have shown work in many exhibitions, including the 2024 group exhibition Art of Buna in Germany. I illustrated the children’s book Every Queen Deserves a Crown, and taught watercolour in the Art Academy programme at Nafasi Art Space.</p><p class="ko" lang="ko">2019년에 물감으로 그리는 법을 배우기 시작했습니다. 이후 2024년 독일 단체전 ‘Art of Buna’를 비롯해 여러 전시에 참여했습니다. 어린이책 『Every Queen Deserves a Crown』의 삽화를 그렸고, Nafasi Art Space의 아트 아카데미에서 수채화를 가르쳤습니다.</p><p class="sw" lang="sw">Nilianza kujifunza kuchora kwa rangi mwaka 2019. Tangu hapo nimeshiriki maonesho mbalimbali, ikiwemo maonesho ya pamoja ya Art of Buna nchini Ujerumani mwaka 2024. Pia nimechora michoro ya kitabu cha watoto kiitwacho Every Queen Deserves a Crown, na nimefundisha rangi za maji katika programu ya Art Academy ya Nafasi Art Space.</p></div></div>
+<div class="entry"><h3><span class="en">Style and themes</span><span class="ko" lang="ko">화풍과 주제</span><span class="sw" lang="sw">Mtindo na maudhui</span></h3><div><p class="en">I work in realism, surrealism and graffiti or murals, depending on the place and the subject. In my personal work I speak about mental health. I make these works to open conversations about why understanding matters and how to respond well, so that we can support people facing mental health challenges in our communities.</p><p class="ko" lang="ko">장소와 주제에 따라 사실주의, 초현실주의, 그라피티와 벽화 작업을 합니다. 개인 작업에서는 정신 건강을 이야기합니다. 올바른 이해가 왜 중요한지, 어떻게 제대로 대응해야 하는지 대화를 열어, 우리 공동체에서 정신 건강의 어려움을 겪는 사람들을 돕고 싶습니다.</p><p class="sw" lang="sw">Ninafanya kazi za uhalisia, uhalisia-ndoto (surrealism) na grafiti au michoro ya ukutani, kulingana na mahali au mada husika. Katika kazi zangu binafsi ninazungumzia afya ya akili. Nia ya kazi hizi ni kuibua mijadala kuhusu umuhimu wa maarifa na jinsi ya kukabiliana ipasavyo, ili kuwasaidia watu wenye changamoto za afya ya akili katika jamii zetu.</p></div></div>
+<div class="entry"><h3><span class="en">Why I paint</span><span class="ko" lang="ko">그리는 이유</span><span class="sw" lang="sw">Kwa nini ninachora</span></h3><div><p class="en">It began when my sister used me as her muse and drew me. Afterwards I would sit alone and copy what she had done from her drawings.</p><p class="ko" lang="ko">언니가 저를 뮤즈 삼아 그림을 그려 주던 때가 시작이었습니다. 그 뒤로 혼자 앉아 언니의 그림을 보며 따라 그리기 시작했습니다.</p><p class="sw" lang="sw">Nilivutiwa kuwa msanii kipindi dada yangu aliponifanya kuwa muse wake na kunichora. Baada ya hapo nilikaa peke yangu na kuanza kuiga alichokuwa akifanya kutoka kwenye michoro yake.</p></div></div>
+<div class="entry"><h3><span class="en">How I work</span><span class="ko" lang="ko">작업 방식</span><span class="sw" lang="sw">Jinsi ninavyofanya kazi</span></h3><div><p class="en">I research by watching documentaries and films and by reading books and articles. I make several sketches, choose one to develop, and look for a symbolic language to express it. I keep refining the drawing, choose my colours, and connect the idea with my own experience and with reality. Then I paint. Afterwards I write a description of the work and photograph it for the record.</p><p class="ko" lang="ko">다큐멘터리와 영화를 보고 책과 글을 읽으며 조사합니다. 여러 장의 스케치 중 하나를 골라 발전시키고, 그것을 표현할 상징의 언어를 찾습니다. 그림을 계속 다듬고 색을 고른 뒤, 아이디어를 제 경험과 현실에 연결합니다. 그다음 그리기 시작하고, 완성 후에는 작품 설명을 쓰고 기록용 사진을 찍습니다.</p><p class="sw" lang="sw">Ninafanya utafiti kwa kutazama makala na filamu, na kusoma vitabu na makala mbalimbali. Ninachora michoro ya awali kadhaa kisha ninachagua mmoja wa kuuendeleza, na ninatafuta lugha ya ishara ya kuuelezea. Ninaendelea kuboresha mchoro, ninachagua rangi, na ninahusisha wazo langu na uzoefu wangu binafsi na uhalisia. Kisha ninaanza kuchora. Baada ya hapo ninaandika maelezo ya kazi yangu na kuipiga picha kwa kumbukumbu.</p></div></div>
+<div class="entry"><h3><span class="en">What moves me</span><span class="ko" lang="ko">영감</span><span class="sw" lang="sw">Kinachonihamasisha</span></h3><div><p class="en">Real events in my own life, the environment, and the lives of the people around me.</p><p class="ko" lang="ko">제 삶에서 실제로 일어난 일들, 환경, 그리고 주변 사람들의 삶입니다.</p><p class="sw" lang="sw">Hamasa kubwa ya sanaa yangu ni matukio halisi maishani mwangu, mazingira, na maisha ya watu wanaonizunguka.</p></div></div>
+<div class="entry"><h3><span class="en">A work I love</span><span class="ko" lang="ko">아끼는 작품</span><span class="sw" lang="sw">Kazi ninayoipenda</span></h3><div><p class="en">Young (acrylic on canvas, 100 × 100 cm, 2023). It shows children playing different games in different places. I used a new way of painting inspired by what I studied at university — the science of rocks — and I keep developing it as the signature of my work. The painting reminds us how freely we felt as children: playing, laughing, even crying. Through it I want to remind people that feelings matter, and that mental health matters for each person and for the nation.</p><p class="ko" lang="ko">〈Young〉(캔버스에 아크릴, 100×100cm, 2023)입니다. 아이들이 여러 장소에서 저마다의 놀이를 하는 모습을 그렸습니다. 대학에서 공부한 암석학에서 영감을 얻은 새로운 화법을 썼고, 이것을 제 작품의 정체성으로 계속 발전시키고 있습니다. 이 그림은 어린 시절 우리가 얼마나 자유롭게 놀고, 웃고, 울었는지를 떠올리게 합니다. 감정은 소중하며, 정신 건강은 한 사람과 나라 전체의 성장에 중요하다는 것을 전하고 싶었습니다.</p><p class="sw" lang="sw">Kazi ninayoipenda kuliko zote ni Young (rangi za akriliki kwenye turubai, sentimita 100 kwa 100, 2023). Inaonyesha watoto wakicheza michezo tofauti katika mazingira tofauti. Katika kazi hii nimetumia mtindo mpya wa kuchora uliohamasishwa na masomo niliyosoma chuoni, sayansi ya miamba, na ninaendelea kuuboresha kama utambulisho wa kazi zangu. Kazi hii inatukumbusha jinsi tulivyokuwa na hisia huru tulipokuwa watoto: kucheza, kufurahi na hata kulia. Kupitia kazi hii ninapenda kuikumbusha jamii kwamba hisia za mtu ni muhimu, na afya ya akili ni muhimu kwa maendeleo ya mtu binafsi na ya taifa kwa ujumla.</p></div></div>
+<div class="entry"><h3><span class="en">Looking ahead</span><span class="ko" lang="ko">앞으로의 꿈</span><span class="sw" lang="sw">Malengo yangu</span></h3><div><p class="en">In the short term, to hold my own solo exhibition. In the long term, to keep building my art at home and abroad, to deepen understanding of mental health, and to work with mental health organisations in different countries.</p><p class="ko" lang="ko">가까운 목표는 첫 개인전을 여는 것입니다. 먼 목표는 국내외에서 작업을 알리고, 정신 건강에 대한 사회의 이해를 넓히며, 여러 나라의 정신 건강 단체와 함께 일하는 것입니다.</p><p class="sw" lang="sw">Malengo yangu ya muda mfupi ni kufanya maonesho yangu binafsi. Malengo ya muda mrefu ni kuendelea kuitambulisha sanaa yangu kitaifa na kimataifa, kuboresha uelewa wa jamii kuhusu afya ya akili, na kufanya kazi na taasisi za afya ya akili za mataifa mbalimbali.</p></div></div>
+</div></section>
+<section class="gallery" id="gallery"><div class="wrap">
+  <div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count">8 works</span></div>
+  <div class="group"><div class="jg"><button type="button" style="flex-grow:72.7;flex-basis:calc(var(--jg-h) * 0.727)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:137.510%"><img src="gallery/01.jpg" width="1309" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:78.1;flex-basis:calc(var(--jg-h) * 0.781)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:128.114%"><img src="gallery/02.jpg" width="1405" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:71.7;flex-basis:calc(var(--jg-h) * 0.717)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:139.427%"><img src="gallery/03.jpg" width="1291" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:79.6;flex-basis:calc(var(--jg-h) * 0.796)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:125.611%"><img src="gallery/04.jpg" width="1433" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:75.0;flex-basis:calc(var(--jg-h) * 0.750)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:133.333%"><img src="gallery/05.jpg" width="1350" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:70.6;flex-basis:calc(var(--jg-h) * 0.706)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:141.621%"><img src="gallery/06.jpg" width="1271" height="1800" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:100.4;flex-basis:calc(var(--jg-h) * 1.004)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:99.611%"><img src="gallery/07.jpg" width="1800" height="1793" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:125.0;flex-basis:calc(var(--jg-h) * 1.250)" data-cap="" aria-label="View larger: artwork by Hedwiga Medard Tairo"><span class="ph" style="padding-bottom:80.000%"><img src="gallery/08.jpg" width="1045" height="836" alt="Artwork by Hedwiga Medard Tairo" loading="lazy"></span></button></div></div>
+</div></section><div id="record">
+<section class="record "><div class="wrap"><p class="eyebrow">Record</p><h2 class="h2">Exhibitions <em>&amp; more</em></h2><div class="cv-grid"><div><h3>Exhibitions</h3><ul><li>2024 — Art of Buna, Germany</li><li>2023 — I See You See Me, Rangi Gallery, Tanzania</li><li>2022 — Wasanii Sita, Gallery Atelier, Germany</li><li>2021 — Auction of her works, Lukiza Autism Foundation dinner gala</li><li>2021 — Pamoja Art Exhibition, Alliance Française, Dar es Salaam</li><li>2021 — Live graffiti with Women Xpress, High Commission of Canada in Tanzania</li><li>2020 — Inner Visions, National Museum of Tanzania</li><li>2019 — East African Art Biennale, Nafasi Art Space</li></ul></div>
+<div><h3>Recognition</h3><ul><li>2023 — Featured in Precision Air&#x27;s magazine as one of Tanzania&#x27;s notable artists</li></ul></div>
+<div><h3>Work with others</h3><ul><li>Member of Women Xpress, a women&#x27;s graffiti collective, and member artist of Nafasi Art Space</li><li>2024 — Assistant trainer for SAWA (Sanaa Na Wanawake) with artist Thobias Minzi, teaching women artists in Mwanza</li><li>2023 — Jikubali campaign with the National AIDS Control Programme, teaching students through graffiti</li><li>Since 2022 — Hosts a kids&#x27; corner teaching children creativity at an art market</li><li>2021 — Worked with Agence Française de Développement as a representative from Tanzania</li></ul></div></div></div></section></div>
+<section class="enquire" id="contact"><div class="wrap"><p class="eyebrow">Voice of Piece</p>
+  <h2>Interested in Hedwiga's work?</h2>
+  <p>Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.</p>
+  <a class="btn" href="mailto:voiceofpiece2024@gmail.com?subject=About%20Hedwiga%20Medard%20Tairo">Ask about this artist</a><br><a class="back" href="../#artists">← All artists</a>
+</div></section>
+<footer class="foot"><div class="wrap"><a href="../">Voice <b>of</b> Piece</a><small>Artwork © Hedwiga Medard Tairo. Shared through Voice of Piece.</small><a class="vop-login" href="/studio/#hedwiga" style="display:table;margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none">Studio</a></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button type="button" class="x" id="lb-x">Close</button>
+  <button type="button" class="prev" id="lb-prev" aria-label="Previous work">‹</button>
+  <figure style="margin:0;text-align:center"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+  <button type="button" class="next" id="lb-next" aria-label="Next work">›</button>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('words-body');
+  if(box) box.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){box.setAttribute('data-lang',b.dataset.set);box.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  var items=Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0,opener=null,NAME="Hedwiga Medard Tairo";
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur],im=b.querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+items.length}
+  function open(i){opener=items[i];show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus()}
+  items.forEach(function(b,i){b.addEventListener('click',function(){open(i)})});
+  document.getElementById('lb-x').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+})();
+</script>
+<script>
+  /* On <slug>.voiceofpiece.org, links back to the main site go to https://voiceofpiece.org/. */
+  (function () {
+    var h = location.hostname;
+    if (!/\.voiceofpiece\.org$/.test(h) || h === 'www.voiceofpiece.org') return;
+    document.querySelectorAll('a[href^="../"]').forEach(function (a) {
+      a.href = 'https://voiceofpiece.org/' + a.getAttribute('href').slice(3);
+    });
+  })();
+</script>
+<script id="vop-works-data">window.__VOP_WORKS={"gallery/01.jpg": {"id": "VOP-HED-001", "artist": "Hedwiga Medard Tairo"}, "gallery/02.jpg": {"id": "VOP-HED-002", "artist": "Hedwiga Medard Tairo"}, "gallery/03.jpg": {"id": "VOP-HED-003", "artist": "Hedwiga Medard Tairo"}, "gallery/04.jpg": {"id": "VOP-HED-004", "artist": "Hedwiga Medard Tairo"}, "gallery/05.jpg": {"id": "VOP-HED-005", "artist": "Hedwiga Medard Tairo"}, "gallery/06.jpg": {"id": "VOP-HED-006", "artist": "Hedwiga Medard Tairo"}, "gallery/07.jpg": {"id": "VOP-HED-007", "artist": "Hedwiga Medard Tairo"}, "gallery/08.jpg": {"id": "VOP-HED-008", "artist": "Hedwiga Medard Tairo"}};</script>
+<script id="vop-works">(function(){
+  var W=window.__VOP_WORKS||{}, lb=document.getElementById('lb'), img=document.getElementById('lb-img');
+  if(!lb||!img)return;
+  var L={
+   en:{title:'Title',artist:'Artist',year:'Year',size:'Size',medium:'Medium',place:'Made in',desc:'About the work',words:"In the artist's words",signed:'Signed',framed:'Framed',exhibited:'Exhibited',id:'Catalogue no.',shop:'View on voiceofpiece.com',yes:'Yes',no:'No',ask:'Ask about this work'},
+   ko:{title:'제목',artist:'작가',year:'제작 연도',size:'크기',medium:'재료',place:'제작 지역',desc:'작품 설명',words:'작가의 말',signed:'서명',framed:'액자',exhibited:'전시 이력',id:'작품 번호',shop:'voiceofpiece.com에서 보기',yes:'있음',no:'없음',ask:'이 작품 문의하기'},
+   sw:{title:'Jina la kazi',artist:'Msanii',year:'Mwaka',size:'Ukubwa',medium:'Malighafi',place:'Imetengenezwa',desc:'Kuhusu kazi',words:'Kwa maneno ya msanii',signed:'Sahihi',framed:'Fremu',exhibited:'Imeonyeshwa',id:'Namba ya katalogi',shop:'Tazama kwenye voiceofpiece.com',yes:'Ndiyo',no:'Hapana',ask:'Uliza kuhusu kazi hii'}};
+  var st=document.createElement('style');
+  st.textContent='.lb{background:rgba(8,8,8,.98)!important}#lb-info p,#lb-info dd,#lb-info a{text-transform:none!important}#lb-info .t,#lb-info .a,#lb-info dd,#lb-info .p p{letter-spacing:normal!important}#lb-info .acts a{text-transform:uppercase!important}.lb.open{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:clamp(20px,3vw,48px);align-items:center}'+
+  '.lb figure{min-width:0}.lb #lb-img{max-height:calc(100vh - 150px)}'+
+  '#lb-info{align-self:stretch;overflow:auto;max-height:calc(100vh - 120px);padding:clamp(18px,2vw,28px);border-left:1px solid rgba(255,255,255,.1);color:#E9E4DC;font:300 14px/1.7 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;justify-content:flex-start}#lb-info>:first-child{margin-top:auto}#lb-info>:last-child{margin-bottom:auto}'+
+  '#lb-info .t{margin:0 0 4px;font:400 clamp(24px,2.2vw,32px)/1.2 "Cormorant Garamond","Playfair Display","Gowun Batang",Georgia,serif;color:#E4C27E}'+
+  '#lb-info .a{margin:0 0 22px;font:italic 400 18px/1.4 "Cormorant Garamond",Georgia,serif;color:#BDB7AD}'+
+  '#lb-info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}'+
+  '#lb-info dt{font:500 10px/1.9 "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F;white-space:nowrap}'+
+  '#lb-info dd{margin:0;color:#E9E4DC}'+
+  '#lb-info .p{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}'+
+  '#lb-info .p h4{margin:0 0 8px;font:500 10px "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F}'+
+  '#lb-info .p p{margin:0;font:400 16px/1.7 "Cormorant Garamond","Gowun Batang",Georgia,serif;color:#DCD6CC}'+
+  '#lb-info .acts{display:flex;flex-direction:column;gap:10px;margin-top:24px}'+
+  '#lb-info .acts a{display:block;padding:12px 16px;border:1px solid rgba(201,164,106,.6);color:#E4C27E;text-align:center;text-decoration:none;font:500 10px "Montserrat",sans-serif;letter-spacing:.3em;text-transform:uppercase}'+
+  '#lb-info .acts a:hover{background:#C9A46A;color:#111}'+
+  'html[lang="ko"] #lb-info dt,html[lang="ko"] #lb-info .p h4{letter-spacing:.08em!important}'+
+  '@media (max-width:860px){.lb.open{grid-template-columns:1fr;align-content:start;overflow:auto;padding-top:64px}.lb #lb-img{max-height:60vh}#lb-info{border-left:0;border-top:1px solid rgba(255,255,255,.1);max-height:none;overflow:visible}}';
+  document.head.appendChild(st);
+  var box=document.createElement('aside');box.id='lb-info';box.setAttribute('aria-live','polite');
+  var fig=lb.querySelector('figure'); if(fig&&fig.nextSibling)lb.insertBefore(box,fig.nextSibling);else lb.appendChild(box);
+  function lang(){var l=document.documentElement.getAttribute('lang');return L[l]?l:'en';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pick(v,l){if(!v)return '';if(typeof v==='string')return v;return v[l]||v.en||'';}
+  function size(r){if(!r.w||!r.h)return '';var s=r.w+' × '+r.h;if(r.unit==='cm'){var i=function(x){return (parseFloat(x)/2.54).toFixed(1).replace(/\.0$/,'');};return s+' cm ('+i(r.w)+' × '+i(r.h)+' in)';}if(r.unit==='in')return s+' in';return s;}
+  function render(){var src=img.getAttribute('src')||'';var key=null;
+    for(var k in W){if(src===k||src.slice(-k.length-1)==='/'+k){key=k;break;}}
+    var r=W[key]||{};var l=lang(),T=L[l],h='';
+    var title=pick(r.title,l);
+    h+= title?'<p class="t">'+esc(title)+'</p>':'';
+    h+='<p class="a">'+esc(r.artist||window.__VOP_ARTIST||'')+'</p><dl>';
+    function row(lbl,v){if(v)h+='<dt>'+esc(lbl)+'</dt><dd>'+esc(v)+'</dd>';}
+    row(T.year,r.year);row(T.size,size(r));row(T.medium,pick(r.medium,l));row(T.place,pick(r.place,l));
+    if(r.signed)row(T.signed,r.signed==='yes'?T.yes:T.no); if(r.framed)row(T.framed,r.framed==='yes'?T.yes:T.no);
+    row(T.exhibited,pick(r.exhibited,l));row(T.id,r.id);h+='</dl>';
+    var d=pick(r.desc,l);if(d)h+='<div class="p"><h4>'+esc(T.desc)+'</h4><p>'+esc(d)+'</p></div>';
+    var w=pick(r.words,l);if(w)h+='<div class="p"><h4>'+esc(T.words)+'</h4><p>'+esc(w)+'</p></div>';
+    h+='<div class="acts">';
+    if(r.shop)h+='<a href="'+esc(r.shop)+'" target="_blank" rel="noopener">'+esc(T.shop)+' ↗</a>';
+    var subj=encodeURIComponent((r.id?r.id+' — ':'')+(title||'Artwork')+' — '+(r.artist||''));
+    h+='<a href="mailto:voiceofpiece2024@gmail.com?subject='+subj+'">'+esc(T.ask)+'</a>';
+    if(ADMIN&&r.id)h+='<a href="/studio/#'+SLUG+'/'+encodeURIComponent(r.id)+'" target="_blank" rel="noopener" style="border-style:dashed;color:#9E988F">Edit ✎</a>';
+    h+='</div>';
+    box.innerHTML=h;}
+  // Admin only: if signed in to the studio, show an Edit button (visitors never see it).
+  var ADMIN=false,SLUG=location.pathname.split('/').filter(Boolean)[0]||'';
+  if(SLUG&&window.fetch)fetch('/api/studio/me',{credentials:'same-origin',headers:{accept:'application/json'}})
+    .then(function(r){if(r.ok){ADMIN=true;galleryEdit();if(lb.classList.contains('open'))render();}}).catch(function(){});
+  function galleryEdit(){
+    var h=[].filter.call(document.querySelectorAll('h2'),function(x){return /^\s*(the\s+gallery|갤러리|matunzio)\s*$/i.test(x.textContent.replace(/Studio/,''));})[0];
+    if(!h)h=document.querySelector('h1');   // pages without a gallery heading: next to the artist's name
+    if(!h)return;
+    var a=document.createElement('a');a.className='vop-edit';a.href='/studio/#'+SLUG;a.target='_blank';a.rel='noopener';a.textContent='Studio';
+    a.style.cssText='display:inline-block;margin-left:16px;padding:6px 12px;border:1px dashed rgba(201,164,106,.6);color:#C9A46A;text-decoration:none;font:500 11px/1.4 Montserrat,sans-serif;font-style:normal;letter-spacing:.2em;text-transform:uppercase;vertical-align:middle';
+    function keep(){if(!h.querySelector('.vop-edit'))h.appendChild(a);}
+    keep();new MutationObserver(keep).observe(h,{childList:true});
+    // also in the top menu
+    var nav=document.querySelector('nav[aria-label="Page"]');if(!nav)return;
+    var n=document.createElement('a');n.className='vop-studio';n.href='/studio/#'+SLUG;n.target='_blank';n.rel='noopener';n.textContent='Studio';n.style.color='#C9A46A';
+    function keepNav(){if(!nav.querySelector('.vop-studio'))nav.appendChild(n);}
+    keepNav();new MutationObserver(keepNav).observe(nav,{childList:true});}
+  new MutationObserver(render).observe(img,{attributes:true,attributeFilter:['src']});
+  new MutationObserver(function(){if(lb.classList.contains('open'))render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+<script id="vop-live">(function(){
+  // Rebuild the gallery from the database (/api). If anything fails,
+  // the static gallery already in the page stays exactly as it is.
+  var h=location.hostname, m=h.match(/^([a-z0-9-]+)\.voiceofpiece\.org$/);
+  var slug=(m&&m[1]!=='www')?m[1]:(location.pathname.split('/').filter(Boolean)[0]||'');
+  if(!slug||location.protocol==='file:')return;
+  var W=window.__VOP_WORKS||(window.__VOP_WORKS={});
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function lang(){var l=document.documentElement.getAttribute('lang');return /^(en|ko|sw)$/.test(l)?l:'en';}
+  function tx(w,f,l){var t=w.texts||{};return (t[l]&&t[l][f])||(t.en&&t.en[f])||(t.sw&&t.sw[f])||'';}
+  function perLang(w,f){var o={};['en','ko','sw'].forEach(function(l){var t=w.texts&&w.texts[l];if(t&&t[f])o[l]=t[f];});return Object.keys(o).length?o:null;}
+  function num(n){return n==null?'':String(+n);}
+  fetch('/api/artists/'+slug+'/artworks',{headers:{accept:'application/json'}})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(function(data){
+    var works=(data.artworks||[]).filter(function(w){return w.images&&w.images.length;});
+    if(!works.length)return;
+    var name=data.artist.name;
+    // info-panel data, keyed by photo URL (and old static path, for featured images)
+    Object.keys(W).forEach(function(k){delete W[k];});
+    works.forEach(function(w){
+      var rec={id:w.catalogue_no,artist:name,title:perLang(w,'title'),year:w.year||'',w:num(w.width),h:num(w.height),unit:w.unit||'',
+        medium:perLang(w,'medium'),place:w.place?{en:w.place}:null,desc:perLang(w,'description'),words:perLang(w,'artist_words'),
+        signed:w.signed==null?'':(w.signed?'yes':'no'),framed:w.framed==null?'':(w.framed?'yes':'no'),
+        exhibited:w.exhibited?{en:w.exhibited}:null,shop:w.shop_url||''};
+      W[w.images[0].url]=rec;
+      var sp=w.images[0].source_path; if(sp)W[sp.split('/').slice(1).join('/')]=rec;
+    });
+    var gal=document.getElementById('gallery'), oldGroups=gal?gal.querySelectorAll('.group'):[];
+    var jgExists=gal&&gal.querySelector('.jg');
+    if(!jgExists&&works.length<2){rebind();return;}   // single-work page: keep the featured frame
+    var grouped=oldGroups.length>1, groups=[], idx={};
+    works.forEach(function(w){
+      var label='';
+      if(grouped){label=(w.year||'');if(w.width&&w.height&&!w.unit)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height);else if(w.width&&w.height)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height)+' '+w.unit;}
+      if(!(label in idx)){idx[label]=groups.length;groups.push({label:label,items:[]});}
+      groups[idx[label]].items.push(w);
+    });
+    var html=groups.map(function(g){
+      return '<div class="group">'+(g.label?'<h3>'+esc(g.label)+'</h3>':'')+'<div class="jg">'+g.items.map(function(w){
+        var im=w.images[0],iw=im.width||1000,ih=im.height||1000,r=iw/ih,t=tx(w,'title','en');
+        var alt=t?(t+', by '+name):('Artwork by '+name);
+        return '<button type="button" style="flex-grow:'+(r*100).toFixed(1)+';flex-basis:calc(var(--jg-h) * '+r.toFixed(3)+')" data-cap="'+esc(t)+'" aria-label="View larger: '+esc(alt)+'">'+
+          '<span class="ph" style="padding-bottom:'+(100/r).toFixed(3)+'%"><img src="'+esc(im.url)+'" width="'+iw+'" height="'+ih+'" alt="'+esc(alt)+'" loading="lazy"></span>'+
+          (t?'<span class="cap">'+esc(t)+'</span>':'')+'</button>';
+      }).join('\n')+'</div></div>';
+    }).join('\n');
+    if(jgExists){
+      oldGroups.forEach(function(g){g.parentNode.removeChild(g);});
+      gal.querySelector('.wrap').insertAdjacentHTML('beforeend',html);
+    }else{
+      var sec=document.createElement('section');sec.className='gallery';sec.id='gallery-db';
+      sec.innerHTML='<div class="wrap"><div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count"></span></div>'+html+'</div>';
+      var c=document.getElementById('contact');c.parentNode.insertBefore(sec,c);gal=sec;
+    }
+    var cnt=gal.querySelector('.count');
+    if(cnt){var fresh=document.createElement('span');fresh.className='count';fresh.setAttribute('data-no-i18n','');cnt.parentNode.replaceChild(fresh,cnt);
+      var n=works.length,setC=function(){var l=lang();fresh.textContent=l==='ko'?'작품 '+n+'점':l==='sw'?'Kazi '+n:(n+' work'+(n===1?'':'s'));};
+      setC();new MutationObserver(setC).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});}
+    rebind(name);
+  }).catch(function(e){console.warn('Gallery from database unavailable, using the static gallery.',e);});
+
+  // Lightbox that always uses the current gallery items.
+  function rebind(name){
+    var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+    if(!lb||!img)return;
+    ['lb-x','lb-prev','lb-next'].forEach(function(id){var b=document.getElementById(id);if(b)b.replaceWith(b.cloneNode(true));});
+    document.querySelectorAll('[data-lb]').forEach(function(b){b.replaceWith(b.cloneNode(true));});
+    var NAME=name||'',cur=0,opener=null;
+    function items(){return Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));}
+    function show(i){var it=items();if(!it.length)return;cur=(i+it.length)%it.length;var b=it[cur],im=b.querySelector('img');img.src=im.getAttribute('src');img.alt=im.alt;
+      cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+it.length;}
+    function open(b){opener=b;show(items().indexOf(b));lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus();}
+    function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus();}
+    document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.jg button, [data-lb]');if(b){e.preventDefault();open(b);}});
+    document.getElementById('lb-x').addEventListener('click',close);
+    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
+    window.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape'||e.key==='ArrowRight'||e.key==='ArrowLeft'){e.stopImmediatePropagation();e.preventDefault();}
+      if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);},true);
+  }
+})();
+</script>
+<script id="vop-i18n-data">window.__VOP_I18N={"ko": {"2023 — Featured in Precision Air's magazine as one of Tanzania's notable artists": "2023 — Precision Air 기내지에 탄자니아의 주목할 작가로 소개", "<span>Voice of Piece<\/span><span>Dar es Salaam<\/span><span>Painting since 2019<\/span>": "<span>Voice of Piece<\/span><span>다르에스살람<\/span><span>2019년부터 작업<\/span>", "2021 — Live graffiti with Women Xpress, High Commission of Canada in Tanzania": "2021 — Women Xpress 라이브 그라피티, 주탄자니아 캐나다 고등판무관실", "Profile": "프로필", "Since 2022 — Hosts a kids' corner teaching children creativity at an art market": "2022년부터 — 아트 마켓에서 어린이 창작 코너 운영", "Exhibitions <em>&amp; more<\/em>": "전시 <em>그리고 활동<\/em>", "Close": "닫기", "Exhibitions": "전시", "Contact": "연락", "Young, 2023": "Young, 2023", "I began learning to paint in 2019. Since then I have shown my work in exhibitions including Art of Buna, a group exhibition in Germany in 2024. I illustrated the children's book Every Queen Deserves a Crown, and taught watercolour in the Art Academy programme at Nafasi Art Space.": "2019년에 물감으로 그리는 법을 배우기 시작했습니다. 이후 2024년 독일 단체전 ‘Art of Buna’를 비롯해 여러 전시에 참여했습니다. 어린이책 『Every Queen Deserves a Crown』의 삽화를 그렸고, Nafasi Art Space의 아트 아카데미에서 수채화를 가르쳤습니다.", "Hedwiga<br><em>Medard Tairo<\/em>": "Hedwiga<br><em>Medard Tairo<\/em>", "2020 — Inner Visions, National Museum of Tanzania": "2020 — Inner Visions, 탄자니아 국립박물관", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "연락 주시면 작가와 연결해 드립니다. 모든 판매는 공정한 조건으로 이루어지며, 작가의 이름이 명시되고 정당한 대가가 지급됩니다.", "Artist profile": "작가 프로필", "← All artists": "← 전체 작가", "Ask about this artist": "작가 문의하기", "2021 — Auction of her works, Lukiza Autism Foundation dinner gala": "2021 — Lukiza Autism Foundation 자선 만찬에서 작품 경매", "2024 — Assistant trainer for SAWA (Sanaa Na Wanawake) with artist Thobias Minzi, teaching women artists in Mwanza": "2024 — Thobias Minzi 작가와 함께 SAWA(Sanaa Na Wanawake) 보조 강사로 므완자의 여성 작가 교육", "I research by watching documentaries or films about mental illness, and I read books and articles. I make several sketches and choose one to develop, and I look for a symbolic language to express it. I keep refining the drawing and choose my colours, connecting the idea with my own experience and with reality. Then I paint. Afterwards I write a description of the work and photograph it for the record.": "다큐멘터리와 영화를 보고 책과 글을 읽으며 조사합니다. 여러 장의 스케치 중 하나를 골라 발전시키고, 그것을 표현할 상징의 언어를 찾습니다. 그림을 계속 다듬고 색을 고른 뒤, 아이디어를 제 경험과 현실에 연결합니다. 그다음 그리기 시작하고, 완성 후에는 작품 설명을 쓰고 기록용 사진을 찍습니다.", "Words": "작가의 말", "Dar es Salaam": "다르에스살람", "In her words": "작가의 말", "Acrylic, watercolour, murals": "아크릴, 수채화, 벽화", "The <em>gallery<\/em>": "<em>갤러리<\/em>", "2024 — Art of Buna, Germany": "2024 — Art of Buna, 독일", "Member of Women Xpress, a women's graffiti collective, and member artist of Nafasi Art Space": "여성 그라피티 그룹 Women Xpress 회원, Nafasi Art Space 소속 작가", "2021 — Pamoja Art Exhibition, Alliance Française, Dar es Salaam": "2021 — Pamoja 전시, 알리앙스 프랑세즈, 다르에스살람", "Young, acrylic on canvas, 100 × 100 cm, 2023. It shows children playing different games in different surroundings. I used a new way of painting inspired by what I studied at university, the science of rocks, and I keep developing it as the signature of my work. The painting reminds us how freely we felt as children: playing, laughing, even crying. Through it I want to remind people that feelings matter, and that mental health matters for each person and for the nation.": "〈Young〉(캔버스에 아크릴, 100×100cm, 2023). 아이들이 여러 장소에서 저마다의 놀이를 하는 모습을 그렸습니다. 대학에서 공부한 암석학에서 영감을 얻은 새로운 화법을 썼고, 이것을 제 작품의 정체성으로 계속 발전시키고 있습니다. 이 그림은 어린 시절 우리가 얼마나 자유롭게 놀고, 웃고, 울었는지를 떠올리게 합니다. 감정은 소중하며, 정신 건강은 한 사람과 나라 전체에 중요하다는 것을 전하고 싶었습니다.", "Selected works": "선별 작품", "2019 — East African Art Biennale, Nafasi Art Space": "2019 — 동아프리카 아트 비엔날레, Nafasi Art Space", "Record": "기록", "Painting since 2019": "2019년부터 작업", "Work with others": "협업", "2023 — I See You See Me, Rangi Gallery, Tanzania": "2023 — I See You See Me, Rangi Gallery, 탄자니아", "2021 — Worked with Agence Française de Développement as a representative from Tanzania": "2021 — 탄자니아 대표로 프랑스개발청(AFD)과 협업", "2022 — Wasanii Sita, Gallery Atelier, Germany": "2022 — Wasanii Sita, Gallery Atelier, 독일", "Recognition": "수상과 인정", "Gallery": "갤러리", "2023 — Jikubali campaign with the National AIDS Control Programme, teaching students through graffiti": "2023 — 국가 에이즈 관리 프로그램의 Jikubali 캠페인, 그라피티로 학생 교육", "I work in realism, surrealism and graffiti or murals, depending on the place and the subject. In my personal work I speak about mental health and mental illness. I make these works to open conversations about why knowledge matters, and how to respond well, so that we can support people facing mental health challenges in our communities.": "장소와 주제에 따라 사실주의, 초현실주의, 그라피티와 벽화 작업을 합니다. 개인 작업에서는 정신 건강을 이야기합니다. 올바른 이해가 왜 중요한지, 어떻게 제대로 대응해야 하는지 대화를 열어, 우리 공동체에서 정신 건강의 어려움을 겪는 사람들을 돕고 싶습니다."}, "sw": {"2023 — Featured in Precision Air's magazine as one of Tanzania's notable artists": "2023 — Aliangaziwa katika jarida la Precision Air kama mmoja wa wasanii mashuhuri wa Tanzania", "<span>Voice of Piece<\/span><span>Dar es Salaam<\/span><span>Painting since 2019<\/span>": "<span>Voice of Piece<\/span><span>Dar es Salaam<\/span><span>Anachora tangu 2019<\/span>", "2021 — Live graffiti with Women Xpress, High Commission of Canada in Tanzania": "2021 — Grafiti hai na Women Xpress, Ubalozi wa Kanada nchini Tanzania", "Profile": "Wasifu", "Since 2022 — Hosts a kids' corner teaching children creativity at an art market": "Tangu 2022 — Anaendesha kona ya watoto inayofundisha ubunifu katika soko la sanaa", "Exhibitions <em>&amp; more<\/em>": "Maonesho <em>na zaidi<\/em>", "Close": "Funga", "Exhibitions": "Maonesho", "Contact": "Mawasiliano", "Young, 2023": "Young, 2023", "I began learning to paint in 2019. Since then I have shown my work in exhibitions including Art of Buna, a group exhibition in Germany in 2024. I illustrated the children's book Every Queen Deserves a Crown, and taught watercolour in the Art Academy programme at Nafasi Art Space.": "Nilianza kujifunza kuchora kwa rangi mwaka 2019. Tangu hapo nimeshiriki maonesho mbalimbali, ikiwemo maonesho ya pamoja ya Art of Buna nchini Ujerumani mwaka 2024. Nimechora michoro ya kitabu cha watoto Every Queen Deserves a Crown, na nimefundisha rangi za maji katika programu ya Art Academy ya Nafasi Art Space.", "Hedwiga<br><em>Medard Tairo<\/em>": "Hedwiga<br><em>Medard Tairo<\/em>", "2020 — Inner Visions, National Museum of Tanzania": "2020 — Inner Visions, Makumbusho ya Taifa ya Tanzania", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "Tuandikie nasi tutakuunganisha na msanii. Kila mauzo hufanyika kwa masharti ya haki, msanii akitambuliwa na kulipwa.", "Artist profile": "Wasifu wa msanii", "← All artists": "← Wasanii wote", "Ask about this artist": "Uliza kuhusu msanii huyu", "2021 — Auction of her works, Lukiza Autism Foundation dinner gala": "2021 — Mnada wa kazi zake, hafla ya chakula cha jioni ya Lukiza Autism Foundation", "2024 — Assistant trainer for SAWA (Sanaa Na Wanawake) with artist Thobias Minzi, teaching women artists in Mwanza": "2024 — Mkufunzi msaidizi wa SAWA (Sanaa Na Wanawake) pamoja na msanii Thobias Minzi, akiwafundisha wasanii wa kike jijini Mwanza", "I research by watching documentaries or films about mental illness, and I read books and articles. I make several sketches and choose one to develop, and I look for a symbolic language to express it. I keep refining the drawing and choose my colours, connecting the idea with my own experience and with reality. Then I paint. Afterwards I write a description of the work and photograph it for the record.": "Ninafanya utafiti kwa kutazama makala na filamu, na kusoma vitabu na makala mbalimbali. Ninachora michoro ya awali kadhaa na kuchagua mmoja wa kuuendeleza, kisha ninatafuta lugha ya ishara ya kuuelezea. Ninaendelea kuboresha mchoro na kuchagua rangi, nikihusisha wazo na uzoefu wangu na uhalisia. Kisha ninachora. Baadaye ninaandika maelezo ya kazi na kuipiga picha kwa kumbukumbu.", "Words": "Maneno", "Dar es Salaam": "Dar es Salaam", "In her words": "Kwa maneno yake", "Acrylic, watercolour, murals": "Akriliki, rangi za maji, michoro ya ukutani", "The <em>gallery<\/em>": "<em>Matunzio<\/em>", "2024 — Art of Buna, Germany": "2024 — Art of Buna, Ujerumani", "Member of Women Xpress, a women's graffiti collective, and member artist of Nafasi Art Space": "Mwanachama wa Women Xpress, kikundi cha wanawake wa grafiti, na msanii mwanachama wa Nafasi Art Space", "2021 — Pamoja Art Exhibition, Alliance Française, Dar es Salaam": "2021 — Maonesho ya Pamoja, Alliance Française, Dar es Salaam", "Young, acrylic on canvas, 100 × 100 cm, 2023. It shows children playing different games in different surroundings. I used a new way of painting inspired by what I studied at university, the science of rocks, and I keep developing it as the signature of my work. The painting reminds us how freely we felt as children: playing, laughing, even crying. Through it I want to remind people that feelings matter, and that mental health matters for each person and for the nation.": "Young, akriliki kwenye turubai, sentimita 100 kwa 100, 2023. Inaonyesha watoto wakicheza michezo tofauti katika mazingira tofauti. Nimetumia mtindo mpya wa kuchora uliohamasishwa na masomo niliyosoma chuoni, sayansi ya miamba, na ninaendelea kuuboresha kama utambulisho wa kazi zangu. Kazi hii inatukumbusha jinsi tulivyokuwa huru tulipokuwa watoto: kucheza, kufurahi na hata kulia. Kupitia kazi hii ninataka kuikumbusha jamii kwamba hisia ni muhimu, na afya ya akili ni muhimu kwa kila mtu na kwa taifa.", "Selected works": "Kazi teule", "2019 — East African Art Biennale, Nafasi Art Space": "2019 — East African Art Biennale, Nafasi Art Space", "Record": "Rekodi", "Painting since 2019": "Anachora tangu 2019", "Work with others": "Ushirikiano", "2023 — I See You See Me, Rangi Gallery, Tanzania": "2023 — I See You See Me, Rangi Gallery, Tanzania", "2021 — Worked with Agence Française de Développement as a representative from Tanzania": "2021 — Alifanya kazi na Agence Française de Développement kama mwakilishi kutoka Tanzania", "2022 — Wasanii Sita, Gallery Atelier, Germany": "2022 — Wasanii Sita, Gallery Atelier, Ujerumani", "Recognition": "Tuzo na utambuzi", "Gallery": "Matunzio", "2023 — Jikubali campaign with the National AIDS Control Programme, teaching students through graffiti": "2023 — Kampeni ya Jikubali na Mpango wa Taifa wa Kudhibiti UKIMWI, kuwaelimisha wanafunzi kupitia grafiti", "I work in realism, surrealism and graffiti or murals, depending on the place and the subject. In my personal work I speak about mental health and mental illness. I make these works to open conversations about why knowledge matters, and how to respond well, so that we can support people facing mental health challenges in our communities.": "Ninafanya kazi za uhalisia, uhalisia-ndoto na grafiti au michoro ya ukutani, kulingana na mahali au mada. Katika kazi zangu binafsi ninazungumzia afya ya akili. Nia yangu ni kuibua mijadala kuhusu umuhimu wa maarifa na jinsi ya kukabiliana ipasavyo, ili kuwasaidia watu wenye changamoto za afya ya akili katika jamii zetu."}};</script>
+<script id="vop-i18n">(function(){
+  var D=window.__VOP_I18N||{ko:{},sw:{}};
+  var LANGS=['en','ko','sw'], LABEL={en:'EN',ko:'한국어',sw:'SW'}, NAME={en:'English',ko:'한국어',sw:'Kiswahili'};
+  var PAT=[
+    [/^Artist (\d+) \/ (\d+)$/,{ko:'작가 $1 / $2',sw:'Msanii $1 / $2'}],
+    [/^(\d+) works?$/,{ko:'작품 $1점',sw:'Kazi $1'}],
+    [/^Painting for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Drawing for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Interested in (.+)'s work\?$/,{ko:'$1의 작품에 관심이 있으신가요?',sw:'Unavutiwa na kazi za $1?'}],
+    [/^Artwork © (.+)\. Shared through Voice of Piece\.$/,{ko:'작품 © $1. Voice of Piece를 통해 소개합니다.',sw:'Kazi za sanaa © $1. Zinashirikishwa kupitia Voice of Piece.'}],
+    [/^Work (\d+)<small>(.+)<\/small>$/,{ko:'작품 $1<small>$2</small>',sw:'Kazi $1<small>$2</small>'}]
+  ];
+  var INL={EM:1,B:1,STRONG:1,I:1,BR:1,SMALL:1,SUP:1,SPAN:1}, SK={SCRIPT:1,STYLE:1,SVG:1,IFRAME:1,NOSCRIPT:1,TEMPLATE:1};
+  function lc(el){var c=el.classList;return !!(c&&(c.contains('en')||c.contains('ko')||c.contains('sw')));}
+  function skip(el){var t=el.tagName.toUpperCase(),l=el.getAttribute('lang');return SK[t]||lc(el)||l==='ko'||l==='sw'||el.id==='manifesto-body'||el.id==='words'||el.id==='vop-lang'||el.hasAttribute('data-no-i18n');}
+  function isBlock(el){var has=false,kid=false,w=document.createTreeWalker(el,5),n;
+    while((n=w.nextNode())){if(n.nodeType===1){if(!INL[n.tagName.toUpperCase()]||lc(n))return false;}else if(n.nodeValue.trim())has=true;}
+    for(var c=el.firstChild;c;c=c.nextSibling)if(c.nodeType===1)kid=true;return has&&kid;}
+  function norm(s){return s.replace(/<br\s*\/?>/gi,'<br>').replace(/\s+/g,' ').trim();}
+  var U=[];
+  function walk(el){for(var c=el.firstChild;c;c=c.nextSibling){
+    if(c.nodeType===3){if(c.nodeValue.trim())U.push({t:c,en:c.nodeValue});}
+    else if(c.nodeType===1){if(skip(c))continue;if(isBlock(c))U.push({e:c,en:c.innerHTML});else walk(c);}}}
+  function tr(key,lang){if(lang==='en')return null;var d=D[lang]||{};if(d[key])return d[key];
+    for(var i=0;i<PAT.length;i++){var m=key.match(PAT[i][0]);if(m)return key.replace(PAT[i][0],PAT[i][1][lang]);}return null;}
+  var TITLE=document.title, cur='en', miss=[];
+  function apply(lang){miss=[];
+    U.forEach(function(u){var key=norm(u.en),v=tr(key,lang);
+      if(u.t){if(lang==='en'||!v){u.t.nodeValue=u.en;if(lang!=='en'&&!v)miss.push(key);}else{var a=u.en.match(/^\s*/)[0],b=u.en.match(/\s*$/)[0];u.t.nodeValue=a+v+b;}}
+      else{if(lang==='en'||!v){u.e.innerHTML=u.en;if(lang!=='en'&&!v)miss.push(key);}else u.e.innerHTML=v;}});
+    var tt=tr(norm(TITLE),lang);document.title=tt||TITLE;window.__vopMissing=miss;}
+  function setLang(lang,from){if(LANGS.indexOf(lang)<0)lang='en';if(lang===cur&&from!=='init')return;cur=lang;
+    document.documentElement.setAttribute('lang',lang);apply(lang);
+    try{localStorage.setItem('vop-lang',lang);}catch(e){}
+    var wb=document.getElementById('words-body');
+    if(wb&&from!=='words'){var b=wb.querySelector('.lang button[data-set="'+lang+'"]');if(b)b.click();}
+    var mt=document.getElementById('manifesto-text');
+    if(mt&&from!=='manifesto'){var mb=mt.querySelector('.lang button[data-lang="'+lang+'"]');if(mb)mb.click();}
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===lang?'true':'false');});}
+  // switcher
+  var st=document.createElement('style');
+  st.textContent='#vop-lang{position:fixed;z-index:80;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,20,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25);font:500 11px/1 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif}'+
+  '#vop-lang button{border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:none;color:#E8E3DA;font:inherit;letter-spacing:.12em}'+
+  '#vop-lang button[aria-pressed="true"]{background:#C9A46A;color:#161412}'+
+  '#vop-lang button:focus-visible{outline:2px solid #C9A46A;outline-offset:2px}'+
+  'html[lang="ko"] body{word-break:keep-all}'+
+  'html[lang="ko"] body *:not(svg):not(path):not(#vop-lang):not(#vop-lang *){letter-spacing:.02em!important}';
+  document.head.appendChild(st);
+  var sw=document.createElement('div');sw.id='vop-lang';sw.setAttribute('role','group');sw.setAttribute('aria-label','Language / 언어 / Lugha');
+  LANGS.forEach(function(l){var b=document.createElement('button');b.type='button';b.dataset.l=l;b.textContent=LABEL[l];b.setAttribute('aria-label',NAME[l]);b.setAttribute('lang',l);b.addEventListener('click',function(){setLang(l);});sw.appendChild(b);});
+  document.body.appendChild(sw);
+  walk(document.body);
+  // keep section toggles in sync
+  var wb=document.getElementById('words-body');
+  if(wb)wb.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set,'words');});});
+  var mt=document.getElementById('manifesto-text');
+  if(mt)mt.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,'manifesto');});});
+  // carry language to other Voice of Piece pages
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||cur==='en')return;
+    try{var u=new URL(a.href,location.href);if(!/(^|\.)voiceofpiece\.org$/.test(u.hostname)&&u.origin!==location.origin)return;
+      if(u.hash&&u.pathname===location.pathname&&u.origin===location.origin)return;u.searchParams.set('lang',cur);a.href=u.toString();}catch(x){}},true);
+  var q=null;try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var saved=null;try{saved=localStorage.getItem('vop-lang');}catch(e){}
+  var nav=(navigator.language||'').slice(0,2);
+  var init=q||saved||'en';
+  cur='';setLang(init,'init');
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ezekiel Charles Loishooki — Voice of Piece</title>
+<meta name="description" content="Ezekiel Charles Loishooki draws wildlife and quiet moments of love in pencil and blue pen, often about a mother and her child, new hope, and victory.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="works/recent/01.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Ezekiel — monochrome, soft light. Sections alternate black / silver-white. */
+:root{
+  --black:#000;--paper:#f2f2f1;--ink:#111;
+  --mist:rgba(255,255,255,.62);--mist-d:rgba(17,17,17,.56);
+  --line-d:rgba(255,255,255,.14);--line-l:rgba(17,17,17,.12);
+  --serif:"Cormorant Garamond","Gowun Batang",Garamond,Georgia,serif;
+  --sans:"Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --pad:clamp(20px,3.6vw,56px);--gap:8px;--r:14px;
+  --glow:0 0 .5em rgba(255,255,255,.45);
+  --jg-h:250px;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--black);color:#fff;font:300 15px/1.75 var(--sans);-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:1px solid currentColor;outline-offset:4px}
+::selection{background:#fff;color:#000}
+.wrap{max-width:1560px;margin:0 auto;padding:0 var(--pad)}
+
+/* type */
+.label,.eyebrow,.d-script{margin:0 0 16px;font:500 10.5px/1.6 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+.h2,.d-meet h2,.d-film h2,.enquire h2{margin:0;font:600 clamp(48px,7.4vw,128px)/.9 var(--sans);letter-spacing:-.035em;text-transform:uppercase}
+.h2 em,.d-film h2 em,.enquire h2 em{font-style:normal!important}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:0 0 4px;border:0;border-bottom:1px solid currentColor;background:none;
+  font:500 10.5px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.55}
+.btn svg{display:none}
+.silver{background:var(--paper);color:var(--ink)}
+.silver .label,.silver .eyebrow,.silver .d-script{color:var(--mist-d)}
+
+/* top bar */
+.top{position:fixed;inset:0 0 auto 0;z-index:30;text-shadow:none;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:calc(22px + env(safe-area-inset-top,0px)) var(--pad) 22px;mix-blend-mode:difference;color:#fff;
+  font:500 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase}
+.top a{text-decoration:none}
+.top b{font-weight:inherit}
+.top nav{display:flex;gap:28px}
+.top .vop-studio{color:inherit!important;border-bottom:1px solid;padding-bottom:3px}
+@media (max-width:640px){.top nav .opt{display:none}}
+
+/* hero — works only: one work fills the room, the same work sits in a floating screen */
+.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#000;display:grid;place-items:center;isolation:isolate}
+.hero-bg,.hero-bg img{position:absolute;inset:0;width:100%;height:100%}
+.hero-bg img{object-fit:cover;filter:grayscale(1) brightness(.3) blur(2px)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,transparent 20%,rgba(0,0,0,.55) 90%)}
+.slide{opacity:0;transition:opacity 1.6s ease}
+.slide.on{opacity:1}
+.screen{position:relative;z-index:1;width:min(1320px,calc(100vw - 2 * var(--pad)));height:100%;
+  display:grid;grid-template-columns:1fr 1fr;overflow:hidden;background:#111;
+  box-shadow:0 0 160px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}
+.pane{position:relative;overflow:hidden}
+.pane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+.pane-soft img{filter:grayscale(1) blur(24px) brightness(.66);transform:scale(1.25)}
+.pane-soft::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.35),rgba(0,0,0,.05))}
+.pane-sharp img{filter:none}
+.pane-sharp::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent 14%,transparent 80%,rgba(0,0,0,.35))}
+.pane-copy{position:absolute;z-index:2;inset:0;padding:clamp(76px,9vh,110px) clamp(20px,2.4vw,34px) clamp(70px,9vh,90px);display:flex;flex-direction:column;justify-content:space-between;
+  color:#f4f4f4;text-shadow:var(--glow)}
+.pane-copy .block{align-self:center;width:min(250px,70%);margin:0;display:grid;gap:22px}
+.row{display:flex;justify-content:space-between;gap:12px;font:500 10px/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.72}
+.hero h1{margin:0;font:500 11px/1.75 var(--sans);letter-spacing:.1em;text-transform:uppercase;text-align:justify;text-align-last:left;hyphens:none}
+.hero h1 b{font-weight:500}
+.knock{position:absolute;inset:0;z-index:2;width:100%;height:100%;pointer-events:none;overflow:visible}
+.knock .slide{transition:opacity 1.6s ease}
+.pane-sharp .hero-link{position:absolute;z-index:2;left:clamp(20px,2.4vw,34px);bottom:clamp(44px,6vh,64px);white-space:nowrap;
+  font:500 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#000;background:#fff;padding:12px 16px;border-radius:999px;transition:letter-spacing .3s}
+.pane-sharp .hero-link:hover{letter-spacing:.26em}
+.pane-sharp .insta{position:absolute;z-index:2;right:clamp(20px,2.4vw,34px);bottom:clamp(44px,6vh,64px);font:500 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:#fff;opacity:.8;text-shadow:var(--glow)}
+.hero-count{position:absolute;z-index:4;left:var(--pad);right:var(--pad);bottom:calc(20px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:10px}
+.hero-count button{width:26px;height:18px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.hero-count button::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.3);transition:background .3s}
+.hero-count button[aria-current="true"]::before{background:#fff}
+@media (max-width:760px){
+  .screen{grid-template-columns:1fr;width:100%;height:100%}
+  .pane-sharp{display:none}
+  .pane-soft img{filter:brightness(.72);transform:none}
+  .pane-soft::after{background:linear-gradient(to bottom,rgba(0,0,0,.25),rgba(0,0,0,.1) 25%,rgba(0,0,0,.82) 62%)}
+  .pane-copy{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .pane-copy .block{align-self:flex-start;width:min(280px,82%);margin:auto 0 28px}
+  .hero-count{justify-content:flex-end}
+}
+@media (prefers-reduced-motion:reduce){.slide,.knock .slide{transition:none}}
+
+/* quote — silver */
+.d-quote{padding:clamp(100px,12vw,190px) var(--pad);text-align:center}
+.d-quote p{max-width:22em;margin:0 auto;font:400 clamp(28px,3.4vw,54px)/1.2 var(--serif);letter-spacing:-.005em}
+.d-quote cite{display:block;margin-top:30px;font:500 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;font-style:normal;color:var(--mist-d)}
+
+/* meet the artist — black, with Ezekiel */
+.d-meet .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,6vw,110px);align-items:center;padding-top:clamp(100px,11vw,170px);padding-bottom:clamp(100px,11vw,170px)}
+.d-meet .pic{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:#111;box-shadow:0 0 0 1px rgba(255,255,255,.06)}
+.d-meet .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:34% 30%;filter:grayscale(1) contrast(1.08) brightness(.92)}
+.d-meet .pic p{position:absolute;left:0;right:0;bottom:0;margin:0;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(0,0,0,.6));
+  font:500 10px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:var(--glow)}
+.d-meet h2{margin:0 0 34px;text-shadow:0 0 .3em rgba(255,255,255,.18)}
+.d-meet p{max-width:34em;margin:0 0 18px;font:400 clamp(18px,1.45vw,21px)/1.65 var(--serif);color:#e2e2e2}
+.facts{list-style:none;margin:34px 0 0;padding:20px 0 0;border-top:1px solid var(--line-d);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;
+  font:500 10px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.facts li::before{content:none}
+@media (max-width:820px){.d-meet .wrap{grid-template-columns:1fr}}
+
+/* process — silver */
+.d-process{padding:clamp(60px,7vw,110px) 0}
+.d-process .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.d-process figure{margin:0;position:relative;overflow:hidden;aspect-ratio:3/4}
+.d-process img{width:100%;height:100%;object-fit:cover}
+.d-process figcaption{position:absolute;left:16px;bottom:14px;font:500 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;text-shadow:var(--glow)}
+@media (max-width:760px){.d-process .wrap{grid-template-columns:1fr 1fr}}
+
+/* words — black */
+.words{padding:clamp(100px,11vw,170px) 0}
+.words-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,72px)}
+.words-head .note{margin:18px 0 0;max-width:40ch;font-size:13px;color:var(--mist)}
+.words-head .h2 span[lang="ko"]{font-size:.7em}
+.lang{display:inline-flex;gap:20px}
+.lang button{background:none;border:0;border-bottom:1px solid transparent;cursor:pointer;padding:4px 0;font:500 10.5px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.lang button[aria-pressed="true"]{color:#fff;border-color:#fff;text-shadow:var(--glow)}
+.entry{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,5vw,90px);padding:32px 0;border-top:1px solid var(--line-d)}
+.entry h3{margin:0;font:500 10.5px/2 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mist)}
+.entry p{margin:0;max-width:34em;font:400 clamp(20px,1.7vw,25px)/1.55 var(--serif)}
+.words [lang="ko"]{font-family:"Gowun Batang",serif;word-break:keep-all}
+.entry p[lang="ko"]{font-size:clamp(17px,1.4vw,20px);line-height:1.9}
+[data-lang="en"] .ko,[data-lang="en"] .sw,[data-lang="ko"] .en,[data-lang="ko"] .sw,[data-lang="sw"] .en,[data-lang="sw"] .ko{display:none}
+@media (max-width:760px){.entry{grid-template-columns:1fr;gap:10px}}
+
+/* gallery — silver, exact-fit grid (laid out by #ez-grid) */
+.gallery{padding:clamp(100px,11vw,170px) 0}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,60px)}
+.gallery-head .count{font:500 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mist-d)}
+.gallery .vop-edit{border:1px solid currentColor!important;color:inherit!important;font:500 10.5px/1.4 var(--sans)!important;letter-spacing:.2em!important;padding:7px 12px!important;vertical-align:1.2em!important}
+.group{margin-top:clamp(40px,5vw,72px)}
+.group:first-of-type{margin-top:0}
+.group h3{margin:0 0 16px;font:500 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--mist-d)}
+.jg{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:220px;gap:var(--gap)}
+.jg::after{content:none}
+.jg button{position:relative;display:block;min-width:0;padding:0;border:0;border-radius:6px;background:#e3e3e2;cursor:zoom-in;overflow:hidden;color:inherit;text-align:left}
+.jg .ph{position:absolute!important;inset:0;display:block;padding:0!important;background:none!important}
+.jg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.jg button:hover img{transform:scale(1.02)}
+.jg .cap{position:absolute;left:0;right:0;bottom:0;height:auto;margin:0;padding:48px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.55));color:#fff!important;
+  font:500 10px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-shadow:var(--glow);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transition:opacity .3s}
+.jg button:hover .cap,.jg button:focus-visible .cap{opacity:1}
+.ez-quote{display:flex;align-items:flex-end;padding:clamp(18px,2vw,30px);border-radius:6px;background:#000;color:#fff;
+  font:400 clamp(18px,1.6vw,26px)/1.3 var(--serif);text-shadow:0 0 .4em rgba(255,255,255,.25)}
+@media (max-width:700px){.jg{grid-template-columns:repeat(2,minmax(0,1fr));--gap:6px}}
+@media (prefers-reduced-motion:reduce){.jg img{transition:none}}
+
+/* film — black */
+.d-film{padding:clamp(100px,11vw,170px) 0}
+.d-film .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(36px,6vw,110px);align-items:end}
+.d-film video{width:min(360px,80vw);aspect-ratio:9/16;border-radius:var(--r);background:#111;object-fit:cover}
+.d-film h2{margin:0 0 24px}
+.d-film p{color:var(--mist)!important;margin:0 0 30px;font:400 19px/1.6 var(--serif)!important}
+
+/* enquire — silver */
+.enquire{padding:clamp(100px,11vw,170px) 0;text-align:center}
+.enquire h2{max-width:13ch;margin:0 auto 30px}
+.enquire p{max-width:32em;margin:0 auto 36px;font:400 19px/1.6 var(--serif);color:var(--mist-d)}
+.enquire .back{display:inline-block;margin-top:44px;font:500 10.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;text-decoration:none;color:var(--mist-d)}
+.enquire .back:hover{color:var(--ink)}
+@media (max-width:760px){.d-film .wrap{grid-template-columns:1fr}}
+
+/* footer — black */
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:30px;padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+.foot a{font:500 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;text-decoration:none}
+.foot a b{font-weight:inherit}
+.foot small{font-size:12px;color:var(--mist)}
+
+/* lightbox */
+html body .lb{background:#000!important}
+.lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;padding:64px clamp(20px,4vw,72px)}
+.lb.open{display:grid}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto}
+.lb p#lb-cap{margin:14px 0 0;text-align:center;font:500 10px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mist)}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font:300 34px/1 var(--sans);padding:12px 16px;opacity:.7}
+.lb button:hover{opacity:1}
+.lb .x{top:calc(18px + env(safe-area-inset-top,0px));left:var(--pad);right:auto;font:500 10.5px var(--sans);letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid;padding:4px 0}
+.lb .prev{left:6px;top:50%;transform:translateY(-50%)}
+.lb .next{right:6px;top:50%;transform:translateY(-50%)}
+@media (max-width:600px){.lb{padding:60px 12px 80px}.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}}
+html body .lb #lb-info{color:#e6e6e6!important;border-left:1px solid var(--line-d)!important;font:300 14px/1.7 var(--sans)!important}
+html body .lb #lb-info .t{font:600 clamp(28px,2.4vw,40px)/.95 var(--sans)!important;letter-spacing:-.03em!important;text-transform:uppercase!important;color:#fff!important;margin:0 0 10px!important;text-shadow:0 0 .35em rgba(255,255,255,.3)}
+html body .lb #lb-info .a{font:400 18px/1.4 var(--serif)!important;font-style:normal!important;color:var(--mist)!important;margin:0 0 24px!important}
+html body .lb #lb-info dt,html body .lb #lb-info .p h4{font:500 10px/1.9 var(--sans)!important;letter-spacing:.22em!important;text-transform:uppercase!important;color:var(--mist)!important}
+html body .lb #lb-info dd{color:#fff!important}
+html body .lb #lb-info .p{border-top-color:var(--line-d)!important}
+html body .lb #lb-info .p p{font:400 17px/1.65 var(--serif)!important;color:#dedede!important}
+html body .lb #lb-info .acts a{border:1px solid rgba(255,255,255,.7)!important;color:#fff!important;font:500 10px/1 var(--sans)!important;letter-spacing:.24em!important;padding:14px 16px!important;border-radius:999px}
+html body .lb #lb-info .acts a:hover{background:#fff!important;color:#000!important}
+html body .lb #lb-info .acts a[style*="dashed"]{border-style:dashed!important;color:var(--mist)!important}
+@media (max-width:860px){html body .lb #lb-info{border-left:0!important;border-top:1px solid var(--line-d)!important}}
+
+/* language switcher (added by script) */
+html body #vop-lang{border-radius:999px!important;background:rgba(20,20,20,.55)!important;-webkit-backdrop-filter:blur(14px)!important;backdrop-filter:blur(14px)!important;box-shadow:0 0 0 1px rgba(255,255,255,.1)!important;font:500 10px/1 var(--sans)!important}
+html body #vop-lang button{color:#cfcfcf!important;letter-spacing:.16em!important}
+html body #vop-lang button[aria-pressed="true"]{background:#fff!important;color:#000!important}
+html body #vop-lang button:focus-visible{outline-color:#fff!important}
+</style>
+</head>
+<body class="v5">
+<header class="top"><a href="../">Voice <b>of</b> Piece</a><nav aria-label="Page"><a class="opt" href="#words">Words</a><a class="opt" href="#gallery">Gallery</a><a href="#contact">Contact</a></nav></header>
+<section class="hero" id="ez-hero" aria-label="Works by Ezekiel Charles Loishooki">
+  <div class="hero-bg" aria-hidden="true"><img class="slide on" data-slide="0" src="works/recent/01.jpg" alt="" aria-hidden="true" style="object-position:50% 50%"><img class="slide" data-slide="1" src="works/recent/04.jpg" alt="" aria-hidden="true" style="object-position:50% 50%" loading="lazy"><img class="slide" data-slide="2" src="works/recent/09.jpg" alt="" aria-hidden="true" style="object-position:50% 50%" loading="lazy"><img class="slide" data-slide="3" src="works/recent/10.jpg" alt="" aria-hidden="true" style="object-position:50% 50%" loading="lazy"></div>
+  <div class="screen">
+    <div class="pane pane-soft"><img class="slide on" data-slide="0" src="works/recent/01.jpg" alt="" aria-hidden="true" style="object-position:50% 45%"><img class="slide" data-slide="1" src="works/recent/04.jpg" alt="" aria-hidden="true" style="object-position:50% 30%" loading="lazy"><img class="slide" data-slide="2" src="works/recent/09.jpg" alt="" aria-hidden="true" style="object-position:50% 42%" loading="lazy"><img class="slide" data-slide="3" src="works/recent/10.jpg" alt="" aria-hidden="true" style="object-position:42% 60%" loading="lazy">
+      <div class="pane-copy">
+        <div class="block">
+          <div class="row"><span data-no-i18n>Ezekiel</span><span>Selected works</span></div>
+          <h1><b>Ezekiel Charles Loishooki</b> draws wildlife and quiet moments of love in pencil and blue pen, often about a mother and her child, new hope, and victory.</h1>
+          <div class="row"><span>Arusha</span><span data-no-i18n>Voice of Piece</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pane pane-sharp"><img class="slide on" data-slide="0" src="works/recent/01.jpg" alt="A Bond Unspoken, by Ezekiel Charles Loishooki" style="object-position:50% 45%"><img class="slide" data-slide="1" src="works/recent/04.jpg" alt="Beside You, by Ezekiel Charles Loishooki" style="object-position:50% 30%" loading="lazy"><img class="slide" data-slide="2" src="works/recent/09.jpg" alt="Strength Within, by Ezekiel Charles Loishooki" style="object-position:50% 42%" loading="lazy"><img class="slide" data-slide="3" src="works/recent/10.jpg" alt="The Journey Together, by Ezekiel Charles Loishooki" style="object-position:42% 60%" loading="lazy">
+      <a class="insta" href="https://www.instagram.com/ezekielart001/" target="_blank" rel="noopener">Instagram</a>
+      <a class="hero-link" href="#gallery">See the work</a>
+    </div>
+  </div>
+  <svg class="knock" aria-hidden="true" focusable="false">
+    <defs>
+      <clipPath id="ez-letters"><text id="ez-word" class="ez-t" x="0" y="0" font-family="Montserrat, Helvetica Neue, Arial, sans-serif" font-weight="900">EZEKIEL</text></clipPath>
+    <filter id="ez-soft" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur class="ez-blur" stdDeviation="6"/></filter><mask id="ez-down" maskUnits="userSpaceOnUse" x="-9999" y="-9999" width="29999" height="29999"><rect x="-9999" y="-9999" width="29999" height="29999" fill="#fff"/><text class="ez-t ez-sh" filter="url(#ez-soft)" font-family="Montserrat, Helvetica Neue, Arial, sans-serif" font-weight="900" fill="#000">EZEKIEL</text></mask><mask id="ez-up" maskUnits="userSpaceOnUse" x="-9999" y="-9999" width="29999" height="29999"><rect x="-9999" y="-9999" width="29999" height="29999" fill="#fff"/><text class="ez-t ez-hl" font-family="Montserrat, Helvetica Neue, Arial, sans-serif" font-weight="900" fill="#000">EZEKIEL</text></mask></defs>
+    <g clip-path="url(#ez-letters)"><rect width="100%" height="100%" fill="#000" fill-opacity=".2"/><rect width="100%" height="100%" fill="#000" fill-opacity=".9" mask="url(#ez-down)"/><rect width="100%" height="100%" fill="#fff" fill-opacity=".3" mask="url(#ez-up)"/></g>
+  </svg>
+  <div class="hero-count" role="group" aria-label="Featured works"><button type="button" data-go="0" aria-label="A Bond Unspoken" aria-current="true"></button><button type="button" data-go="1" aria-label="Beside You"></button><button type="button" data-go="2" aria-label="Strength Within"></button><button type="button" data-go="3" aria-label="The Journey Together"></button></div>
+</section>
+<script id="ez-hero-js">(function(){
+  var hero=document.getElementById('ez-hero');if(!hero)return;
+  var dots=[].slice.call(hero.querySelectorAll('[data-go]')),n=dots.length,cur=0,t=null;
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){cur=(i+n)%n;[].forEach.call(hero.querySelectorAll('.slide'),function(im){im.classList.toggle('on',+im.dataset.slide===cur);});
+    dots.forEach(function(d,k){d.setAttribute('aria-current',k===cur?'true':'false');});}
+  function play(){if(still)return;clearInterval(t);t=setInterval(function(){if(!document.hidden)show(cur+1);},7000);}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){show(k);play();});});
+  play();
+  function fit(){
+    var sc=hero.querySelector('.screen'),t=document.getElementById('ez-word');if(!sc||!t)return;
+    var hr=hero.getBoundingClientRect(),r=sc.getBoundingClientRect();
+    var c=document.createElement('canvas').getContext('2d'),LS=-0.03;
+    c.font='900 100px Montserrat';if('letterSpacing' in c)c.letterSpacing=(LS*100)+'px';
+    var m=c.measureText('EZEKIEL'),ink=m.actualBoundingBoxLeft+m.actualBoundingBoxRight;if(!ink)return;
+    var k=r.width/ink,fs=100*k;
+    var x=(r.left-hr.left+m.actualBoundingBoxLeft*k).toFixed(2),y=(r.top-hr.top+r.height/2+m.actualBoundingBoxAscent*k/2).toFixed(2);
+    [].forEach.call(hero.querySelectorAll('.ez-t'),function(e){
+      e.setAttribute('font-size',fs.toFixed(2));e.setAttribute('letter-spacing',('letterSpacing' in c?LS*fs:0).toFixed(2));
+      e.setAttribute('x',x);e.setAttribute('y',y);});
+    var sh=hero.querySelector('.ez-sh'),hl=hero.querySelector('.ez-hl'),bl=hero.querySelector('.ez-blur');
+    if(sh)sh.setAttribute('transform','translate('+(fs*.012).toFixed(1)+' '+(fs*.03).toFixed(1)+')');
+    if(hl)hl.setAttribute('transform','translate(0 '+(-Math.max(1,fs*.005)).toFixed(1)+')');
+    if(bl)bl.setAttribute('stdDeviation',(fs*.02).toFixed(1));
+  }
+  fit();
+  if(document.fonts){document.fonts.load('900 100px Montserrat').then(fit);document.fonts.ready.then(fit);}
+  addEventListener('resize',fit);
+
+})();</script>
+<section class="d-quote silver"><p>“The messages I love most are the love between a mother and her child, new hope, and victory.”</p><cite>Ezekiel Charles Loishooki</cite></section>
+<section class="d-meet"><div class="wrap">
+  <div class="pic"><img src="media/portrait-vop.jpg" alt="Ezekiel Charles Loishooki carrying a Voice of Piece tote bag" loading="lazy"></div>
+  <div><p class="d-script" style="margin:0">meet the artist</p><h2>Ezekiel.</h2><p>After finishing secondary school in 2020, I didn&#x27;t go on to college, because I didn&#x27;t like the course. So I decided to grow my talent for drawing through practice, and I spent the whole of 2021 practising.</p><p>At home, many believe that success means going to college, and they did not believe drawing could succeed or earn a living. No one in my community had been a painter before. I answer by working very hard, sharing my work in more places, and asking God, who gave me this talent, to grow it. One day I will succeed, and they will believe and learn.</p><ul class="facts"><li>Arusha</li><li>Drawing for 4 years</li><li>Pencil, blue pen and acrylic</li></ul></div>
+</div></section>
+<section class="d-process silver"><div class="wrap">
+  <figure><img src="media/drawing-portrait.jpg" alt="Ezekiel at work on a giraffe drawing" loading="lazy"><figcaption>at work in Arusha</figcaption></figure>
+  <figure><img src="media/drawing-overhead.jpg" alt="Ezekiel shading a giraffe drawing" loading="lazy"></figure>
+  <figure><img src="media/giraffe-process.jpg" alt="A giraffe drawing in progress" loading="lazy"></figure>
+  <figure><img src="media/elephant-leaves.jpg" alt="A stippled elephant drawing from 2023" loading="lazy"></figure>
+</div></section>
+
+<section class="words" id="words"><div class="wrap" id="words-body" data-lang="en">
+  <div class="words-head"><div><p class="eyebrow"><span class="en">In the artist's words</span><span class="ko" lang="ko">작가의 말</span><span class="sw" lang="sw">Kwa maneno ya msanii</span></p><h2 class="h2"><span class="en">About <em>the work</em></span><span class="ko" lang="ko">작품 <em>이야기</em></span><span class="sw" lang="sw">Kuhusu <em>kazi</em></span></h2>
+    <p class="note en">Translated from the artist's own answers in Kiswahili, lightly edited for clarity.</p><p class="note ko" lang="ko">작가가 스와힐리어로 직접 쓴 답변을 옮기고 읽기 쉽게 다듬었습니다.</p><p class="note sw" lang="sw">Kwa maneno ya msanii mwenyewe, yamehaririwa kidogo ili yasomeke vizuri.</p></div>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">English</button><button type="button" data-set="ko" aria-pressed="false" lang="ko">한국어</button><button type="button" data-set="sw" aria-pressed="false" lang="sw">Kiswahili</button></div></div>
+<div class="entry"><h3><span class="en">How it began</span><span class="ko" lang="ko">시작</span><span class="sw" lang="sw">Nilivyoanza</span></h3><div><p class="en">After finishing secondary school in 2020, I didn’t continue to college because I didn’t like the course. Instead I decided to grow my gift for drawing, and I devoted the whole of 2021 to practice.</p><p class="ko" lang="ko">2020년에 중등학교를 마친 뒤, 전공이 맞지 않아 대학에 진학하지 않았습니다. 대신 그림에 대한 재능을 키우기로 마음먹고 2021년 한 해를 온전히 연습에 쏟았습니다.</p><p class="sw" lang="sw">Baada ya kumaliza kidato cha nne mwaka 2020, sikuendelea na chuo kwa sababu sikuipenda kozi ile. Hivyo niliamua kukuza kipaji changu cha uchoraji kwa kufanya mazoezi, na nilijikita kwenye mazoezi mwaka mzima wa 2021.</p></div></div>
+<div class="entry"><h3><span class="en">Style and themes</span><span class="ko" lang="ko">화풍과 주제</span><span class="sw" lang="sw">Mtindo na maudhui</span></h3><div><p class="en">I work in several media: black-and-white pencil, blue ballpoint pen and acrylic. The messages I return to most are the love between a mother and her child, new hope, and victory.</p><p class="ko" lang="ko">흑백 연필화, 파란 볼펜화, 아크릴화 등 여러 방식으로 작업합니다. 가장 자주 담는 메시지는 엄마와 아이 사이의 사랑, 새로운 희망, 그리고 승리입니다.</p><p class="sw" lang="sw">Ninafanya aina mbalimbali za sanaa, ikiwemo michoro ya penseli ya rangi nyeusi na nyeupe, michoro ya kalamu ya bluu, na uchoraji wa rangi za akriliki. Ujumbe ninaoupenda mara nyingi ni upendo kati ya mama na mtoto, tumaini jipya na ushindi.</p></div></div>
+<div class="entry"><h3><span class="en">Why I draw</span><span class="ko" lang="ko">그리는 이유</span><span class="sw" lang="sw">Kwa nini ninachora</span></h3><div><p class="en">I have loved drawing since I was little, when I drew cartoons. What drew me in most was seeing other artists’ work on social media, including YouTube. It won me over and gave me the drive to become an artist.</p><p class="ko" lang="ko">어릴 때 만화를 그리던 시절부터 그림을 좋아했습니다. 무엇보다 유튜브 같은 소셜 미디어에서 다른 작가들의 작품을 보며 마음이 끌렸고, 화가가 되고 싶다는 의지가 더 커졌습니다.</p><p class="sw" lang="sw">Nimependa sanaa ya uchoraji tangu nikiwa mdogo, nilipokuwa nikipenda kuchora katuni. Lakini kilichonivutia zaidi ni kuona kazi za wengine kwenye mitandao ya kijamii, ikiwemo YouTube. Nilishawishika, na ikaniongezea hamasa ya kuwa msanii.</p></div></div>
+<div class="entry"><h3><span class="en">What moves me</span><span class="ko" lang="ko">영감</span><span class="sw" lang="sw">Kinachonihamasisha</span></h3><div><p class="en">Family, first of all. When a family lives well, it gives you strength, and as an artist you find many messages in it. Many of my pictures of a mother’s love come from my own mother.</p><p class="ko" lang="ko">무엇보다 가족입니다. 가족이 잘 지낼 때 힘을 얻고, 화가로서 많은 메시지를 발견하게 됩니다. 엄마의 사랑을 그린 제 그림들은 대부분 저의 어머니에게서 나왔습니다.</p><p class="sw" lang="sw">Cha kwanza kabisa ni familia. Familia inapoishi vizuri inakupa nguvu, na kama msanii unapata jumbe mbalimbali. Picha zangu nyingi za upendo wa mama kwa mtoto zinatokana na mama yangu mzazi.</p></div></div>
+<div class="entry"><h3><span class="en">The road so far</span><span class="ko" lang="ko">걸어온 길</span><span class="sw" lang="sw">Safari yangu</span></h3><div><p class="en">At home, many believe success means going to college, and no one thought drawing could lead anywhere or earn a living. No one in my community had ever been a painter. I answer by working very hard, sharing my work in more places, and asking God, who gave me this gift, to help it grow. One day I will succeed, and they will believe and learn.</p><p class="ko" lang="ko">주변에서는 대학에 가야 성공한다고 믿었고, 그림으로 성공하거나 생계를 꾸릴 수 있다고 생각하지 않았습니다. 우리 마을에는 화가가 한 명도 없었으니까요. 저는 누구보다 열심히 작업하고, 더 많은 곳에 작품을 알리고, 이 재능을 주신 하나님께 그것을 키워 달라고 기도하며 답하고 있습니다. 언젠가 저는 해낼 것이고, 그들도 믿고 배우게 될 것입니다.</p><p class="sw" lang="sw">Kikwazo kikubwa ni kwamba jamii ya nyumbani inaamini kufanikiwa ni kwenda chuoni, na haiamini kwamba uchoraji unaweza kuleta mafanikio au kipato. Katika jamii yangu hakujawahi kuwa na mchoraji kabla yangu. Ninakabiliana na hili kwa kufanya kazi kwa bidii sana, kusambaza kazi zangu sehemu nyingi zaidi, na kumwomba Mungu aliyenipa kipaji hiki akikuze. Siku moja nitafanikiwa, nao wataamini na kujifunza.</p></div></div>
+<div class="entry"><h3><span class="en">A work I love</span><span class="ko" lang="ko">아끼는 작품</span><span class="sw" lang="sw">Kazi ninayoipenda</span></h3><div><p class="en">Twiga na Kipepeo (Giraffe and Butterfly), which carries the message of the scent of victory. It became one of my most loved pictures, and it opened the way to work with people who went on to support my art.</p><p class="ko" lang="ko">‘기린과 나비(Twiga na Kipepeo)’입니다. 승리의 향기라는 메시지를 담았습니다. 많은 사랑을 받은 그림이고, 이 작품 덕분에 제 그림을 후원해 주는 분들과 함께 일할 기회를 얻었습니다.</p><p class="sw" lang="sw">Moja ya kazi ninazozipenda ni Twiga na Kipepeo, inayobeba ujumbe wa harufu ya ushindi. Picha hii ilikuwa moja ya picha zilizopendwa sana, na ilinipa nafasi ya kufanya kazi na watu walioisaidia sanaa yangu.</p></div></div>
+<div class="entry"><h3><span class="en">Looking ahead</span><span class="ko" lang="ko">앞으로의 꿈</span><span class="sw" lang="sw">Malengo yangu</span></h3><div><p class="en">To teach young people the art of drawing, and to form a group of artists who work together.</p><p class="ko" lang="ko">어린 친구들에게 그림을 가르치고, 함께 작업하는 화가 모임을 만드는 것입니다.</p><p class="sw" lang="sw">Malengo yangu ya muda mrefu ni kujitahidi kuwafundisha vijana sanaa ya uchoraji, na kuunda kikundi cha wachoraji tunaofanya kazi pamoja.</p></div></div>
+</div></section>
+<section class="gallery silver" id="gallery"><div class="wrap">
+  <div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count">36 works</span></div>
+  <div class="group"><div class="jg"><button type="button" style="flex-grow:152.5;flex-basis:calc(var(--jg-h) * 1.525)" data-cap="A Bond Unspoken" aria-label="View larger: A Bond Unspoken"><span class="ph" style="padding-bottom:65.556%"><img src="works/recent/01.jpg" width="1800" height="1180" alt="Artwork by Ezekiel Charles Loishooki: A Bond Unspoken" loading="lazy"></span><span class="cap">A Bond Unspoken</span></button>
+<button type="button" style="flex-grow:158.7;flex-basis:calc(var(--jg-h) * 1.587)" data-cap="A Gentle Encounter" aria-label="View larger: A Gentle Encounter"><span class="ph" style="padding-bottom:63.000%"><img src="works/recent/02.jpg" width="1800" height="1134" alt="Artwork by Ezekiel Charles Loishooki: A Gentle Encounter" loading="lazy"></span><span class="cap">A Gentle Encounter</span></button>
+<button type="button" style="flex-grow:158.6;flex-basis:calc(var(--jg-h) * 1.586)" data-cap="A Place of Safety" aria-label="View larger: A Place of Safety"><span class="ph" style="padding-bottom:63.056%"><img src="works/recent/03.jpg" width="1800" height="1135" alt="Artwork by Ezekiel Charles Loishooki: A Place of Safety" loading="lazy"></span><span class="cap">A Place of Safety</span></button>
+<button type="button" style="flex-grow:65.9;flex-basis:calc(var(--jg-h) * 0.659)" data-cap="Beside You" aria-label="View larger: Beside You"><span class="ph" style="padding-bottom:151.643%"><img src="works/recent/04.jpg" width="1187" height="1800" alt="Artwork by Ezekiel Charles Loishooki: Beside You" loading="lazy"></span><span class="cap">Beside You</span></button>
+<button type="button" style="flex-grow:158.9;flex-basis:calc(var(--jg-h) * 1.589)" data-cap="Bound by Love" aria-label="View larger: Bound by Love"><span class="ph" style="padding-bottom:62.944%"><img src="works/recent/05.jpg" width="1800" height="1133" alt="Artwork by Ezekiel Charles Loishooki: Bound by Love" loading="lazy"></span><span class="cap">Bound by Love</span></button>
+<button type="button" style="flex-grow:160.1;flex-basis:calc(var(--jg-h) * 1.601)" data-cap="Hope Takes Flight" aria-label="View larger: Hope Takes Flight"><span class="ph" style="padding-bottom:62.444%"><img src="works/recent/06.jpg" width="1800" height="1124" alt="Artwork by Ezekiel Charles Loishooki: Hope Takes Flight" loading="lazy"></span><span class="cap">Hope Takes Flight</span></button>
+<button type="button" style="flex-grow:153.8;flex-basis:calc(var(--jg-h) * 1.538)" data-cap="Never Walking Alone" aria-label="View larger: Never Walking Alone"><span class="ph" style="padding-bottom:65.000%"><img src="works/recent/07.jpg" width="1800" height="1170" alt="Artwork by Ezekiel Charles Loishooki: Never Walking Alone" loading="lazy"></span><span class="cap">Never Walking Alone</span></button>
+<button type="button" style="flex-grow:64.3;flex-basis:calc(var(--jg-h) * 0.643)" data-cap="Spirit of Africa" aria-label="View larger: Spirit of Africa"><span class="ph" style="padding-bottom:155.575%"><img src="works/recent/08.jpg" width="1157" height="1800" alt="Artwork by Ezekiel Charles Loishooki: Spirit of Africa" loading="lazy"></span><span class="cap">Spirit of Africa</span></button>
+<button type="button" style="flex-grow:65.3;flex-basis:calc(var(--jg-h) * 0.653)" data-cap="Strength Within" aria-label="View larger: Strength Within"><span class="ph" style="padding-bottom:153.191%"><img src="works/recent/09.jpg" width="1175" height="1800" alt="Artwork by Ezekiel Charles Loishooki: Strength Within" loading="lazy"></span><span class="cap">Strength Within</span></button>
+<button type="button" style="flex-grow:151.6;flex-basis:calc(var(--jg-h) * 1.516)" data-cap="The Journey Together" aria-label="View larger: The Journey Together"><span class="ph" style="padding-bottom:65.944%"><img src="works/recent/10.jpg" width="1800" height="1187" alt="Artwork by Ezekiel Charles Loishooki: The Journey Together" loading="lazy"></span><span class="cap">The Journey Together</span></button>
+<button type="button" style="flex-grow:153.6;flex-basis:calc(var(--jg-h) * 1.536)" data-cap="Trust" aria-label="View larger: Trust"><span class="ph" style="padding-bottom:65.111%"><img src="works/recent/11.jpg" width="1800" height="1172" alt="Artwork by Ezekiel Charles Loishooki: Trust" loading="lazy"></span><span class="cap">Trust</span></button>
+<button type="button" style="flex-grow:159.7;flex-basis:calc(var(--jg-h) * 1.597)" data-cap="Under Their Protection" aria-label="View larger: Under Their Protection"><span class="ph" style="padding-bottom:62.611%"><img src="works/recent/12.jpg" width="1800" height="1127" alt="Artwork by Ezekiel Charles Loishooki: Under Their Protection" loading="lazy"></span><span class="cap">Under Their Protection</span></button>
+<button type="button" style="flex-grow:67.7;flex-basis:calc(var(--jg-h) * 0.677)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:147.662%"><img src="works/2023/2023-01.jpg" width="1219" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:67.7;flex-basis:calc(var(--jg-h) * 0.677)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:147.662%"><img src="works/2023/2023-02.jpg" width="1219" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:68.7;flex-basis:calc(var(--jg-h) * 0.687)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:145.513%"><img src="works/2023/2023-03.jpg" width="1237" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:68.8;flex-basis:calc(var(--jg-h) * 0.688)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:145.396%"><img src="works/2023/2023-04.jpg" width="1238" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:68.1;flex-basis:calc(var(--jg-h) * 0.681)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:146.939%"><img src="works/2023/2023-06.jpg" width="1225" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:67.6;flex-basis:calc(var(--jg-h) * 0.676)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:148.026%"><img src="works/2023/2023-10.jpg" width="1216" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:68.1;flex-basis:calc(var(--jg-h) * 0.681)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:146.819%"><img src="works/2023/2023-21.jpg" width="1226" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:67.7;flex-basis:calc(var(--jg-h) * 0.677)" data-cap="10.5 × 15.5" aria-label="View larger: 10.5 × 15.5"><span class="ph" style="padding-bottom:147.662%"><img src="works/2023/2023-41.jpg" width="1219" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 10.5 × 15.5" loading="lazy"></span><span class="cap">10.5 × 15.5</span></button>
+<button type="button" style="flex-grow:119.0;flex-basis:calc(var(--jg-h) * 1.190)" data-cap="12.5 × 10.5" aria-label="View larger: 12.5 × 10.5"><span class="ph" style="padding-bottom:84.000%"><img src="works/2023/2023-32.jpg" width="1800" height="1512" alt="Artwork by Ezekiel Charles Loishooki: 12.5 × 10.5" loading="lazy"></span><span class="cap">12.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-05.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-12.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-13.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-20.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-22.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-30.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-31.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-33.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-34.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-35.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-36.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-40.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:147.7;flex-basis:calc(var(--jg-h) * 1.477)" data-cap="15.5 × 10.5" aria-label="View larger: 15.5 × 10.5"><span class="ph" style="padding-bottom:67.722%"><img src="works/2023/2023-42.jpg" width="1800" height="1219" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 10.5" loading="lazy"></span><span class="cap">15.5 × 10.5</span></button>
+<button type="button" style="flex-grow:68.9;flex-basis:calc(var(--jg-h) * 0.689)" data-cap="15.5 × 22.5" aria-label="View larger: 15.5 × 22.5"><span class="ph" style="padding-bottom:145.161%"><img src="works/2023/2023-11.jpg" width="1240" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 22.5" loading="lazy"></span><span class="cap">15.5 × 22.5</span></button>
+<button type="button" style="flex-grow:68.9;flex-basis:calc(var(--jg-h) * 0.689)" data-cap="15.5 × 22.5" aria-label="View larger: 15.5 × 22.5"><span class="ph" style="padding-bottom:145.161%"><img src="works/2023/2023-23.jpg" width="1240" height="1800" alt="Artwork by Ezekiel Charles Loishooki: 15.5 × 22.5" loading="lazy"></span><span class="cap">15.5 × 22.5</span></button></div></div>
+</div></section>
+<script id="ez-grid">(function(){
+  /* Exact-fit gallery: every block fills 6 columns × 2 rows (2 × 2 on phones), so rows never leave gaps.
+     Landscape works go in the wide slots, portrait works in the tall slots, so almost nothing is cropped.
+     Works with the static gallery and with whatever vop-live loads from the database. */
+  var gal=document.getElementById('gallery'); if(!gal)return;
+  var mq=matchMedia('(max-width:700px)'), busy=false, PORTRAIT=0.7;
+  function ratio(b){var im=b.querySelector('img');if(!im)return 1;var w=+im.getAttribute('width')||im.naturalWidth||1,h=+im.getAttribute('height')||im.naturalHeight||1;return w/h;}
+  function quote(){var d=document.createElement('div');d.className='ez-quote';d.setAttribute('data-no-i18n','');d.setAttribute('aria-hidden','true');
+    var q=document.querySelector('.d-quote p');d.innerHTML=q?q.innerHTML:'';return d;}
+  function rows(jg){var cols=mq.matches?2:6,g=parseFloat(getComputedStyle(jg).columnGap)||0,W=jg.clientWidth;if(!W)return;
+    var c=(W-(cols-1)*g)/cols, tall=mq.matches?c:2*c+g;           // width of a portrait slot
+    jg.style.gridAutoRows=Math.max(60,(tall/PORTRAIT-g)/2).toFixed(1)+'px';}
+  function lay(jg){
+    [].forEach.call(jg.querySelectorAll('.ez-quote'),function(n){n.remove();});
+    var bs=[].slice.call(jg.children).filter(function(n){return n.tagName==='BUTTON';});
+    if(!bs.length)return;
+    bs.forEach(function(b,i){if(b.dataset.ezI==null)b.dataset.ezI=i;});
+    bs.sort(function(a,b){return a.dataset.ezI-b.dataset.ezI;});
+    var out=[],row=1;
+    function put(el,c,cs,r,rs){el.style.gridColumn=c+' / span '+cs;el.style.gridRow=(row+r)+' / span '+rs;out.push(el);}
+    if(mq.matches){
+      var list=bs.slice();
+      while(list.length){var b=list.shift();
+        if(ratio(b)>=1){put(b,1,2,0,2);}
+        else{var j=-1;for(var i=0;i<list.length;i++)if(ratio(list[i])<1){j=i;break;}
+          put(b,1,1,0,2); if(j>=0)put(list.splice(j,1)[0],2,1,0,2); else put(quote(),2,1,0,2);}
+        row+=2;}
+    }else{
+      var L=[],P=[],k=0,flip=false,cyc=['L','T','R','T'];
+      bs.forEach(function(b){(ratio(b)>=1?L:P).push(b);});
+      while(L.length||P.length){
+        var want=cyc[k%4],t;
+        if((want==='L'||want==='R')&&L.length>=3)t=want;
+        else if(want==='T'&&P.length>=3)t='T';
+        else if(L.length>=3)t=(flip=!flip)?'L':'R';
+        else if(P.length>=3)t='T';
+        else if(L.length&&P.length)t=(flip=!flip)?'PL':'LP';
+        else if(L.length===2)t='L2';else if(L.length===1)t='L1';else if(P.length===2)t='P2';else t='P1';
+        k++;
+        if(t==='L'){put(L.shift(),1,4,0,2);put(L.shift(),5,2,0,1);put(L.shift(),5,2,1,1);}
+        else if(t==='R'){put(L.shift(),1,2,0,1);put(L.shift(),1,2,1,1);put(L.shift(),3,4,0,2);}
+        else if(t==='T'){put(P.shift(),1,2,0,2);put(P.shift(),3,2,0,2);put(P.shift(),5,2,0,2);}
+        else if(t==='PL'){put(P.shift(),1,2,0,2);put(L.shift(),3,4,0,2);}
+        else if(t==='LP'){put(L.shift(),1,4,0,2);put(P.shift(),5,2,0,2);}
+        else if(t==='L2'){put(L.shift(),1,4,0,2);put(L.shift(),5,2,0,1);put(quote(),5,2,1,1);}
+        else if(t==='L1'){put(L.shift(),1,4,0,2);put(quote(),5,2,0,2);}
+        else if(t==='P2'){put(P.shift(),1,2,0,2);put(quote(),3,2,0,2);put(P.shift(),5,2,0,2);}
+        else {put(P.shift(),1,2,0,2);put(quote(),3,4,0,2);}
+        row+=2;}
+    }
+    out.forEach(function(el){jg.appendChild(el);});   // DOM order = visual order, so the viewer's next/prev follows the grid
+    rows(jg);
+  }
+  function all(){busy=true;[].forEach.call(gal.querySelectorAll('.jg'),lay);mo.takeRecords();busy=false;}
+  var mo=new MutationObserver(function(){if(!busy)all();});
+  all();
+  mo.observe(gal,{childList:true,subtree:true});
+  if(mq.addEventListener)mq.addEventListener('change',all);else mq.addListener(all);
+  if(window.ResizeObserver)new ResizeObserver(function(){[].forEach.call(gal.querySelectorAll('.jg'),rows);}).observe(gal);
+  window.addEventListener('load',function(){[].forEach.call(gal.querySelectorAll('.jg'),rows);});
+  new MutationObserver(function(){var q=document.querySelector('.d-quote p');if(!q)return;
+    [].forEach.call(document.querySelectorAll('.ez-quote'),function(d){d.innerHTML=q.innerHTML;});})
+    .observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();</script>
+
+<section class="d-film"><div class="wrap">
+  <video controls preload="none" playsinline poster="media/arusha-address-poster.jpg"><source src="media/arusha-address.mp4" type="video/mp4"></video>
+  <div><p class="eyebrow">Film</p><h2>Speaking <em style="font-style:italic">in Arusha</em></h2><p style="max-width:30em;color:var(--soft)">Ezekiel talking about his work with visitors in Arusha.</p><a class="btn" href="https://www.instagram.com/ezekielart001/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Instagram</a></div>
+</div></section>
+
+<section class="enquire silver" id="contact"><div class="wrap"><p class="eyebrow">Voice of Piece</p>
+  <h2>Interested in Ezekiel's work?</h2>
+  <p>Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.</p>
+  <a class="btn" href="mailto:voiceofpiece2024@gmail.com?subject=About%20Ezekiel%20Charles%20Loishooki">Enquire about this work</a><br><a class="back" href="../#artists">← All artists</a>
+</div></section>
+<footer class="foot"><div class="wrap"><a href="../">Voice <b>of</b> Piece</a><small>Artwork © Ezekiel Charles Loishooki. Shared through Voice of Piece.</small><a class="vop-login" href="/studio/#ezekiel" style="display:table;margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none">Studio</a></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button type="button" class="x" id="lb-x">Close</button>
+  <button type="button" class="prev" id="lb-prev" aria-label="Previous work">‹</button>
+  <figure style="margin:0;text-align:center"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+  <button type="button" class="next" id="lb-next" aria-label="Next work">›</button>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('words-body');
+  if(box) box.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){box.setAttribute('data-lang',b.dataset.set);box.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  var items=Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0,opener=null,NAME="Ezekiel Charles Loishooki";
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur],im=b.querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+items.length}
+  function open(i){opener=items[i];show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus()}
+  items.forEach(function(b,i){b.addEventListener('click',function(){open(i)})});
+  document.getElementById('lb-x').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+})();
+</script>
+<script>
+  /* On <slug>.voiceofpiece.org, links back to the main site go to https://voiceofpiece.org/. */
+  (function () {
+    var h = location.hostname;
+    if (!/\.voiceofpiece\.org$/.test(h) || h === 'www.voiceofpiece.org') return;
+    document.querySelectorAll('a[href^="../"]').forEach(function (a) {
+      a.href = 'https://voiceofpiece.org/' + a.getAttribute('href').slice(3);
+    });
+  })();
+</script>
+<script id="vop-works-data">window.__VOP_WORKS={"works/recent/01.jpg": {"id": "VOP-EZK-001", "artist": "Ezekiel Charles Loishooki", "title": "A Bond Unspoken", "year": "2025–2026"}, "works/recent/02.jpg": {"id": "VOP-EZK-002", "artist": "Ezekiel Charles Loishooki", "title": "A Gentle Encounter", "year": "2025–2026"}, "works/recent/03.jpg": {"id": "VOP-EZK-003", "artist": "Ezekiel Charles Loishooki", "title": "A Place of Safety", "year": "2025–2026"}, "works/recent/04.jpg": {"id": "VOP-EZK-004", "artist": "Ezekiel Charles Loishooki", "title": "Beside You", "year": "2025–2026"}, "works/recent/05.jpg": {"id": "VOP-EZK-005", "artist": "Ezekiel Charles Loishooki", "title": "Bound by Love", "year": "2025–2026"}, "works/recent/06.jpg": {"id": "VOP-EZK-006", "artist": "Ezekiel Charles Loishooki", "title": "Hope Takes Flight", "year": "2025–2026"}, "works/recent/07.jpg": {"id": "VOP-EZK-007", "artist": "Ezekiel Charles Loishooki", "title": "Never Walking Alone", "year": "2025–2026"}, "works/recent/08.jpg": {"id": "VOP-EZK-008", "artist": "Ezekiel Charles Loishooki", "title": "Spirit of Africa", "year": "2025–2026"}, "works/recent/09.jpg": {"id": "VOP-EZK-009", "artist": "Ezekiel Charles Loishooki", "title": "Strength Within", "year": "2025–2026"}, "works/recent/10.jpg": {"id": "VOP-EZK-010", "artist": "Ezekiel Charles Loishooki", "title": "The Journey Together", "year": "2025–2026"}, "works/recent/11.jpg": {"id": "VOP-EZK-011", "artist": "Ezekiel Charles Loishooki", "title": "Trust", "year": "2025–2026"}, "works/recent/12.jpg": {"id": "VOP-EZK-012", "artist": "Ezekiel Charles Loishooki", "title": "Under Their Protection", "year": "2025–2026"}, "works/2023/2023-01.jpg": {"id": "VOP-EZK-013", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-02.jpg": {"id": "VOP-EZK-014", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-03.jpg": {"id": "VOP-EZK-015", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-04.jpg": {"id": "VOP-EZK-016", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-06.jpg": {"id": "VOP-EZK-017", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-10.jpg": {"id": "VOP-EZK-018", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-21.jpg": {"id": "VOP-EZK-019", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-41.jpg": {"id": "VOP-EZK-020", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "10.5", "h": "15.5"}, "works/2023/2023-32.jpg": {"id": "VOP-EZK-021", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "12.5", "h": "10.5"}, "works/2023/2023-05.jpg": {"id": "VOP-EZK-022", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-12.jpg": {"id": "VOP-EZK-023", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-13.jpg": {"id": "VOP-EZK-024", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-20.jpg": {"id": "VOP-EZK-025", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-22.jpg": {"id": "VOP-EZK-026", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-30.jpg": {"id": "VOP-EZK-027", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-31.jpg": {"id": "VOP-EZK-028", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-33.jpg": {"id": "VOP-EZK-029", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-34.jpg": {"id": "VOP-EZK-030", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-35.jpg": {"id": "VOP-EZK-031", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-36.jpg": {"id": "VOP-EZK-032", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-40.jpg": {"id": "VOP-EZK-033", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-42.jpg": {"id": "VOP-EZK-034", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "10.5"}, "works/2023/2023-11.jpg": {"id": "VOP-EZK-035", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "22.5"}, "works/2023/2023-23.jpg": {"id": "VOP-EZK-036", "artist": "Ezekiel Charles Loishooki", "year": "2023", "w": "15.5", "h": "22.5"}};</script>
+<script id="vop-works">(function(){
+  var W=window.__VOP_WORKS||{}, lb=document.getElementById('lb'), img=document.getElementById('lb-img');
+  if(!lb||!img)return;
+  var L={
+   en:{title:'Title',artist:'Artist',year:'Year',size:'Size',medium:'Medium',place:'Made in',desc:'About the work',words:"In the artist's words",signed:'Signed',framed:'Framed',exhibited:'Exhibited',id:'Catalogue no.',shop:'View on voiceofpiece.com',yes:'Yes',no:'No',ask:'Ask about this work'},
+   ko:{title:'제목',artist:'작가',year:'제작 연도',size:'크기',medium:'재료',place:'제작 지역',desc:'작품 설명',words:'작가의 말',signed:'서명',framed:'액자',exhibited:'전시 이력',id:'작품 번호',shop:'voiceofpiece.com에서 보기',yes:'있음',no:'없음',ask:'이 작품 문의하기'},
+   sw:{title:'Jina la kazi',artist:'Msanii',year:'Mwaka',size:'Ukubwa',medium:'Malighafi',place:'Imetengenezwa',desc:'Kuhusu kazi',words:'Kwa maneno ya msanii',signed:'Sahihi',framed:'Fremu',exhibited:'Imeonyeshwa',id:'Namba ya katalogi',shop:'Tazama kwenye voiceofpiece.com',yes:'Ndiyo',no:'Hapana',ask:'Uliza kuhusu kazi hii'}};
+  var st=document.createElement('style');
+  st.textContent='.lb{background:rgba(8,8,8,.98)!important}#lb-info p,#lb-info dd,#lb-info a{text-transform:none!important}#lb-info .t,#lb-info .a,#lb-info dd,#lb-info .p p{letter-spacing:normal!important}#lb-info .acts a{text-transform:uppercase!important}.lb.open{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:clamp(20px,3vw,48px);align-items:center}'+
+  '.lb figure{min-width:0}.lb #lb-img{max-height:calc(100vh - 150px)}'+
+  '#lb-info{align-self:stretch;overflow:auto;max-height:calc(100vh - 120px);padding:clamp(18px,2vw,28px);border-left:1px solid rgba(255,255,255,.1);color:#E9E4DC;font:300 14px/1.7 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;justify-content:flex-start}#lb-info>:first-child{margin-top:auto}#lb-info>:last-child{margin-bottom:auto}'+
+  '#lb-info .t{margin:0 0 4px;font:400 clamp(24px,2.2vw,32px)/1.2 "Cormorant Garamond","Playfair Display","Gowun Batang",Georgia,serif;color:#E4C27E}'+
+  '#lb-info .a{margin:0 0 22px;font:italic 400 18px/1.4 "Cormorant Garamond",Georgia,serif;color:#BDB7AD}'+
+  '#lb-info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}'+
+  '#lb-info dt{font:500 10px/1.9 "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F;white-space:nowrap}'+
+  '#lb-info dd{margin:0;color:#E9E4DC}'+
+  '#lb-info .p{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}'+
+  '#lb-info .p h4{margin:0 0 8px;font:500 10px "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F}'+
+  '#lb-info .p p{margin:0;font:400 16px/1.7 "Cormorant Garamond","Gowun Batang",Georgia,serif;color:#DCD6CC}'+
+  '#lb-info .acts{display:flex;flex-direction:column;gap:10px;margin-top:24px}'+
+  '#lb-info .acts a{display:block;padding:12px 16px;border:1px solid rgba(201,164,106,.6);color:#E4C27E;text-align:center;text-decoration:none;font:500 10px "Montserrat",sans-serif;letter-spacing:.3em;text-transform:uppercase}'+
+  '#lb-info .acts a:hover{background:#C9A46A;color:#111}'+
+  'html[lang="ko"] #lb-info dt,html[lang="ko"] #lb-info .p h4{letter-spacing:.08em!important}'+
+  '@media (max-width:860px){.lb.open{grid-template-columns:1fr;align-content:start;overflow:auto;padding-top:64px}.lb #lb-img{max-height:60vh}#lb-info{border-left:0;border-top:1px solid rgba(255,255,255,.1);max-height:none;overflow:visible}}';
+  document.head.appendChild(st);
+  var box=document.createElement('aside');box.id='lb-info';box.setAttribute('aria-live','polite');
+  var fig=lb.querySelector('figure'); if(fig&&fig.nextSibling)lb.insertBefore(box,fig.nextSibling);else lb.appendChild(box);
+  function lang(){var l=document.documentElement.getAttribute('lang');return L[l]?l:'en';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pick(v,l){if(!v)return '';if(typeof v==='string')return v;return v[l]||v.en||'';}
+  function size(r){if(!r.w||!r.h)return '';var s=r.w+' × '+r.h;if(r.unit==='cm'){var i=function(x){return (parseFloat(x)/2.54).toFixed(1).replace(/\.0$/,'');};return s+' cm ('+i(r.w)+' × '+i(r.h)+' in)';}if(r.unit==='in')return s+' in';return s;}
+  function render(){var src=img.getAttribute('src')||'';var key=null;
+    for(var k in W){if(src===k||src.slice(-k.length-1)==='/'+k){key=k;break;}}
+    var r=W[key]||{};var l=lang(),T=L[l],h='';
+    var title=pick(r.title,l);
+    h+= title?'<p class="t">'+esc(title)+'</p>':'';
+    h+='<p class="a">'+esc(r.artist||window.__VOP_ARTIST||'')+'</p><dl>';
+    function row(lbl,v){if(v)h+='<dt>'+esc(lbl)+'</dt><dd>'+esc(v)+'</dd>';}
+    row(T.year,r.year);row(T.size,size(r));row(T.medium,pick(r.medium,l));row(T.place,pick(r.place,l));
+    if(r.signed)row(T.signed,r.signed==='yes'?T.yes:T.no); if(r.framed)row(T.framed,r.framed==='yes'?T.yes:T.no);
+    row(T.exhibited,pick(r.exhibited,l));row(T.id,r.id);h+='</dl>';
+    var d=pick(r.desc,l);if(d)h+='<div class="p"><h4>'+esc(T.desc)+'</h4><p>'+esc(d)+'</p></div>';
+    var w=pick(r.words,l);if(w)h+='<div class="p"><h4>'+esc(T.words)+'</h4><p>'+esc(w)+'</p></div>';
+    h+='<div class="acts">';
+    if(r.shop)h+='<a href="'+esc(r.shop)+'" target="_blank" rel="noopener">'+esc(T.shop)+' ↗</a>';
+    var subj=encodeURIComponent((r.id?r.id+' — ':'')+(title||'Artwork')+' — '+(r.artist||''));
+    h+='<a href="mailto:voiceofpiece2024@gmail.com?subject='+subj+'">'+esc(T.ask)+'</a>';
+    if(ADMIN&&r.id)h+='<a href="/studio/#'+SLUG+'/'+encodeURIComponent(r.id)+'" target="_blank" rel="noopener" style="border-style:dashed;color:#9E988F">Edit ✎</a>';
+    h+='</div>';
+    box.innerHTML=h;}
+  // Admin only: if signed in to the studio, show an Edit button (visitors never see it).
+  var ADMIN=false,SLUG=location.pathname.split('/').filter(Boolean)[0]||'';
+  if(SLUG&&window.fetch)fetch('/api/studio/me',{credentials:'same-origin',headers:{accept:'application/json'}})
+    .then(function(r){if(r.ok){ADMIN=true;galleryEdit();if(lb.classList.contains('open'))render();}}).catch(function(){});
+  function galleryEdit(){
+    var h=[].filter.call(document.querySelectorAll('h2'),function(x){return /^\s*(the\s+gallery|갤러리|matunzio)\s*$/i.test(x.textContent.replace(/Studio/,''));})[0];
+    if(!h)h=document.querySelector('h1');   // pages without a gallery heading: next to the artist's name
+    if(!h)return;
+    var a=document.createElement('a');a.className='vop-edit';a.href='/studio/#'+SLUG;a.target='_blank';a.rel='noopener';a.textContent='Studio';
+    a.style.cssText='display:inline-block;margin-left:16px;padding:6px 12px;border:1px dashed rgba(201,164,106,.6);color:#C9A46A;text-decoration:none;font:500 11px/1.4 Montserrat,sans-serif;font-style:normal;letter-spacing:.2em;text-transform:uppercase;vertical-align:middle';
+    function keep(){if(!h.querySelector('.vop-edit'))h.appendChild(a);}
+    keep();new MutationObserver(keep).observe(h,{childList:true});
+    // also in the top menu
+    var nav=document.querySelector('nav[aria-label="Page"]');if(!nav)return;
+    var n=document.createElement('a');n.className='vop-studio';n.href='/studio/#'+SLUG;n.target='_blank';n.rel='noopener';n.textContent='Studio';n.style.color='#C9A46A';
+    function keepNav(){if(!nav.querySelector('.vop-studio'))nav.appendChild(n);}
+    keepNav();new MutationObserver(keepNav).observe(nav,{childList:true});}
+  new MutationObserver(render).observe(img,{attributes:true,attributeFilter:['src']});
+  new MutationObserver(function(){if(lb.classList.contains('open'))render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+<script id="vop-live">(function(){
+  // Rebuild the gallery from the database (/api). If anything fails,
+  // the static gallery already in the page stays exactly as it is.
+  var h=location.hostname, m=h.match(/^([a-z0-9-]+)\.voiceofpiece\.org$/);
+  var slug=(m&&m[1]!=='www')?m[1]:(location.pathname.split('/').filter(Boolean)[0]||'');
+  if(!slug||location.protocol==='file:')return;
+  var W=window.__VOP_WORKS||(window.__VOP_WORKS={});
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function lang(){var l=document.documentElement.getAttribute('lang');return /^(en|ko|sw)$/.test(l)?l:'en';}
+  function tx(w,f,l){var t=w.texts||{};return (t[l]&&t[l][f])||(t.en&&t.en[f])||(t.sw&&t.sw[f])||'';}
+  function perLang(w,f){var o={};['en','ko','sw'].forEach(function(l){var t=w.texts&&w.texts[l];if(t&&t[f])o[l]=t[f];});return Object.keys(o).length?o:null;}
+  function num(n){return n==null?'':String(+n);}
+  fetch('/api/artists/'+slug+'/artworks',{headers:{accept:'application/json'}})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(function(data){
+    var works=(data.artworks||[]).filter(function(w){return w.images&&w.images.length;});
+    if(!works.length)return;
+    var name=data.artist.name;
+    // info-panel data, keyed by photo URL (and old static path, for featured images)
+    Object.keys(W).forEach(function(k){delete W[k];});
+    works.forEach(function(w){
+      var rec={id:w.catalogue_no,artist:name,title:perLang(w,'title'),year:w.year||'',w:num(w.width),h:num(w.height),unit:w.unit||'',
+        medium:perLang(w,'medium'),place:w.place?{en:w.place}:null,desc:perLang(w,'description'),words:perLang(w,'artist_words'),
+        signed:w.signed==null?'':(w.signed?'yes':'no'),framed:w.framed==null?'':(w.framed?'yes':'no'),
+        exhibited:w.exhibited?{en:w.exhibited}:null,shop:w.shop_url||''};
+      W[w.images[0].url]=rec;
+      var sp=w.images[0].source_path; if(sp)W[sp.split('/').slice(1).join('/')]=rec;
+    });
+    var gal=document.getElementById('gallery'), oldGroups=gal?gal.querySelectorAll('.group'):[];
+    var jgExists=gal&&gal.querySelector('.jg');
+    if(!jgExists&&works.length<2){rebind();return;}   // single-work page: keep the featured frame
+    var grouped=oldGroups.length>1, groups=[], idx={};
+    works.forEach(function(w){
+      var label='';
+      if(grouped){label=(w.year||'');if(w.width&&w.height&&!w.unit)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height);else if(w.width&&w.height)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height)+' '+w.unit;}
+      if(!(label in idx)){idx[label]=groups.length;groups.push({label:label,items:[]});}
+      groups[idx[label]].items.push(w);
+    });
+    var html=groups.map(function(g){
+      return '<div class="group">'+(g.label?'<h3>'+esc(g.label)+'</h3>':'')+'<div class="jg">'+g.items.map(function(w){
+        var im=w.images[0],iw=im.width||1000,ih=im.height||1000,r=iw/ih,t=tx(w,'title','en');
+        var alt=t?(t+', by '+name):('Artwork by '+name);
+        return '<button type="button" style="flex-grow:'+(r*100).toFixed(1)+';flex-basis:calc(var(--jg-h) * '+r.toFixed(3)+')" data-cap="'+esc(t)+'" aria-label="View larger: '+esc(alt)+'">'+
+          '<span class="ph" style="padding-bottom:'+(100/r).toFixed(3)+'%"><img src="'+esc(im.url)+'" width="'+iw+'" height="'+ih+'" alt="'+esc(alt)+'" loading="lazy"></span>'+
+          (t?'<span class="cap">'+esc(t)+'</span>':'')+'</button>';
+      }).join('\n')+'</div></div>';
+    }).join('\n');
+    if(jgExists){
+      oldGroups.forEach(function(g){g.parentNode.removeChild(g);});
+      gal.querySelector('.wrap').insertAdjacentHTML('beforeend',html);
+    }else{
+      var sec=document.createElement('section');sec.className='gallery';sec.id='gallery-db';
+      sec.innerHTML='<div class="wrap"><div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count"></span></div>'+html+'</div>';
+      var c=document.getElementById('contact');c.parentNode.insertBefore(sec,c);gal=sec;
+    }
+    var cnt=gal.querySelector('.count');
+    if(cnt){var fresh=document.createElement('span');fresh.className='count';fresh.setAttribute('data-no-i18n','');cnt.parentNode.replaceChild(fresh,cnt);
+      var n=works.length,setC=function(){var l=lang();fresh.textContent=l==='ko'?'작품 '+n+'점':l==='sw'?'Kazi '+n:(n+' work'+(n===1?'':'s'));};
+      setC();new MutationObserver(setC).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});}
+    rebind(name);
+  }).catch(function(e){console.warn('Gallery from database unavailable, using the static gallery.',e);});
+
+  // Lightbox that always uses the current gallery items.
+  function rebind(name){
+    var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+    if(!lb||!img)return;
+    ['lb-x','lb-prev','lb-next'].forEach(function(id){var b=document.getElementById(id);if(b)b.replaceWith(b.cloneNode(true));});
+    document.querySelectorAll('[data-lb]').forEach(function(b){b.replaceWith(b.cloneNode(true));});
+    var NAME=name||'',cur=0,opener=null;
+    function items(){return Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));}
+    function show(i){var it=items();if(!it.length)return;cur=(i+it.length)%it.length;var b=it[cur],im=b.querySelector('img');img.src=im.getAttribute('src');img.alt=im.alt;
+      cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+it.length;}
+    function open(b){opener=b;show(items().indexOf(b));lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus();}
+    function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus();}
+    document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.jg button, [data-lb]');if(b){e.preventDefault();open(b);}});
+    document.getElementById('lb-x').addEventListener('click',close);
+    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
+    window.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape'||e.key==='ArrowRight'||e.key==='ArrowLeft'){e.stopImmediatePropagation();e.preventDefault();}
+      if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);},true);
+  }
+})();
+</script>
+<script id="vop-i18n-data">window.__VOP_I18N={"ko": {"Arusha": "아루샤", "meet the artist": "작가를 만나다", "Close": "닫기", "After finishing secondary school in 2020, I didn't go on to college, because I didn't like the course. So I decided to grow my talent for drawing through practice, and I spent the whole of 2021 practising.": "2020년에 중등학교를 마친 뒤, 전공이 맞지 않아 대학에 진학하지 않았습니다. 대신 그림에 대한 재능을 키우기로 마음먹고 2021년 한 해를 온전히 연습에 쏟았습니다.", "At home, many believe that success means going to college, and they did not believe drawing could succeed or earn a living. No one in my community had been a painter before. I answer by working very hard, sharing my work in more places, and asking God, who gave me this talent, to grow it. One day I will succeed, and they will believe and learn.": "주변에서는 대학에 가야 성공한다고 믿었고, 그림으로 성공하거나 생계를 꾸릴 수 있다고 생각하지 않았습니다. 우리 마을에는 화가가 한 명도 없었으니까요. 저는 누구보다 열심히 작업하고, 더 많은 곳에 작품을 알리고, 이 재능을 주신 하나님께 그것을 키워 달라고 기도하며 답하고 있습니다. 언젠가 저는 해낼 것이고, 그들도 믿고 배우게 될 것입니다.", "Contact": "연락", "Enquire about this work": "작품 문의하기", "See the work": "작품 보기", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "연락 주시면 작가와 연결해 드립니다. 모든 판매는 공정한 조건으로 이루어지며, 작가의 이름이 명시되고 정당한 대가가 지급됩니다.", "at work in Arusha": "아루샤의 작업 현장", "← All artists": "← 전체 작가", "Words": "작가의 말", "Ezekiel talking about his work with visitors in Arusha.": "아루샤에서 방문객들에게 자신의 작품을 이야기하는 Ezekiel.", "The <em>gallery<\/em>": "<em>갤러리<\/em>", "Selected works": "선별 작품", "welcome to his page": "그의 페이지에 오신 것을 환영합니다", "Film": "영상", "Speaking <em style=\"font-style:italic\">in Arusha<\/em>": "<em style=\"font-style:italic\">아루샤<\/em>에서의 이야기", "<b>Ezekiel Charles Loishooki<\/b> draws wildlife and quiet moments of love in pencil and blue pen, often about a mother and her child, new hope, and victory.": "<b>Ezekiel Charles Loishooki<\/b>는 연필과 파란 볼펜으로 야생동물과 조용한 사랑의 순간을 그립니다. 엄마와 아이, 새로운 희망, 승리가 그의 주된 이야기입니다.", "Gallery": "갤러리", "“The messages I love most are the love between a mother and her child, new hope, and victory.”": "“제가 가장 사랑하는 메시지는 엄마와 아이 사이의 사랑, 새로운 희망, 그리고 승리입니다.”", "Pencil, blue pen and acrylic": "연필, 파란 볼펜, 아크릴"}, "sw": {"Arusha": "Arusha", "meet the artist": "mfahamu msanii", "Close": "Funga", "After finishing secondary school in 2020, I didn't go on to college, because I didn't like the course. So I decided to grow my talent for drawing through practice, and I spent the whole of 2021 practising.": "Baada ya kumaliza kidato cha nne mwaka 2020, sikuendelea na chuo kwa sababu sikuipenda kozi ile. Hivyo niliamua kukuza kipaji changu cha uchoraji kwa mazoezi, na nilitumia mwaka mzima wa 2021 kufanya mazoezi.", "At home, many believe that success means going to college, and they did not believe drawing could succeed or earn a living. No one in my community had been a painter before. I answer by working very hard, sharing my work in more places, and asking God, who gave me this talent, to grow it. One day I will succeed, and they will believe and learn.": "Nyumbani wengi wanaamini kwamba kufanikiwa ni kwenda chuoni, na hawakuamini kwamba uchoraji unaweza kuleta mafanikio au kipato. Katika jamii yangu hakujawahi kuwa na mchoraji kabla yangu. Ninajibu kwa kufanya kazi kwa bidii sana, kusambaza kazi zangu sehemu nyingi zaidi, na kumwomba Mungu aliyenipa kipaji hiki akikuze. Siku moja nitafanikiwa, nao wataamini na kujifunza.", "Contact": "Mawasiliano", "Enquire about this work": "Uliza kuhusu kazi hii", "See the work": "Tazama kazi", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "Tuandikie nasi tutakuunganisha na msanii. Kila mauzo hufanyika kwa masharti ya haki, msanii akitambuliwa na kulipwa.", "at work in Arusha": "akiwa kazini Arusha", "← All artists": "← Wasanii wote", "Words": "Maneno", "Ezekiel talking about his work with visitors in Arusha.": "Ezekiel akizungumza kuhusu kazi yake na wageni huko Arusha.", "The <em>gallery<\/em>": "<em>Matunzio<\/em>", "Selected works": "Kazi teule", "welcome to his page": "karibu kwenye ukurasa wake", "Film": "Filamu", "Speaking <em style=\"font-style:italic\">in Arusha<\/em>": "Akizungumza <em style=\"font-style:italic\">Arusha<\/em>", "<b>Ezekiel Charles Loishooki<\/b> draws wildlife and quiet moments of love in pencil and blue pen, often about a mother and her child, new hope, and victory.": "<b>Ezekiel Charles Loishooki<\/b> huchora wanyamapori na nyakati tulivu za upendo kwa penseli na kalamu ya bluu, mara nyingi kuhusu mama na mtoto wake, tumaini jipya na ushindi.", "Gallery": "Matunzio", "“The messages I love most are the love between a mother and her child, new hope, and victory.”": "“Jumbe ninazozipenda zaidi ni upendo kati ya mama na mtoto wake, tumaini jipya na ushindi.”", "Pencil, blue pen and acrylic": "Penseli, kalamu ya bluu na akriliki"}};</script>
+<script id="vop-i18n">(function(){
+  var D=window.__VOP_I18N||{ko:{},sw:{}};
+  var LANGS=['en','ko','sw'], LABEL={en:'EN',ko:'한국어',sw:'SW'}, NAME={en:'English',ko:'한국어',sw:'Kiswahili'};
+  var PAT=[
+    [/^Artist (\d+) \/ (\d+)$/,{ko:'작가 $1 / $2',sw:'Msanii $1 / $2'}],
+    [/^(\d+) works?$/,{ko:'작품 $1점',sw:'Kazi $1'}],
+    [/^Painting for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Drawing for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Interested in (.+)'s work\?$/,{ko:'$1의 작품에 관심이 있으신가요?',sw:'Unavutiwa na kazi za $1?'}],
+    [/^Artwork © (.+)\. Shared through Voice of Piece\.$/,{ko:'작품 © $1. Voice of Piece를 통해 소개합니다.',sw:'Kazi za sanaa © $1. Zinashirikishwa kupitia Voice of Piece.'}],
+    [/^Work (\d+)<small>(.+)<\/small>$/,{ko:'작품 $1<small>$2</small>',sw:'Kazi $1<small>$2</small>'}]
+  ];
+  var INL={EM:1,B:1,STRONG:1,I:1,BR:1,SMALL:1,SUP:1,SPAN:1}, SK={SCRIPT:1,STYLE:1,SVG:1,IFRAME:1,NOSCRIPT:1,TEMPLATE:1};
+  function lc(el){var c=el.classList;return !!(c&&(c.contains('en')||c.contains('ko')||c.contains('sw')));}
+  function skip(el){var t=el.tagName.toUpperCase(),l=el.getAttribute('lang');return SK[t]||lc(el)||l==='ko'||l==='sw'||el.id==='manifesto-body'||el.id==='words'||el.id==='vop-lang'||el.hasAttribute('data-no-i18n');}
+  function isBlock(el){var has=false,kid=false,w=document.createTreeWalker(el,5),n;
+    while((n=w.nextNode())){if(n.nodeType===1){if(!INL[n.tagName.toUpperCase()]||lc(n))return false;}else if(n.nodeValue.trim())has=true;}
+    for(var c=el.firstChild;c;c=c.nextSibling)if(c.nodeType===1)kid=true;return has&&kid;}
+  function norm(s){return s.replace(/<br\s*\/?>/gi,'<br>').replace(/\s+/g,' ').trim();}
+  var U=[];
+  function walk(el){for(var c=el.firstChild;c;c=c.nextSibling){
+    if(c.nodeType===3){if(c.nodeValue.trim())U.push({t:c,en:c.nodeValue});}
+    else if(c.nodeType===1){if(skip(c))continue;if(isBlock(c))U.push({e:c,en:c.innerHTML});else walk(c);}}}
+  function tr(key,lang){if(lang==='en')return null;var d=D[lang]||{};if(d[key])return d[key];
+    for(var i=0;i<PAT.length;i++){var m=key.match(PAT[i][0]);if(m)return key.replace(PAT[i][0],PAT[i][1][lang]);}return null;}
+  var TITLE=document.title, cur='en', miss=[];
+  function apply(lang){miss=[];
+    U.forEach(function(u){var key=norm(u.en),v=tr(key,lang);
+      if(u.t){if(lang==='en'||!v){u.t.nodeValue=u.en;if(lang!=='en'&&!v)miss.push(key);}else{var a=u.en.match(/^\s*/)[0],b=u.en.match(/\s*$/)[0];u.t.nodeValue=a+v+b;}}
+      else{if(lang==='en'||!v){u.e.innerHTML=u.en;if(lang!=='en'&&!v)miss.push(key);}else u.e.innerHTML=v;}});
+    var tt=tr(norm(TITLE),lang);document.title=tt||TITLE;window.__vopMissing=miss;}
+  function setLang(lang,from){if(LANGS.indexOf(lang)<0)lang='en';if(lang===cur&&from!=='init')return;cur=lang;
+    document.documentElement.setAttribute('lang',lang);apply(lang);
+    try{localStorage.setItem('vop-lang',lang);}catch(e){}
+    var wb=document.getElementById('words-body');
+    if(wb&&from!=='words'){var b=wb.querySelector('.lang button[data-set="'+lang+'"]');if(b)b.click();}
+    var mt=document.getElementById('manifesto-text');
+    if(mt&&from!=='manifesto'){var mb=mt.querySelector('.lang button[data-lang="'+lang+'"]');if(mb)mb.click();}
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===lang?'true':'false');});}
+  // switcher
+  var st=document.createElement('style');
+  st.textContent='#vop-lang{position:fixed;z-index:80;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,20,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25);font:500 11px/1 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif}'+
+  '#vop-lang button{border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:none;color:#E8E3DA;font:inherit;letter-spacing:.12em}'+
+  '#vop-lang button[aria-pressed="true"]{background:#C9A46A;color:#161412}'+
+  '#vop-lang button:focus-visible{outline:2px solid #C9A46A;outline-offset:2px}'+
+  'html[lang="ko"] body{word-break:keep-all}'+
+  'html[lang="ko"] body *:not(svg):not(path):not(#vop-lang):not(#vop-lang *){letter-spacing:.02em!important}';
+  document.head.appendChild(st);
+  var sw=document.createElement('div');sw.id='vop-lang';sw.setAttribute('role','group');sw.setAttribute('aria-label','Language / 언어 / Lugha');
+  LANGS.forEach(function(l){var b=document.createElement('button');b.type='button';b.dataset.l=l;b.textContent=LABEL[l];b.setAttribute('aria-label',NAME[l]);b.setAttribute('lang',l);b.addEventListener('click',function(){setLang(l);});sw.appendChild(b);});
+  document.body.appendChild(sw);
+  walk(document.body);
+  // keep section toggles in sync
+  var wb=document.getElementById('words-body');
+  if(wb)wb.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set,'words');});});
+  var mt=document.getElementById('manifesto-text');
+  if(mt)mt.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,'manifesto');});});
+  // carry language to other Voice of Piece pages
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||cur==='en')return;
+    try{var u=new URL(a.href,location.href);if(!/(^|\.)voiceofpiece\.org$/.test(u.hostname)&&u.origin!==location.origin)return;
+      if(u.hash&&u.pathname===location.pathname&&u.origin===location.origin)return;u.searchParams.set('lang',cur);a.href=u.toString();}catch(x){}},true);
+  var q=null;try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var saved=null;try{saved=localStorage.getItem('vop-lang');}catch(e){}
+  var nav=(navigator.language||'').slice(0,2);
+  var init=q||saved||'en';
+  cur='';setLang(init,'init');
+})();
+</script>
+</body>
+</html>

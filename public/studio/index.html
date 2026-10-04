@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>VOP Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c0c;--bg2:#131313;--bg3:#1a1a1a;--line:rgba(255,255,255,.1);--ink:#ECE7DF;--soft:#9E988F;--gold:#C9A46A;--red:#D9776B;--green:#8FBF8A;
+  --serif:"Cormorant Garamond",Georgia,serif;--sans:"Montserrat","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:400 14px/1.6 var(--sans)}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+.btn{border:1px solid var(--line);background:var(--bg3);padding:9px 16px;border-radius:2px;letter-spacing:.04em}
+.btn:hover{border-color:var(--gold)}a.btn{color:var(--ink)}.btn.gold{background:var(--gold);color:#111;border-color:var(--gold);font-weight:600}
+.btn:disabled{opacity:.5;cursor:default}
+input,select,textarea{width:100%;background:#0f0f0f;border:1px solid var(--line);border-radius:2px;padding:9px 10px}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+textarea{min-height:110px;max-height:60vh;resize:vertical;line-height:1.55}
+textarea.polished{border-color:rgba(201,164,106,.45)}
+@media(max-width:760px){input,select,textarea{font-size:16px}}
+label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 5px}
+.hide{display:none!important}
+/* login */
+#login{min-height:100vh;display:grid;place-items:center;padding:20px}
+#login form{width:min(360px,100%);background:var(--bg2);border:1px solid var(--line);padding:32px}
+h1{font:400 34px/1.1 var(--serif);margin:0 0 6px}h1 b{color:var(--gold);font-weight:400}
+.sub{color:var(--soft);margin:0 0 24px}
+.msg{min-height:1.4em;color:var(--red);font-size:13px;margin:10px 0 0}
+/* app */
+header{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:14px clamp(14px,3vw,32px);background:rgba(12,12,12,.94);border-bottom:1px solid var(--line)}
+header .brand{font:400 22px var(--serif);margin-right:auto}header .brand b{color:var(--gold);font-weight:400}
+header select{width:auto;min-width:240px}
+main{padding:24px clamp(14px,3vw,32px) 80px}
+.bar{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.bar h2{font:400 30px var(--serif);margin:0}.bar .meta{color:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);text-align:left;padding:0;display:flex;flex-direction:column}
+.card:hover{border-color:var(--gold)}
+.card .ph{aspect-ratio:4/3;background:#0a0a0a;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover}
+.card .tx{padding:10px 12px 12px}.card .no{font-size:11px;color:var(--soft);letter-spacing:.08em}
+.card .t{font:400 17px/1.3 var(--serif);margin:2px 0 6px;min-height:1.3em}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:2px;margin:0 4px 4px 0;border:1px solid}
+.tag.warn{color:#E0B866;border-color:rgba(224,184,102,.4)}.tag.off{color:var(--red);border-color:rgba(217,119,107,.4)}.tag.okk{color:var(--green);border-color:rgba(143,191,138,.4)}
+.card.new .ph{border-bottom:1px dashed var(--line);font-size:40px;color:var(--gold)}
+/* editor */
+#ed{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.72);display:flex;justify-content:flex-end}
+#ed .panel{--pad:clamp(16px,3vw,32px);width:min(980px,100%);height:100%;overflow:auto;background:var(--bg2);border-left:1px solid var(--line);padding:22px var(--pad) 90px}
+.ed-top{display:flex;align-items:center;gap:10px;margin-bottom:18px}.ed-top h3{margin:0 auto 0 0;font:400 26px var(--serif)}
+.cols{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.photo{background:#0a0a0a;border:1px dashed var(--line);aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--soft);text-align:center;padding:10px}
+.photo img{max-width:100%;max-height:100%;object-fit:contain}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.f3{display:grid;grid-template-columns:1fr 1fr 90px;gap:12px}
+.field{margin-bottom:12px}
+.langs{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+.lt{display:grid;grid-template-columns:130px repeat(3,minmax(0,1fr));gap:10px;align-items:start;margin-bottom:10px}
+.lt .h{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding-top:9px}
+.lt .lh{font-size:11px;letter-spacing:.14em;color:var(--soft);text-transform:uppercase}
+.lt .ml{display:none}
+@media(max-width:760px){
+  .lt{grid-template-columns:1fr;gap:0;margin-bottom:18px}.lt .lh,.lt>span:empty{display:none}
+  .lt .h{padding:0 0 6px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .lt>div{grid-column:1 / -1!important}
+  .lt .ml{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:8px 0 4px}
+  .lt .ml:first-of-type{margin-top:0}
+  .lt textarea{min-height:110px}
+  input,select,textarea{font-size:16px}
+}
+.foot{position:sticky;bottom:-90px;margin:24px calc(-1 * var(--pad)) -90px;padding:14px var(--pad);background:var(--bg3);border-top:1px solid var(--line);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.foot .msg{margin:0 auto 0 0;color:var(--soft)}.foot .msg.err{color:var(--red)}.foot .msg.ok{color:var(--green)}
+.note{color:var(--soft);font-size:12px;margin:6px 0 0}
+.langsw{display:flex;gap:2px;border:1px solid var(--line);padding:3px;border-radius:2px}
+.langsw button{border:0;background:none;padding:5px 10px;font-size:12px;letter-spacing:.06em;color:var(--soft)}
+.langsw button[aria-pressed="true"]{background:var(--gold);color:#111}
+#login .langsw{justify-content:center}
+</style>
+</head>
+<body>
+
+<section id="login" class="hide">
+  <form id="login-form">
+    <h1>VOP <b>Studio</b></h1>
+    <p class="sub" data-t="loginSub"></p>
+    <label for="pw" data-t="password"></label>
+    <input id="pw" type="password" autocomplete="current-password" required>
+    <p class="msg" id="login-msg" role="alert"></p>
+    <button class="btn gold" type="submit" style="width:100%;margin-top:6px" data-t="login"></button>
+    <div class="langsw" style="margin-top:18px"></div>
+  </form>
+</section>
+
+<section id="app" class="hide">
+  <header>
+    <div class="brand">VOP <b>Studio</b></div>
+    <select id="artist"></select>
+    <div class="langsw"></div>
+    <button class="btn" id="logout" type="button" data-t="logout"></button>
+  </header>
+  <main>
+    <div class="bar"><h2 id="a-name"></h2><span class="meta" id="a-meta"></span><a class="btn" id="a-site" target="_blank" rel="noopener" style="margin-left:auto;text-decoration:none" data-t="viewSite"></a></div>
+    <div class="grid" id="grid"></div>
+  </main>
+</section>
+
+<div id="ed" class="hide" role="dialog" aria-modal="true" aria-labelledby="ed-title">
+  <div class="panel">
+    <div class="ed-top"><h3 id="ed-title"></h3><div class="langsw"></div><button class="btn" type="button" id="ed-close" data-t="close"></button></div>
+    <div class="cols">
+      <div>
+        <div class="photo" id="ed-photo"></div>
+        <input type="file" id="ed-file" accept="image/jpeg,image/png,image/webp" class="hide">
+        <button class="btn" type="button" id="ed-pick" style="width:100%;margin-top:10px"></button>
+        <p class="note" data-t="shrinkNote"></p>
+        <div id="ed-status-box" style="margin-top:18px">
+          <label data-t="status"></label>
+          <div id="ed-status-tag" style="margin-bottom:8px"></div>
+          <button class="btn" type="button" id="ed-toggle" style="width:100%"></button>
+        </div>
+      </div>
+      <div>
+        <div class="f2">
+          <div class="field"><label for="f-year" data-t="year"></label><input id="f-year" placeholder="2025"></div>
+          <div class="field"><label for="f-place" data-t="place"></label><input id="f-place" data-tp="placeEx"></div>
+        </div>
+        <div class="f3">
+          <div class="field"><label for="f-w" data-t="width"></label><input id="f-w" inputmode="decimal"></div>
+          <div class="field"><label for="f-h" data-t="height"></label><input id="f-h" inputmode="decimal"></div>
+          <div class="field"><label for="f-unit" data-t="unit"></label><select id="f-unit"><option value="">—</option><option value="cm">cm</option><option value="in">in</option></select></div>
+        </div>
+        <div class="f2">
+          <div class="field"><label for="f-signed" data-t="signed"></label><select id="f-signed"><option value="" data-t="unknown"></option><option value="1" data-t="yes"></option><option value="0" data-t="no"></option></select></div>
+          <div class="field"><label for="f-framed" data-t="framed"></label><select id="f-framed"><option value="" data-t="unknown"></option><option value="1" data-t="yes"></option><option value="0" data-t="no"></option></select></div>
+        </div>
+        <div class="field"><label for="f-exh" data-t="exhibited"></label><input id="f-exh"></div>
+        <div class="field"><label for="f-shop" data-t="shop"></label><input id="f-shop" placeholder="https://voiceofpiece.com/products/..."></div>
+      </div>
+    </div>
+    <div class="langs">
+      <p class="note" data-t="oneLangNote" style="margin:0 0 16px"></p>
+      <div class="field"><label for="f-title" data-t="title"></label><input id="f-title"></div>
+      <div class="field"><label for="f-medium" data-t="medium"></label><select id="f-medium"></select>
+        <input id="f-medium-other" class="hide" data-tp="mediumOtherPh" style="margin-top:8px"></div>
+      <div class="field"><label for="f-mydesc" data-t="myDesc"></label><textarea id="f-mydesc"></textarea><p class="note" data-t="myDescNote"></p></div>
+      <div class="field"><label for="f-desc" data-t="desc"></label><textarea id="f-desc" class="polished"></textarea><p class="note" data-t="descNote"></p></div>
+    </div>
+    <div class="foot"><p class="msg" id="ed-msg" role="status"></p><button class="btn gold" type="button" id="ed-save" data-t="save"></button></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var H={'x-vop':'1'};
+  var state={artists:[],slug:null,works:[],cur:null,file:null,fileW:0,fileH:0};
+  function api(path,opt){opt=opt||{};opt.headers=Object.assign({},H,opt.headers||{});opt.credentials='same-origin';
+    return fetch(path,opt).then(function(r){return r.json().catch(function(){return{};}).then(function(d){if(!r.ok){var e=new Error(ERR[d.error]?t(ERR[d.error]):(d.error||('Error '+r.status)));e.status=r.status;throw e;}return d;});});}
+
+  var UI={
+   ko:{loginSub:'관리자 로그인',password:'비밀번호',login:'로그인',logout:'로그아웃',wrongPw:'비밀번호가 맞지 않아요.',viewSite:'사이트에서 보기 ↗',chooseArtist:'작가 선택',
+     works:'점',incomplete:'정보 부족',hiddenN:'숨김',newWork:'새 작품',newWorkSub:'사진부터 등록하기',noPhoto:'사진 없음',noTitle:'제목 없음',hiddenTag:'숨김',missingTag:'빠짐',complete:'정보 완료',
+     m_title:'제목',m_year:'연도',m_size:'크기',m_medium:'재료',m_place:'지역',m_photo:'사진',
+     close:'닫기',pickPhoto:'사진 선택',replacePhoto:'대표 사진 바꾸기',photoHint:'사진을 선택하세요',shrinkNote:'큰 사진은 올리기 전에 자동으로 줄여요 (긴 변 2400px).',
+     status:'공개 상태',live:'사이트에 공개 중',hiddenState:'숨김',hide:'사이트에서 숨기기',unhide:'다시 공개하기',
+     year:'제작 연도',place:'제작 지역',placeEx:'예: Arusha',width:'가로',height:'세로',unit:'단위',signed:'서명',framed:'액자',unknown:'모름',yes:'있음',no:'없음',
+     exhibited:'전시 이력',shop:'voiceofpiece.com 링크',title:'제목',medium:'재료',mediumNote:'목록에서 고르면 세 언어가 자동으로 채워져요. 없으면 "기타"를 고르고 아래 칸에 직접 적어 주세요.',
+     mediumPick:'— 재료 선택 —',mediumOther:'기타 (직접 입력)',words:'작가의 말',desc:'작품 설명 (다듬어진 글)',save:'저장하고 게시',myDesc:'나의 설명',myDescNote:'편하게 써 주세요. 어떤 언어든 괜찮아요. 다 쓰고 다른 곳을 누르면 아래에 다듬어진 글이 나와요. 이 칸은 사이트에 나오지 않아요.',descNote:'사이트에 보이는 글이에요. 마음에 안 들면 여기서 직접 고치세요.',polishing:'다듬는 중…',oneLangNote:'원하는 언어 하나로만 쓰세요. 저장하면 제목, 재료, 설명이 스와힐리어·영어·한국어로 함께 저장돼요.',translatingAll:'세 언어로 번역하는 중…',mediumOtherPh:'재료를 적어 주세요',
+     newTitle:'새 작품',preparing:'사진 준비 중…',photoReadyNew:'사진이 준비됐어요. 정보를 채우고 저장하세요.',photoReadyEdit:'새 대표 사진이 준비됐어요. 저장하면 바뀝니다.',
+     badPhoto:'이 사진을 읽을 수 없어요. JPG, PNG, WebP를 써 주세요.',needPhoto:'새 작품은 사진이 먼저 필요해요.',saving:'저장 중…',
+     saved:'저장했어요. 사이트에 바로 반영돼요.',created:'등록했어요: {n} · 사이트에 바로 게시됐어요.',expired:'로그인이 끝났어요. 다시 로그인해 주세요.',
+     confirmHide:'{n} 작품을 사이트에서 숨길까요? 언제든 다시 공개할 수 있어요.',hidDone:'숨겼어요.',unhidDone:'다시 공개했어요.',
+     e_photo:'사진을 선택해 주세요.',e_type:'사진은 JPG, PNG, WebP만 올릴 수 있어요.',e_big:'사진이 15MB보다 커요.',e_w:'가로는 0보다 큰 숫자로 적어 주세요.',e_h:'세로는 0보다 큰 숫자로 적어 주세요.',
+     e_unit:'단위는 cm 또는 in이에요.',e_shop:'쇼핑몰 링크는 https://voiceofpiece.com/ 으로 시작해야 해요.',e_nf:'작품을 찾을 수 없어요.',e_srv:'서버 오류가 났어요. 잠시 뒤 다시 해 주세요.',
+     translating:'번역 중…',autoNote:'한 칸에 쓰고 다른 곳을 누르면 비어 있는 다른 두 언어 칸이 자동으로 채워져요. 이미 쓴 칸은 바꾸지 않아요.',e_tr:'자동 번역이 안 됐어요. 직접 적거나 잠시 뒤 다시 해 주세요.',e_trset:'자동 번역이 아직 설정되지 않았어요.'},
+   en:{loginSub:'Admin sign-in',password:'Password',login:'Sign in',logout:'Sign out',wrongPw:'That password is not right.',viewSite:'View on site ↗',chooseArtist:'Choose artist',
+     works:' works',incomplete:'incomplete',hiddenN:'hidden',newWork:'New work',newWorkSub:'Start with a photo',noPhoto:'No photo',noTitle:'Untitled',hiddenTag:'Hidden',missingTag:'Missing',complete:'Complete',
+     m_title:'title',m_year:'year',m_size:'size',m_medium:'medium',m_place:'place',m_photo:'photo',
+     close:'Close',pickPhoto:'Choose photo',replacePhoto:'Replace main photo',photoHint:'Choose a photo',shrinkNote:'Large photos are resized before upload (2400px long side).',
+     status:'Visibility',live:'Live on the site',hiddenState:'Hidden',hide:'Hide from the site',unhide:'Show again',
+     year:'Year',place:'Made in',placeEx:'e.g. Arusha',width:'Width',height:'Height',unit:'Unit',signed:'Signed',framed:'Framed',unknown:'Not sure',yes:'Yes',no:'No',
+     exhibited:'Exhibited',shop:'voiceofpiece.com link',title:'Title',medium:'Medium',mediumNote:'Pick from the list and all three languages fill in. If it is not listed, choose "Other" and type below.',
+     mediumPick:'— Choose medium —',mediumOther:'Other (type it)',words:"Artist's words",desc:'Description (polished)',save:'Save and publish',myDesc:'My description',myDescNote:'Write freely, in any language. When you click away, a polished version appears below. This box is not shown on the site.',descNote:'This is what the site shows. Edit it here if you want to change anything.',polishing:'Polishing…',oneLangNote:'Write in one language only, whichever you like. When you save, the title, medium and description are saved in Swahili, English and Korean.',translatingAll:'Translating into three languages…',mediumOtherPh:'Type the medium',
+     newTitle:'New work',preparing:'Preparing photo…',photoReadyNew:'Photo ready. Fill in the details and save.',photoReadyEdit:'New main photo ready. It changes when you save.',
+     badPhoto:'This photo cannot be read. Please use JPG, PNG or WebP.',needPhoto:'A new work needs a photo first.',saving:'Saving…',
+     saved:'Saved. It is live on the site now.',created:'Added {n} · it is live on the site now.',expired:'You were signed out. Please sign in again.',
+     confirmHide:'Hide {n} from the site? You can show it again any time.',hidDone:'Hidden.',unhidDone:'Shown again.',
+     e_photo:'Please choose a photo.',e_type:'Photos must be JPG, PNG or WebP.',e_big:'The photo is larger than 15 MB.',e_w:'Width must be a number above 0.',e_h:'Height must be a number above 0.',
+     e_unit:'Unit must be cm or in.',e_shop:'The shop link must start with https://voiceofpiece.com/',e_nf:'Artwork not found.',e_srv:'Server error. Please try again shortly.',
+     translating:'Translating…',autoNote:'Type in one box and click away: the empty boxes in the other two languages fill in by themselves. Boxes you already filled are never changed.',e_tr:'Auto-translation did not work. Type it yourself or try again shortly.',e_trset:'Auto-translation is not set up yet.'},
+   sw:{loginSub:'Kuingia kwa msimamizi',password:'Nenosiri',login:'Ingia',logout:'Toka',wrongPw:'Nenosiri si sahihi.',viewSite:'Tazama kwenye tovuti ↗',chooseArtist:'Chagua msanii',
+     works:' kazi',incomplete:'hazijakamilika',hiddenN:'zimefichwa',newWork:'Kazi mpya',newWorkSub:'Anza na picha',noPhoto:'Hakuna picha',noTitle:'Haina jina',hiddenTag:'Imefichwa',missingTag:'Inakosa',complete:'Imekamilika',
+     m_title:'jina',m_year:'mwaka',m_size:'ukubwa',m_medium:'malighafi',m_place:'mahali',m_photo:'picha',
+     close:'Funga',pickPhoto:'Chagua picha',replacePhoto:'Badilisha picha kuu',photoHint:'Chagua picha',shrinkNote:'Picha kubwa hupunguzwa kabla ya kupakiwa (upande mrefu 2400px).',
+     status:'Hali ya kuonekana',live:'Inaonekana kwenye tovuti',hiddenState:'Imefichwa',hide:'Ficha kwenye tovuti',unhide:'Onyesha tena',
+     year:'Mwaka',place:'Mahali ilipochorwa',placeEx:'mfano: Arusha',width:'Upana',height:'Urefu',unit:'Kipimo',signed:'Sahihi',framed:'Fremu',unknown:'Sijui',yes:'Ndiyo',no:'Hapana',
+     exhibited:'Imeonyeshwa wapi',shop:'Kiungo cha voiceofpiece.com',title:'Jina la kazi',medium:'Malighafi',mediumNote:'Ukichagua kwenye orodha, lugha zote tatu hujazwa. Kama haipo, chagua "Nyingine" na uandike hapa chini.',
+     mediumPick:'— Chagua malighafi —',mediumOther:'Nyingine (andika)',words:'Maneno ya msanii',desc:'Maelezo (yaliyoboreshwa)',save:'Hifadhi na uchapishe',myDesc:'Maelezo yangu',myDescNote:'Andika kwa uhuru, kwa lugha yoyote. Ukibofya pembeni, toleo lililoboreshwa litaonekana hapa chini. Kisanduku hiki hakionekani kwenye tovuti.',descNote:'Haya ndiyo yanayoonekana kwenye tovuti. Yabadilishe hapa ukitaka.',polishing:'Inaboresha…',oneLangNote:'Andika kwa lugha moja tu unayopenda. Ukihifadhi, jina, malighafi na maelezo yatahifadhiwa kwa Kiswahili, Kiingereza na Kikorea.',translatingAll:'Inatafsiri kwa lugha tatu…',mediumOtherPh:'Andika malighafi',
+     newTitle:'Kazi mpya',preparing:'Inaandaa picha…',photoReadyNew:'Picha iko tayari. Jaza taarifa kisha hifadhi.',photoReadyEdit:'Picha kuu mpya iko tayari. Itabadilika ukihifadhi.',
+     badPhoto:'Picha hii haisomeki. Tumia JPG, PNG au WebP.',needPhoto:'Kazi mpya inahitaji picha kwanza.',saving:'Inahifadhi…',
+     saved:'Imehifadhiwa. Inaonekana kwenye tovuti sasa.',created:'Imeongezwa {n} · inaonekana kwenye tovuti sasa.',expired:'Umetolewa. Tafadhali ingia tena.',
+     confirmHide:'Ficha {n} kwenye tovuti? Unaweza kuionyesha tena wakati wowote.',hidDone:'Imefichwa.',unhidDone:'Inaonekana tena.',
+     e_photo:'Tafadhali chagua picha.',e_type:'Picha lazima iwe JPG, PNG au WebP.',e_big:'Picha ni kubwa kuliko MB 15.',e_w:'Upana lazima uwe namba kubwa kuliko 0.',e_h:'Urefu lazima uwe namba kubwa kuliko 0.',
+     e_unit:'Kipimo ni cm au in.',e_shop:'Kiungo cha duka lazima kianze na https://voiceofpiece.com/',e_nf:'Kazi haikupatikana.',e_srv:'Hitilafu ya seva. Jaribu tena baadaye.',
+     translating:'Inatafsiri…',autoNote:'Andika kwenye kisanduku kimoja kisha bofya pembeni: visanduku vitupu vya lugha nyingine mbili hujazwa vyenyewe. Visanduku ulivyokwisha jaza havibadilishwi.',e_tr:'Tafsiri ya moja kwa moja haikufanikiwa. Andika mwenyewe au jaribu tena baadaye.',e_trset:'Tafsiri ya moja kwa moja bado haijawekwa.'}};
+  var ERR={'Choose a photo':'e_photo','Photo must be JPG, PNG or WebP':'e_type','Photo is larger than 15 MB':'e_big','width must be a positive number':'e_w','height must be a positive number':'e_h',
+    'unit must be cm or in':'e_unit','Shop link must start with https://voiceofpiece.com/':'e_shop','Artwork not found':'e_nf','Server error':'e_srv','Translation failed':'e_tr','Translation is not set up':'e_trset'};
+  var MEDIA=[
+   ['Acrylic paint','Rangi za akriliki','아크릴 물감'],
+   ['Watercolour','Rangi za maji','수채 물감'],
+   ['Pencil sketch','Mchoro wa penseli','연필 스케치'],
+   ['Pen sketch','Mchoro wa kalamu','펜 스케치']];
+  var LANG=(function(){try{var s=localStorage.getItem('vop-studio-lang');if(UI[s])return s;}catch(e){}return 'en';})();
+  function t(k,v){var s=(UI[LANG][k]!=null?UI[LANG][k]:UI.en[k])||k;if(v)Object.keys(v).forEach(function(x){s=s.replace('{'+x+'}',v[x]);});return s;}
+  function applyUI(){document.documentElement.lang=LANG;
+    Array.prototype.forEach.call(document.querySelectorAll('[data-t]'),function(el){el.textContent=t(el.dataset.t);});
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tp]'),function(el){el.placeholder=t(el.dataset.tp);});
+    $('artist').setAttribute('aria-label',t('chooseArtist'));
+    var ms=$('f-medium'),keep=ms.value;ms.innerHTML='<option value="">'+esc(t('mediumPick'))+'</option>'+MEDIA.map(function(m,i){return '<option value="'+i+'">'+esc(LANG==='ko'?m[2]:LANG==='sw'?m[1]:m[0])+'</option>';}).join('')+'<option value="other">'+esc(t('mediumOther'))+'</option>';ms.value=keep;
+    Array.prototype.forEach.call(document.querySelectorAll('.langsw'),function(box){box.innerHTML=[['ko','한국어'],['en','English'],['sw','Kiswahili']].map(function(x){return '<button type="button" data-l="'+x[0]+'" aria-pressed="'+(x[0]===LANG)+'" lang="'+x[0]+'">'+x[1]+'</button>';}).join('');});}
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.langsw button');if(!b)return;LANG=b.dataset.l;try{localStorage.setItem('vop-studio-lang',LANG);}catch(x){}
+    applyUI();if(state.artists.length){fillArtistMenu();if(state.works)renderGrid();}if(!$('ed').classList.contains('hide'))openEditor(state.cur,state.dirty?true:'relang');});
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function show(id){['login','app'].forEach(function(x){$(x).classList.toggle('hide',x!==id);});}
+
+
+  function fillArtistMenu(){var cur=$('artist').value;$('artist').innerHTML=state.artists.map(function(a){return '<option value="'+a.slug+'">'+esc(a.name)+' · '+a.works+esc(t('works'))+(a.incomplete?' · '+esc(t('incomplete'))+' '+a.incomplete:'')+'</option>';}).join('');if(cur)$('artist').value=cur;}
+  function setMeta(){$('a-meta').textContent=state.works.length+t('works')+(state.hidden?' · '+t('hiddenN')+' '+state.hidden:'');}
+  var LI={en:0,sw:1,ko:2};
+  function pickText(w,f){var o=(w&&w.texts)||{},order=[LANG,'en','sw','ko'];for(var i=0;i<order.length;i++){var x=o[order[i]];if(x&&x[f])return x[f];}return '';}
+  function toggleOther(){$('f-medium-other').classList.toggle('hide',$('f-medium').value!=='other');}
+  function setMedium(w){var o=(w&&w.texts)||{},idx='',other='';
+    ['en','sw','ko'].forEach(function(l){var v=o[l]&&o[l].medium;if(!v||idx!=='')return;v=v.trim().toLowerCase();
+      MEDIA.forEach(function(m,i){if(m[LI[l]].toLowerCase()===v)idx=String(i);});});
+    if(idx===''){other=pickText(w,'medium');if(other)idx='other';}
+    $('f-medium').value=idx;$('f-medium-other').value=other;toggleOther();}
+  document.addEventListener('change',function(e){if(e.target.id!=='f-medium')return;toggleOther();if(e.target.value==='other')$('f-medium-other').focus();});
+  function collectForm(){var d=baseFields();d.title=$('f-title').value;d.mediumSel=$('f-medium').value;d.mediumOther=$('f-medium-other').value;d.mydesc=$('f-mydesc').value;d.desc=$('f-desc').value;return d;}
+  function restore(d){if(!d)return;$('f-year').value=d.year;$('f-place').value=d.place;$('f-w').value=d.width;$('f-h').value=d.height;$('f-unit').value=d.unit;$('f-signed').value=d.signed;$('f-framed').value=d.framed;$('f-exh').value=d.exhibited;$('f-shop').value=d.shop_url;
+    $('f-title').value=d.title;$('f-medium').value=d.mediumSel;$('f-medium-other').value=d.mediumOther;$('f-mydesc').value=d.mydesc;$('f-desc').value=d.desc;toggleOther();fitAll();}
+
+  // ----- long text boxes grow to fit their text -----
+  function fit(el){if(el.tagName!=='TEXTAREA')return;el.style.height='auto';el.style.height=(el.scrollHeight+2)+'px';}
+  function fitAll(){Array.prototype.forEach.call(document.querySelectorAll('#ed textarea'),fit);}
+  document.addEventListener('input',function(e){if(e.target.tagName==='TEXTAREA')fit(e.target);});
+  window.addEventListener('resize',function(){if(!$('ed').classList.contains('hide'))fitAll();});
+
+  // ----- "My description" -> polished description (same language) -----
+  var polishing=null,polishedFrom='';
+  function runPolish(){var src=$('f-mydesc').value.trim();
+    if(!src||src===polishedFrom)return polishing||Promise.resolve();
+    var cur=state.cur,box=$('f-desc'),ph=box.placeholder;box.placeholder=t('polishing');msg(t('polishing'));
+    var p=api('/api/studio/polish',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({text:src})})
+      .then(function(d){if(state.cur!==cur||$('ed').classList.contains('hide'))return;polishedFrom=src;box.value=d.text;fit(box);msg('');})
+      .catch(function(err){msg(err.status===401?t('expired'):err.message,'err');throw err;})
+      .finally(function(){box.placeholder=ph;if(polishing===p)polishing=null;});
+    polishing=p;return p;}
+  $('f-mydesc').addEventListener('blur',function(){runPolish().catch(function(){});});
+
+  // ----- login -----
+  $('login-form').addEventListener('submit',function(e){e.preventDefault();$('login-msg').textContent='';
+    api('/api/studio/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({password:$('pw').value})})
+      .then(function(){$('pw').value='';start();}).catch(function(err){$('login-msg').textContent=err.status===401?t('wrongPw'):err.message;});});
+  $('logout').addEventListener('click',function(){api('/api/studio/logout',{method:'POST'}).finally(function(){show('login');$('pw').focus();});});
+
+  function start(){
+    api('/api/studio/artists').then(function(d){state.artists=d.artists;show('app');
+      fillArtistMenu();
+      var hs=location.hash.slice(1).split('/'),want=hs[0]||state.slug||d.artists[0].slug;state.openNo=hs[1]?decodeURIComponent(hs[1]):null;
+      if(!d.artists.some(function(a){return a.slug===want;}))want=d.artists[0].slug;$('artist').value=want;loadArtist(want);
+    }).catch(function(e){if(e.status===401){show('login');$('pw').focus();}else alert(e.message);});
+  }
+  $('artist').addEventListener('change',function(){loadArtist(this.value);});
+
+  // ----- artist works -----
+  function loadArtist(slug){state.slug=slug;history.replaceState(null,'','#'+slug);
+    api('/api/studio/artists/'+slug+'/artworks').then(function(d){state.works=d.artworks;
+      $('a-name').textContent=d.artist.name;
+      var hidden=d.artworks.filter(function(w){return w.status!=='published';}).length;
+      state.hidden=hidden;setMeta();
+      $('a-site').href='/'+slug+'/';
+      renderGrid();
+      if(state.openNo){var no=state.openNo,hit=state.works.filter(function(x){return x.catalogue_no===no;})[0];state.openNo=null;if(hit)openEditor(hit);}
+    }).catch(function(e){alert(e.message);});}
+  function missingList(w){var m=w.missing||{},out=[];['title','year','size','medium','place','photo'].forEach(function(k){if(m[k])out.push(t('m_'+k));});return out;}
+  function title(w){return pickText(w,'title');}
+  function renderGrid(){
+    var h='<button type="button" class="card new" id="new-card"><div class="ph">+</div><div class="tx"><div class="no">'+esc(t('newWork'))+'</div><div class="t">'+esc(t('newWorkSub'))+'</div></div></button>';
+    h+=state.works.map(function(w,i){var miss=missingList(w);
+      return '<button type="button" class="card" data-i="'+i+'"><div class="ph">'+(w.photo?'<img src="'+esc(w.photo.url)+'" alt="" loading="lazy">':esc(t('noPhoto')))+'</div>'+
+        '<div class="tx"><div class="no">'+esc(w.catalogue_no)+'</div><div class="t">'+(esc(title(w))||'<span style="color:var(--soft)">'+esc(t('noTitle'))+'</span>')+'</div>'+
+        (w.status!=='published'?'<span class="tag off">'+esc(t('hiddenTag'))+'</span>':'')+(miss.length?'<span class="tag warn">'+esc(t('missingTag'))+': '+esc(miss.join(', '))+'</span>':'<span class="tag okk">'+esc(t('complete'))+'</span>')+'</div></button>';}).join('');
+    $('grid').innerHTML=h;
+    $('new-card').addEventListener('click',function(){openEditor(null);});
+    Array.prototype.forEach.call(document.querySelectorAll('.card[data-i]'),function(b){b.addEventListener('click',function(){openEditor(state.works[+b.dataset.i]);});});
+  }
+
+  // ----- editor -----
+  var lastFocus=null;
+  function openEditor(w,keepInputs){var relang=keepInputs==='relang';if(relang)keepInputs=false;
+    if(keepInputs){var saved=collectForm();}state.cur=w;if(!keepInputs){state.file=null;if(!relang)lastFocus=document.activeElement;state.dirty=false;}
+    $('ed-title').textContent=w?w.catalogue_no:t('newTitle')+' · '+$('a-name').textContent;
+    if(!(keepInputs&&state.file))$('ed-photo').innerHTML=w&&w.photo?'<img src="'+esc(w.photo.url)+'" alt="">':esc(t('photoHint'));
+    $('ed-pick').textContent=w?t('replacePhoto'):t('pickPhoto');
+    $('ed-status-box').classList.toggle('hide',!w);
+    if(w){var pub=w.status==='published';$('ed-status-tag').innerHTML=pub?'<span class="tag okk">'+esc(t('live'))+'</span>':'<span class="tag off">'+esc(t('hiddenState'))+'</span>';$('ed-toggle').textContent=pub?t('hide'):t('unhide');}
+    if(keepInputs){restore(saved);return;}
+    var v=function(x){return x==null?'':x;};
+    $('f-year').value=w?v(w.year):'';$('f-place').value=w?v(w.place):'';$('f-w').value=w?v(w.width):'';$('f-h').value=w?v(w.height):'';
+    $('f-unit').value=w?v(w.unit):'cm';$('f-signed').value=w&&w.signed!=null?String(w.signed):'';$('f-framed').value=w&&w.framed!=null?String(w.framed):'';
+    $('f-exh').value=w?v(w.exhibited):'';$('f-shop').value=w?v(w.shop_url):'';
+    $('f-title').value=pickText(w,'title');setMedium(w);$('f-mydesc').value='';$('f-desc').value=pickText(w,'description');polishedFrom='';
+    msg('');$('ed').classList.remove('hide');document.body.style.overflow='hidden';fitAll();if(!relang)$('ed-close').focus();}
+  document.addEventListener('input',function(e){if(e.target.closest&&e.target.closest('#ed .panel'))state.dirty=true;});
+  document.addEventListener('change',function(e){if(e.target.closest&&e.target.closest('#ed .panel'))state.dirty=true;});
+  function closeEditor(){$('ed').classList.add('hide');document.body.style.overflow='';if(lastFocus)lastFocus.focus();}
+  $('ed-close').addEventListener('click',closeEditor);
+  $('ed').addEventListener('click',function(e){if(e.target===$('ed'))closeEditor();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('ed').classList.contains('hide'))closeEditor();});
+  function msg(t,kind){var m=$('ed-msg');m.textContent=t;m.className='msg'+(kind?' '+kind:'');}
+
+  $('ed-pick').addEventListener('click',function(){$('ed-file').click();});
+  $('ed-file').addEventListener('change',function(){var f=this.files[0];this.value='';if(!f)return;msg(t('preparing'));
+    shrink(f).then(function(r){state.file=r.blob;state.fileW=r.w;state.fileH=r.h;
+      $('ed-photo').innerHTML='<img src="'+URL.createObjectURL(r.blob)+'" alt="">';
+      msg(state.cur?t('photoReadyEdit'):t('photoReadyNew'));})
+    .catch(function(){msg(t('badPhoto'),'err');});});
+
+  function shrink(file){return new Promise(function(res,rej){var img=new Image(),u=URL.createObjectURL(file);
+    img.onload=function(){var M=2400,w=img.naturalWidth,h=img.naturalHeight,s=Math.min(1,M/Math.max(w,h));w=Math.round(w*s);h=Math.round(h*s);
+      var c=document.createElement('canvas');c.width=w;c.height=h;var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(img,0,0,w,h);
+      c.toBlob(function(b){URL.revokeObjectURL(u);b?res({blob:b,w:w,h:h}):rej();},'image/jpeg',0.9);};
+    img.onerror=function(){URL.revokeObjectURL(u);rej();};img.src=u;});}
+
+  function baseFields(){return {year:$('f-year').value,place:$('f-place').value,width:$('f-w').value.replace(',','.'),height:$('f-h').value.replace(',','.'),unit:$('f-unit').value,
+      signed:$('f-signed').value,framed:$('f-framed').value,exhibited:$('f-exh').value,shop_url:$('f-shop').value};}
+  // Title, medium and description -> all three languages (the one typed is kept as written).
+  function buildTexts(w){
+    return (polishing||Promise.resolve()).catch(function(){}).then(function(){
+      if(!$('f-desc').value.trim()&&$('f-mydesc').value.trim())return runPolish();}).then(function(){
+      var sel=$('f-medium').value,fields={title:$('f-title').value.trim(),description:$('f-desc').value.trim()};
+      if(sel==='other')fields.medium=$('f-medium-other').value.trim();
+      var need=Object.keys(fields).some(function(k){return fields[k];});
+      msg(need?t('translatingAll'):t('saving'));
+      return (need?api('/api/studio/translate-all',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({fields:fields})}):Promise.resolve({texts:{sw:{},en:{},ko:{}}}))
+        .then(function(r){var out={};
+          ['sw','en','ko'].forEach(function(l){var tr=r.texts[l]||{};
+            out[l]={title:fields.title?tr.title:'',description:fields.description?tr.description:'',
+              medium:sel===''?'':sel==='other'?(fields.medium?tr.medium:''):MEDIA[+sel][LI[l]],
+              artist_words:''};});
+          return out;});});}
+  function photoForm(data){var fd=new FormData();fd.append('photo',state.file,'photo.jpg');fd.append('width',state.fileW);fd.append('height',state.fileH);if(data)fd.append('data',JSON.stringify(data));return fd;}
+
+  $('ed-save').addEventListener('click',function(){var btn=this,w=state.cur;
+    if(!w&&!state.file){msg(t('needPhoto'),'err');return;}
+    btn.disabled=true;msg(t('saving'));
+    var p=buildTexts(w).then(function(texts){var data=baseFields();data.texts=texts;msg(t('saving'));
+    var q;
+    if(!w){q=api('/api/studio/artists/'+state.slug+'/artworks',{method:'POST',body:photoForm(data)}).then(function(r){return t('created',{n:r.created});});}
+    else{q=api('/api/studio/artworks/'+w.catalogue_no,{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify(data)})
+      .then(function(){return state.file?api('/api/studio/artworks/'+w.catalogue_no+'/photo',{method:'POST',body:photoForm(null)}):null;})
+      .then(function(){return t('saved');});}
+    return q;});
+    p.then(function(t){msg(t,'ok');state.file=null;return api('/api/studio/artists/'+state.slug+'/artworks');})
+     .then(function(d){state.works=d.artworks;renderGrid();state.hidden=d.artworks.filter(function(x){return x.status!=='published';}).length;setMeta();
+        if(!w){var created=d.artworks[d.artworks.length-1];openEditor(created);msg(t('created',{n:created.catalogue_no}),'ok');}
+        else{var again=d.artworks.filter(function(x){return x.catalogue_no===w.catalogue_no;})[0];if(again){openEditor(again,'relang');msg(t('saved'),'ok');}}})
+     .catch(function(e){msg(e.status===401?t('expired'):e.message,'err');})
+     .finally(function(){btn.disabled=false;});});
+
+  $('ed-toggle').addEventListener('click',function(){var w=state.cur;if(!w)return;var to=w.status==='published'?'hidden':'published';
+    if(to==='hidden'&&!confirm(t('confirmHide',{n:w.catalogue_no})))return;
+    api('/api/studio/artworks/'+w.catalogue_no+'/status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({status:to})})
+      .then(function(){return api('/api/studio/artists/'+state.slug+'/artworks');})
+      .then(function(d){state.works=d.artworks;renderGrid();var again=d.artworks.filter(function(x){return x.catalogue_no===w.catalogue_no;})[0];openEditor(again);msg(to==='hidden'?t('hidDone'):t('unhidDone'),'ok');})
+      .catch(function(e){msg(e.message,'err');});});
+
+  applyUI();
+  api('/api/studio/me').then(start).catch(function(){show('login');$('pw').focus();});
+})();
+</script>
+</body>
+</html>

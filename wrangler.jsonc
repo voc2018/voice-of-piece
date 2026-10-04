@@ -1,0 +1,50 @@
+{
+  // Voice of Piece — Worker settings
+  "name": "voiceofpiece",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+
+  // Static site. The Worker runs first so artist subdomains can map to their folders.
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+
+  // Domains connected to this Worker. Keep the workers.dev test address too.
+  "workers_dev": true,
+  "routes": [
+    { "pattern": "voiceofpiece.org", "custom_domain": true },
+    { "pattern": "www.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "aggrey.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "alto.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "elichilia.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "evarist.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "evodius.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "ezekiel.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "godwin.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "hedwiga.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "james.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "john.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "kipara.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "ladislaus.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "lutengano.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "mitole.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "paul.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "price.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "simon.voiceofpiece.org", "custom_domain": true },
+    { "pattern": "artbridge.voiceofpiece.org", "custom_domain": true }
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "voice-of-piece-db",
+      "database_id": "18a438ee-8820-49f0-a066-d1873e62750b"
+    }
+  ],
+
+  "r2_buckets": [
+    { "binding": "PHOTOS", "bucket_name": "vop-artworks" }
+  ]
+}

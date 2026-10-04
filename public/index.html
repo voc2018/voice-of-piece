@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voice of Piece — Fair resonance of African art and culture</title>
+<meta name="description" content="Voice of Piece connects Tanzanian artists with the world, based on the protection of artists' rights.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&family=Noto+Serif+KR:wght@400;600&family=Cormorant+Garamond:wght@300;400&family=Gowun+Batang&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1E1E1E;
+    --bg-2: #262626;
+    --bg-3: #2C2C2C;
+    --light: #F3F1ED;
+    --gold: #C9A46A;
+    --gold-soft: rgba(201,164,106,.45);
+    --text: #D6D3CE;
+    --text-dim: #9C9891;
+    --ink: #1E1E1E;
+    --serif: "Playfair Display", "Noto Serif KR", "Didot", Georgia, serif;
+    --sans: "Montserrat", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    --wrap: 1180px;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 300 15px/1.8 var(--sans); -webkit-font-smoothing: antialiased; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+
+  /* type pieces from the reference: spaced small caps + large spaced serif */
+  .eyebrow { margin: 0 0 6px; font: 400 11px/1.4 var(--sans); letter-spacing: .5em; text-transform: uppercase; color: var(--text); }
+  .title { margin: 0; font: 400 clamp(28px, 3.2vw, 40px)/1.15 var(--serif); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+  .title-lines { display: flex; align-items: center; justify-content: center; gap: 24px; }
+  .title-lines::before, .title-lines::after { content: ""; width: 44px; height: 1px; background: var(--gold-soft); }
+  .btn-gold {
+    display: inline-block; margin-top: 28px; padding: 13px 30px; border: 1px solid var(--gold);
+    font: 500 11px/1 var(--sans); letter-spacing: .45em; text-transform: uppercase; color: var(--gold);
+    text-decoration: none; background: transparent; cursor: pointer; transition: background-color .2s, color .2s;
+  }
+  .btn-gold:hover { background: var(--gold); color: var(--ink); }
+  .link-line { display: inline-flex; align-items: center; gap: 16px; margin-top: 18px; font: 500 11px var(--sans); letter-spacing: .45em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .link-line::before { content: ""; width: 36px; height: 1px; background: var(--gold); transition: width .25s; }
+  .link-line:hover::before { width: 56px; }
+  section { border-top: 1px solid var(--gold-soft); }
+
+  /* ================= Header ================= */
+  .header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 30; padding-top: env(safe-area-inset-top, 0px);
+    transition: background-color .3s;
+  }
+  .header.solid { background: rgba(24,24,24,.94); }
+  .header .bar { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; padding: 0 clamp(20px, 3vw, 44px); }
+  .logo { font: 400 12px var(--sans); letter-spacing: .55em; text-transform: uppercase; color: #fff; text-decoration: none; white-space: nowrap; }
+  .logo b { font-weight: 400; color: var(--gold); }
+  .header-right { display: flex; align-items: center; gap: 36px; font: 400 12px var(--sans); letter-spacing: .12em; }
+  .header-right a { text-decoration: none; }
+  .header-right .mail:hover { color: var(--gold); }
+  .header-right .cta { color: var(--gold); font-weight: 500; letter-spacing: .25em; text-transform: uppercase; font-size: 11px; }
+  .menu-btn { width: 36px; height: 36px; display: grid; place-items: center; background: none; border: 0; cursor: pointer; padding: 0; }
+  .menu-btn span { display: block; width: 18px; height: 1px; background: var(--gold); box-shadow: 0 -5px 0 var(--gold), 0 5px 0 var(--gold); }
+  @media (max-width: 760px) { .header-right .mail { display: none; } .header-right { gap: 18px; } .logo { letter-spacing: .35em; } }
+  @media (max-width: 420px) { .header-right .cta { display: none; } }
+
+  .menu {
+    position: fixed; inset: 0; z-index: 40; background: rgba(18,18,18,.97);
+    display: grid; place-items: center; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s;
+  }
+  .menu.open { opacity: 1; visibility: visible; }
+  .menu ul { list-style: none; margin: 0; padding: 0; text-align: center; }
+  .menu li a { display: block; padding: 10px; font: 400 clamp(26px, 4vw, 40px)/1.3 var(--serif); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+  .menu li a:hover { color: #fff; }
+  .menu-close { position: absolute; top: calc(18px + env(safe-area-inset-top, 0px)); right: 24px; background: none; border: 0; color: var(--gold); font: 400 11px var(--sans); letter-spacing: .4em; cursor: pointer; padding: 10px; }
+
+  /* ================= Drawing stages (pencil sketch, then brush colour) ================= */
+  .stage-wrap { position: relative; }
+  .stage { position: sticky; top: 0; height: 100vh; overflow: hidden; background: #161616; }
+  .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .stage .shade { position: absolute; inset: 0; pointer-events: none; }
+  .tool { display: none !important; }
+  .tool svg { position: absolute; left: 0; bottom: 0; filter: drop-shadow(8px 12px 10px rgba(0,0,0,.45)); transition: opacity .25s; }
+  @media (max-width: 760px) { .tool .pencil { width: 110px; height: 110px; } .tool .brush { width: 140px; height: 140px; } }
+  .credit { position: absolute; left: clamp(20px, 3vw, 44px); bottom: 28px; margin: 0; font: 400 11px var(--sans); letter-spacing: .3em; text-transform: uppercase; color: var(--text); opacity: 0; transition: opacity .4s; }
+  .credit b { font-weight: 500; color: var(--gold); }
+
+  /* Hero */
+  .hero { height: 100vh; min-height: 680px; border-top: 0; background: #111; }
+  .hero .stage { position: relative; height: 100vh; min-height: 680px; }
+  .hero-gallery { position: absolute; inset: 0; overflow: hidden; z-index: 0; background: #111; }
+  .hero-art { position: absolute; margin: 0; opacity: 0; transform: translateY(14px) scale(.985); transition: opacity 1.8s ease, transform 2.4s cubic-bezier(.2,.65,.25,1); will-change: opacity, transform; }
+  .hero-art.on { opacity: var(--art-opacity, .82); transform: translateY(0) scale(1); }
+  .hero-art img { display: block; width: 100%; height: 100%; object-fit: contain; filter: saturate(.9) contrast(1.02); box-shadow: 0 20px 55px rgba(0,0,0,.34); }
+  .hero .shade { z-index: 1; background: radial-gradient(ellipse at center, rgba(0,0,0,.46), rgba(0,0,0,.72)); }
+  @media (max-width: 760px) {
+    .hero { min-height: 620px; } .hero .stage { min-height: 620px; }
+    .hero-art { max-width: 46vw !important; max-height: 31vh !important; }
+  }
+  .hero-text h1, .hero-text .sub { text-shadow: 0 2px 30px rgba(0,0,0,.7); }
+  .hero-text { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 0 24px; z-index: 2; }
+  .hero-text h1 { margin: 18px 0 6px; font: 400 clamp(40px, 7.2vw, 104px)/1 var(--serif); letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+  .hero-text .sub { margin: 0; font: italic 400 clamp(18px, 2vw, 26px) var(--serif); color: var(--text); }
+  .side-social { position: absolute; right: clamp(16px, 2.6vw, 40px); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 22px; z-index: 2; }
+  .side-social a { color: var(--text-dim); display: block; }
+  @media (max-width: 760px) { .side-social { display: none; } }
+  .side-social a:hover { color: var(--gold); }
+  .scroll-cue { position: absolute; right: clamp(22px, 2.9vw, 46px); bottom: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 12px; font: 500 9px var(--sans); letter-spacing: .4em; color: var(--text); writing-mode: vertical-rl; }
+  .scroll-cue::after { content: ""; width: 1px; height: 80px; background: linear-gradient(var(--gold), transparent); }
+
+
+  /* Our Story: keep elephant artwork, remove tools/lines, use a broad soft full-frame fade */
+  #manifesto .tool { display: none !important; }
+  #manifesto .manifesto-head .title::before,
+  #manifesto .manifesto-head .title::after { content: none !important; display: none !important; }
+  #manifesto .manifesto-head { width: min(720px, calc(80vw - 80px)); max-width: 720px; margin-left: auto; margin-right: auto; text-align: left; }
+  #manifesto .manifesto-head .title { justify-content: flex-start; text-align: left; font-size: clamp(28px, 3.2vw, 40px); line-height: 1.15; white-space: nowrap; }
+  #manifesto .stage canvas { filter: none; }
+
+
+  /* ================= Vision ================= */
+  .vision { position: relative; padding: 120px 0 130px; overflow: hidden; background: var(--bg-2); }
+  .vision::before { content: ""; position: absolute; inset: 0; background: url("img/bg/mitole-kilimanjaro-sketch.jpg") center / cover no-repeat; opacity: .08; filter: grayscale(1); }
+  .vision .wrap { position: relative; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 36px; max-width: 900px; }
+  .two-col p { margin: 0; }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; gap: 20px; } }
+
+  /* ================= About: full-width video + floating cream panel ================= */
+  .about { position: relative; min-height: clamp(560px, 56vw, 760px); overflow: hidden; background: #111; }
+  .about-img { position: relative; width: 100%; height: clamp(560px, 56vw, 760px); overflow: hidden; }
+  .about-img img, .about-img video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.9); }
+  .about-img video { object-position: 50% 50%; }
+  .about-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.58), rgba(0,0,0,.18) 52%, rgba(0,0,0,.08)); pointer-events:none; }
+  .about-quote { position: absolute; left: clamp(24px, 5vw, 94px); top: 50%; transform: translateY(-50%); z-index: 2; max-width: 420px; }
+  .about-quote p { margin: 0; font: 400 clamp(24px, 2.6vw, 34px)/1.35 var(--serif); color: #fff; }
+  .about-quote .mark { display: flex; align-items: center; gap: 12px; margin-top: 18px; color: var(--gold); font: 400 26px/1 var(--serif); }
+  .about-quote .mark::after { content: ""; width: 70px; height: 1px; background: var(--gold); }
+  .about-box-col { position: absolute; z-index: 3; top: 50%; right: clamp(24px, 5vw, 96px); transform: translateY(-50%); width: min(540px, 43vw); background: transparent; padding: 0; }
+  .about-box { position: relative; width: 100%; margin: 0; background: #EFE8DC; color: #49453F; padding: clamp(34px, 4vw, 52px); box-shadow: 0 30px 60px rgba(0,0,0,.30); }
+  .about-box .eyebrow { color: #49453F; }
+  .about-box .rule { width: 34px; height: 1px; background: var(--gold); margin: 22px 0; }
+  .about-box p { margin: 0 0 14px; color: #49453F; }
+  .about-box .title { color: #A77D3E; }
+  @media (max-width: 900px) {
+    .about, .about-img { min-height: 720px; height: 720px; }
+    .about-img::after { background: linear-gradient(0deg, rgba(0,0,0,.78), rgba(0,0,0,.22) 72%, rgba(0,0,0,.08)); }
+    .about-quote { top: 90px; bottom: auto; transform: none; right: 24px; max-width: 520px; }
+    .about-box-col { top: auto; bottom: 28px; left: 20px; right: 20px; transform: none; width: auto; }
+    .about-box { padding: 32px 28px; }
+  }
+
+  /* ================= Manifesto ================= */
+  .manifesto .shade { background: rgba(10,10,10,.74); }
+  .manifesto-text { position: relative; z-index: 2; margin-top: -100vh; padding: 16vh 24px 30vh; }
+  .manifesto-head { width: min(720px, calc(80vw - 80px)); margin: 0 auto 18vh; text-align: left; }
+  .lang { display: inline-flex; gap: 6px; margin-top: 26px; border: 1px solid var(--gold-soft); padding: 4px; }
+  .lang button { background: none; border: 0; cursor: pointer; padding: 8px 16px; font: 500 11px var(--sans); letter-spacing: .25em; text-transform: uppercase; color: var(--text); }
+  .lang button[aria-pressed="true"] { background: var(--gold); color: var(--ink); }
+  /* Story panel: starts at the section boundary, 20% narrower, black at 20% opacity */
+  .manifesto-text::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: min(1056px, 80vw);
+    transform: translateX(-50%);
+    background: rgba(0,0,0,.20);
+    pointer-events: none;
+  }
+  .manifesto-panel {
+    width: min(1056px, 80vw);
+    max-width: 1056px;
+    margin: calc(-18vh - 1px) auto 0;
+    padding: calc(18vh + clamp(28px, 4vw, 46px)) 0 clamp(28px, 4vw, 46px);
+    background: transparent;
+    box-shadow: none;
+  }
+  .m-group {
+    width: min(720px, calc(100% - 80px));
+    max-width: 720px;
+    margin: 0 auto 26vh;
+    padding: 0;
+    text-align: left;
+    background: transparent;
+    box-shadow: none;
+  }
+  .m-sign { width: min(720px, calc(100% - 80px)); margin-left:auto; margin-right:auto; text-align:left; }
+  .m-group:last-child { margin-bottom: 10vh; }
+  /* Essay: Cormorant Garamond Light (English, Kiswahili) · Gowun Batang (Korean) */
+  .m-group p { margin: 0 0 1.4em; font: 300 clamp(21px, 1.9vw, 25px)/1.75 "Cormorant Garamond", "Cormorant", Garamond, Georgia, serif; letter-spacing: .01em; color: #EFECE7; text-shadow: 0 1px 16px rgba(0,0,0,.7); }
+  .m-group p strong { font-weight: 400; }
+  .m-group p:first-child strong { display: block; font-size: 1.55em; line-height: 1.35; font-weight: 400; color: var(--gold); }
+  .m-group:last-of-type p strong { display: block; font-size: 1.35em; line-height: 1.5; font-weight: 400; color: var(--gold); }
+  .m-sign { max-width: none; margin: 0; font: 500 11px var(--sans); letter-spacing: .45em; text-transform: uppercase; color: var(--gold); }
+  .manifesto-text[lang="ko"] .m-group p { font: 400 clamp(17px, 1.5vw, 20px)/2.05 "Gowun Batang", "Noto Serif KR", serif; letter-spacing: 0; word-break: keep-all; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1.1s ease, transform 1.1s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* ================= Artists: three cards per row, alphabetical ================= */
+  .artists-head { padding: 110px 0 70px; text-align: center; background: var(--bg-2); }
+  .artists-head p.lead { max-width: 560px; margin: 22px auto 0; color: var(--text-dim); }
+  .artist-grid { list-style: none; margin: 0; padding: 0 clamp(20px, 5vw, 80px) 110px; background: var(--bg-2);
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 2vw, 28px); }
+  .artist-card { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-3); border: 1px solid var(--gold-soft); }
+  .artist-card a { position: absolute; inset: 0; display: block; color: inherit; text-decoration: none; }
+  .artist-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease, filter 1.2s ease; filter: brightness(.9); }
+  .artist-card a::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(14,14,14,.92) 0%, rgba(14,14,14,.55) 30%, rgba(14,14,14,0) 58%); }
+  .artist-card:hover img, .artist-card a:focus-visible img { transform: scale(1.04); filter: brightness(1); }
+  .artist-card a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .artist-card .card-text { position: absolute; z-index: 1; left: 24px; right: 24px; bottom: 24px; }
+  .artist-card .eyebrow { color: var(--text-dim); letter-spacing: .4em; }
+  .artist-card .artist-name { margin: 0 0 10px; font: 400 clamp(25px, 2.2vw, 34px)/1.12 var(--serif); color: #E4C27E; background: linear-gradient(180deg,#F3DDA8 0%,#E0B96E 55%,#C99A4E 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 10px rgba(0,0,0,.6)); }
+  .artist-card .artist-site { margin: 0; font: 400 11px var(--sans); letter-spacing: .14em; color: var(--text-dim); overflow-wrap: anywhere; }
+  .artist-card .go { display: inline-block; margin-top: 14px; font: 500 10px var(--sans); letter-spacing: .4em; text-transform: uppercase; color: #fff; border-bottom: 1px solid var(--gold); padding-bottom: 4px; }
+  @media (max-width: 980px) { .artist-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) { .artist-grid { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .artist-card img { transition: none; } .artist-card:hover img { transform: none; } }
+
+  /* ================= Numbers ================= */
+  .numbers { position: relative; background: var(--light); color: var(--ink); padding: 90px 0; overflow: hidden; }
+  .numbers::before { content: ""; position: absolute; inset: 0; background: url("img/bg/ezekiel-bound-by-love.jpg") center / cover; opacity: .07; filter: grayscale(1); }
+  .numbers ul { position: relative; list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; }
+  .numbers .num { display: block; font: 400 clamp(48px, 5vw, 64px)/1 var(--serif); color: var(--gold); margin-bottom: 18px; }
+  .numbers .eyebrow { color: var(--ink); }
+  .numbers .title { font-size: clamp(20px, 1.8vw, 24px); }
+  @media (max-width: 640px) { .numbers ul { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* ================= Join (artist application) ================= */
+  .join { background: #fff; color: #555; padding: 110px 0; }
+  .join .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 72px; align-items: center; }
+  .join .eyebrow { color: var(--ink); }
+  .join .two-col { margin-top: 30px; gap: 36px; }
+  .offer { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--gold); box-shadow: 0 24px 50px rgba(0,0,0,.12); }
+  .offer li { display: flex; gap: 22px; align-items: center; padding: 22px 28px; background: linear-gradient(180deg, #fff, #F4F2EE); border-bottom: 1px solid #ECE8E1; }
+  .offer li:last-child { border-bottom: 0; }
+  .offer .n { flex: 0 0 auto; font: italic 400 40px/1 var(--serif); color: var(--gold); }
+  .offer h4 { margin: 0 0 2px; font: 400 17px/1.3 var(--serif); color: var(--ink); }
+  .offer p { margin: 0; font-size: 13px; line-height: 1.6; }
+  @media (max-width: 900px) { .join .wrap { grid-template-columns: 1fr; gap: 48px; } }
+
+  /* ================= Contact ================= */
+  .contact { background: var(--bg); padding: 110px 0; }
+  .contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; }
+  .contact-list { list-style: none; margin: 34px 0 0; padding: 0; }
+  .contact-list li { padding: 16px 0; border-top: 1px solid rgba(255,255,255,.1); }
+  .contact-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.1); }
+  .contact-list span { display: block; font: 400 10px var(--sans); letter-spacing: .4em; text-transform: uppercase; color: var(--text-dim); }
+  .contact-list a { font: 400 18px var(--serif); text-decoration: none; color: #fff; }
+  .contact-list a:hover { color: var(--gold); }
+  form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-content: start; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field.full { grid-column: 1 / -1; }
+  label { font: 400 10px var(--sans); letter-spacing: .4em; text-transform: uppercase; color: var(--text-dim); }
+  input, textarea { font: 300 15px var(--sans); color: #fff; background: var(--bg-2); border: 1px solid #3A3A3A; padding: 13px 14px; border-radius: 0; }
+  input:focus, textarea:focus { outline: none; border-color: var(--gold); }
+  textarea { min-height: 150px; resize: vertical; }
+  form .btn-gold { margin-top: 6px; justify-self: start; }
+  .form-note { grid-column: 1 / -1; margin: 0; font-size: 13px; color: var(--text-dim); min-height: 1.4em; }
+  @media (max-width: 900px) { .contact .wrap { grid-template-columns: 1fr; gap: 56px; } }
+  @media (max-width: 520px) { form { grid-template-columns: 1fr; } }
+
+  /* ================= Footer ================= */
+  .footer { background: #181818; border-top: 1px solid var(--gold-soft); }
+  .footer .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding-top: 44px; padding-bottom: 44px; }
+  .footer .social { display: flex; gap: 22px; }
+  .footer .social a { color: var(--text-dim); }
+  .footer .social a:hover { color: var(--gold); }
+  .footer small { justify-self: end; text-align: right; font-size: 12px; color: var(--text-dim); line-height: 1.7; }
+  .footer small a { text-decoration: none; }
+  .footer small a:hover { color: var(--gold); }
+  @media (max-width: 700px) { .footer .wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; } .footer small { justify-self: center; text-align: center; } }
+</style>
+<style id="vop-dark">
+html,body{background:#0b0b0b!important;color:#ECE7DF!important}
+body{--bg:#0b0b0b;--ink:#ECE7DF;--soft:#A9A399;--line:rgba(255,255,255,.12);--accent:#C9A46A;--gold:#C9A46A}
+:root{--jg-h:clamp(240px,31vw,430px)!important}
+.jg .ph{background:rgba(255,255,255,.04)!important}
+.lang{border-color:rgba(255,255,255,.12)!important}
+.lang button{color:#A9A399!important}
+.lang button[aria-pressed="true"]{background:#C9A46A!important;color:#111!important}
+.btn:hover{background:#C9A46A!important;border-color:#C9A46A!important;color:#111!important}
+.foot{background:#070707!important}
+::selection{background:#C9A46A;color:#111}
+body > header:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(3){color:#ECE7DF!important}
+body > header:nth-child(1) > div:nth-child(1) > div:nth-child(2) > button:nth-child(3) > span:nth-child(1){background-color:#1a1a1a!important;color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(1) > div:nth-child(1) > div:nth-child(3) > div:nth-child(1) > a:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(1) > div:nth-child(1) > div:nth-child(4) > a:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(3) > div:nth-child(2) > div:nth-child(1){background-color:#101010!important;color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(3) > div:nth-child(2) > div:nth-child(1) > p:nth-child(1){color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(3){background-color:#1a1a1a!important;color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > div:nth-child(1) > p:nth-child(3){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(1){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(2) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(3) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(4) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(5) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(5) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(6){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(6) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(6) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(7){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(7) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(7) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(8){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(8) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(8) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(9){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(9) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(9) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(10){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(10) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(10) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(11){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(11) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(11) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(12){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(12) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(12) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(13){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(13) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(13) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(14){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(14) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(14) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(15){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(15) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(15) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(16){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(16) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(16) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(17){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(17) > a:nth-child(1) > div:nth-child(2) > p:nth-child(2){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(5) > ul:nth-child(2) > li:nth-child(17) > a:nth-child(1) > div:nth-child(2) > span:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(6){background-color:#101010!important;color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(7){background-color:#101010!important;color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(7) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1){color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(7) > div:nth-child(1) > ol:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(7) > div:nth-child(1) > ol:nth-child(2) > li:nth-child(1) > div:nth-child(2) > h4:nth-child(1){color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(7) > div:nth-child(1) > ol:nth-child(2) > li:nth-child(2) > div:nth-child(2) > h4:nth-child(1){color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(7) > div:nth-child(1) > ol:nth-child(2) > li:nth-child(3) > div:nth-child(2) > h4:nth-child(1){color:#ECE7DF!important}
+body > main:nth-child(3) > section:nth-child(8){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(1) > span:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(2) > span:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > div:nth-child(1) > ul:nth-child(3) > li:nth-child(3) > span:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > label:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(1) > input:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(2) > label:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(2) > input:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(3) > label:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(3) > input:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(4) > label:nth-child(1){color:#A9A399!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > div:nth-child(4) > textarea:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > button:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > main:nth-child(3) > section:nth-child(8) > div:nth-child(1) > form:nth-child(2) > p:nth-child(6){color:#A9A399!important}
+body > footer:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > footer:nth-child(4) > div:nth-child(1) > div:nth-child(1) > a:nth-child(1){color:#A9A399!important}
+body > footer:nth-child(4) > div:nth-child(1) > div:nth-child(1) > a:nth-child(2){color:#A9A399!important}
+body > footer:nth-child(4) > div:nth-child(1) > small:nth-child(3){color:#A9A399!important}
+body{--bg-2:#111111!important;--bg-3:#171717!important}
+.offer{box-shadow:none!important}
+.offer li{background:#141414!important;border-bottom-color:rgba(255,255,255,.07)!important}
+.offer h4{color:#ECE7DF!important}.offer p{color:#A9A399!important}
+/* About shop CTA: 2x text size */
+#about .about-shop-link { font-size:22px !important; }
+
+/* About section: corrected floating card */
+#about.about { background:#111 !important; overflow:visible !important; }
+#about .about-box { background:#EFE8DC !important; color:#49453F !important; }
+@media (min-width: 901px){
+  #about .about-box-col {
+    width:min(693px,55.15vw) !important;
+    right:clamp(24px,5vw,96px) !important;
+    top:-110px !important;
+    transform:translate(-20%, 5%) !important;
+  }
+  #about .about-box {
+    padding:clamp(70px,6.24vw,109px) clamp(48px,5.2vw,76px) !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="bar">
+    <a class="logo" href="#top">Voice <b>of</b> Piece</a>
+    <div class="header-right">
+      <a class="mail" href="mailto:voiceofpiece2024@gmail.com">voiceofpiece2024@gmail.com</a>
+      <a class="cta" href="#contact">Contact us</a>
+      <button class="menu-btn" id="menu-open" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="menu" id="menu" aria-label="Main">
+  <button class="menu-close" id="menu-close" type="button">Close</button>
+  <ul>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#manifesto">Our story</a></li>
+    <li><a href="#artists">Artists</a></li>
+    <li><a href="#join">Join us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://voiceofpiece.com/">Shop</a></li>
+    <li><a href="https://www.zeffy.com/en-US/donation-form/84d2dad1-1eb3-4048-854c-d8ce230c9c39" target="_blank" rel="noopener">Donate</a></li>
+  </ul>
+</nav>
+
+<main id="top">
+
+  <!-- ===== Hero: living gallery ===== -->
+  <section class="stage-wrap hero" id="hero">
+    <div class="stage">
+      <div class="hero-gallery" id="hero-gallery" aria-hidden="true"></div>
+      <div class="shade"></div>
+      <div class="hero-text" id="hero-text">
+        <div>
+          <div class="eyebrow title-lines">Voice of Piece</div>
+          <h1>Fair Resonance</h1>
+          <p class="sub">of African art and culture</p>
+          <a class="btn-gold" href="#vision">Our vision</a>
+        </div>
+      </div>
+      <div class="side-social">
+        <a href="https://www.instagram.com/voiceofpiece/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/voiceofpiece2024" target="_blank" rel="noopener" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">SCROLL</div>
+    </div>
+  </section>
+
+  <!-- ===== Vision ===== -->
+  <section class="vision" id="vision">
+    <div class="wrap">
+      <p class="eyebrow">Our vision</p>
+      <h2 class="title">Heard as they are</h2>
+      <div class="two-col">
+        <p>Many of the painters we work with have painted quietly for years, with little recognition and limited materials. Their work deserves to be seen for what it is, not for how loudly it is explained.</p>
+        <p>We do not ask them to speak louder. We build the place where their work can be found, credited and fairly paid, so that talent is recognised for the talent it is.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="about" id="about">
+    <div class="about-img">
+      <video autoplay muted loop playsinline preload="metadata" aria-label="Voice of Piece safari video">
+        <source src="safari.mp4" type="video/mp4">
+      </video>
+      <div class="about-quote">
+        <p>They do not say much. They simply smile, and wait to hear what you see in their work.</p>
+        <div class="mark">&ldquo;</div>
+      </div>
+    </div>
+    <div class="about-box-col">
+      <div class="about-box">
+        <p class="eyebrow">About</p>
+        <h2 class="title">Voice of Piece</h2>
+        <div class="rule"></div>
+        <p>Voice of Piece connects Tanzanian artists with people around the world who want to live with their work.</p>
+        <p>Each artist has a home of their own online, with their name, their story and their paintings. Their work reaches buyers through our shop, and their name, rights and fair payment travel with every piece.</p>
+        <a class="link-line about-shop-link" href="https://voiceofpiece.com/" target="_blank" rel="noopener">Visit the shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Manifesto: scroll draws a second painting behind the text ===== -->
+  <section class="stage-wrap manifesto" id="manifesto" data-sketch="img/bg/ezekiel-bound-by-love-sketch.jpg" data-color="img/bg/ezekiel-bound-by-love.jpg"
+           data-credit="Ezekiel Charles Loishooki" data-map="1,.02,.46,.46,.52,.52,.94">
+    <div class="stage">
+      <canvas></canvas>
+      <div class="shade"></div>
+      <div class="tool"><svg class="pencil" width="170" height="170" viewBox="0 0 170 170" aria-hidden="true"><g transform="translate(0 170) rotate(-42)">
+  <path d="M0 0 L28 -10 L28 10 Z" fill="#E4C9A2"/><path d="M0 0 L10 -3.6 L10 3.6 Z" fill="#222"/>
+  <rect x="28" y="-10" width="160" height="20" fill="#1C1C1C"/><rect x="28" y="-10" width="160" height="5" fill="#3A3A3A"/>
+  <rect x="188" y="-10" width="16" height="20" fill="#C9A46A"/><rect x="204" y="-10" width="16" height="20" rx="4" fill="#8E7B63"/></g></svg><svg class="brush" width="220" height="220" viewBox="0 0 220 220" aria-hidden="true"><g transform="translate(0 220) rotate(-42)">
+  <path class="bristle" d="M0 0 C7 -9 20 -15 38 -14 L38 14 C20 15 7 9 0 0 Z" fill="#C0392B"/>
+  <rect x="38" y="-13" width="32" height="26" rx="2" fill="#C9A46A"/><rect x="38" y="-13" width="32" height="7" fill="#E2C48E"/>
+  <path d="M70 -12 L270 -6 L270 6 L70 12 Z" fill="#141414"/><path d="M70 -12 L270 -6 L270 -2 L70 -5 Z" fill="#2E2E2E"/></g></svg></div>
+      <p class="credit">Drawing · <b>Ezekiel Charles Loishooki</b>, Bound by Love</p>
+    </div>
+    <div class="manifesto-text" id="manifesto-text" lang="en">
+      <div class="manifesto-head">
+        <p class="eyebrow">Our story</p>
+        <h2 class="title">They do not say much</h2>
+
+      </div>
+      <div class="manifesto-panel">
+        <div id="manifesto-body"></div>
+        <p class="m-sign reveal">— Voice of Piece</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Artists: one full-width card each ===== -->
+  <section id="artists">
+    <div class="artists-head">
+      <p class="eyebrow">Meet the</p>
+      <h2 class="title">Artists</h2>
+      <p class="lead">Every artist has a site of their own. Step into their world.</p>
+    </div>
+    <!-- Ezekiel and Mitole first, then alphabetical. To add an artist: add a folder <slug>/ and copy one <li>.
+         Links point to <slug>/ here; on voiceofpiece.org they switch to https://<slug>.voiceofpiece.org/ automatically. -->
+    <ul class="artist-grid">
+      <li class="artist-card">
+        <a href="ezekiel/" data-artist="ezekiel">
+          <img src="img/ezekiel.jpg" alt="Artwork by Ezekiel Charles Loishooki" loading="lazy" style="object-position:50% 35%">
+          <div class="card-text">
+            <h3 class="artist-name">Ezekiel Charles Loishooki</h3>
+            <p class="artist-site">ezekiel.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="mitole/" data-artist="mitole">
+          <img src="img/mitole.jpg" alt="Artwork by Omary Said Mitole" loading="lazy" style="object-position:50% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">Omary Said Mitole</h3>
+            <p class="artist-site">mitole.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="aggrey/" data-artist="aggrey">
+          <img src="img/aggrey.jpg" alt="Artwork by Aggrey Paul Mwasha" loading="lazy" style="object-position:50% 60%">
+          <div class="card-text">
+            <h3 class="artist-name">Aggrey Paul Mwasha</h3>
+            <p class="artist-site">aggrey.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="alto/" data-artist="alto">
+          <img src="img/alto.jpg" alt="Artwork by Alto Augustino Haule" loading="lazy" style="object-position:50% 30%">
+          <div class="card-text">
+            <h3 class="artist-name">Alto Augustino Haule</h3>
+            <p class="artist-site">alto.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="elichilia/" data-artist="elichilia">
+          <img src="img/elichilia.jpg" alt="Artwork by Elichilia Ezekiel Mcharo" loading="lazy" style="object-position:50% 55%">
+          <div class="card-text">
+            <h3 class="artist-name">Elichilia Ezekiel Mcharo</h3>
+            <p class="artist-site">elichilia.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="evarist/" data-artist="evarist">
+          <img src="img/evarist.jpg" alt="Artwork by Evarist Fabian Chikawe" loading="lazy" style="object-position:50% 40%">
+          <div class="card-text">
+            <h3 class="artist-name">Evarist Fabian Chikawe</h3>
+            <p class="artist-site">evarist.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="evodius/" data-artist="evodius">
+          <img src="img/evodius.jpg" alt="Artwork by Evodius Tumsime Nicholaus" loading="lazy" style="object-position:50% 30%">
+          <div class="card-text">
+            <h3 class="artist-name">Evodius Tumsime Nicholaus</h3>
+            <p class="artist-site">evodius.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="godwin/" data-artist="godwin">
+          <img src="img/godwin.jpg" alt="Artwork by Godwin Josephat Makombe" loading="lazy" style="object-position:50% 35%">
+          <div class="card-text">
+            <h3 class="artist-name">Godwin Josephat Makombe</h3>
+            <p class="artist-site">godwin.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="hedwiga/" data-artist="hedwiga">
+          <img src="img/hedwiga.jpg" alt="Artwork by Hedwiga Medard Tairo" loading="lazy" style="object-position:50% 30%">
+          <div class="card-text">
+            <h3 class="artist-name">Hedwiga Medard Tairo</h3>
+            <p class="artist-site">hedwiga.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="james/" data-artist="james">
+          <img src="img/james.jpg" alt="Artwork by James Romanus Haule" loading="lazy" style="object-position:50% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">James Romanus Haule</h3>
+            <p class="artist-site">james.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="john/" data-artist="john">
+          <img src="img/john.jpg" alt="Artwork by John Mussa Ngwesa" loading="lazy" style="object-position:50% 35%">
+          <div class="card-text">
+            <h3 class="artist-name">John Mussa Ngwesa</h3>
+            <p class="artist-site">john.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="kipara/" data-artist="kipara">
+          <img src="img/kipara.jpg" alt="Artwork by Kipara David Mzuguno" loading="lazy" style="object-position:50% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">Kipara David Mzuguno</h3>
+            <p class="artist-site">kipara.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="ladislaus/" data-artist="ladislaus">
+          <img src="img/ladislaus.jpg" alt="Artwork by Ladislaus Tumwesige Nicholaus" loading="lazy" style="object-position:50% 25%">
+          <div class="card-text">
+            <h3 class="artist-name">Ladislaus Tumwesige Nicholaus</h3>
+            <p class="artist-site">ladislaus.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="lutengano/" data-artist="lutengano">
+          <img src="img/lutengano.jpg" alt="Artwork by Lutengano Anganile Mwakisopile" loading="lazy" style="object-position:50% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">Lutengano Anganile Mwakisopile</h3>
+            <p class="artist-site">lutengano.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="paul/" data-artist="paul">
+          <img src="img/paul.jpg" alt="Artwork by Paul John Mwakoro" loading="lazy" style="object-position:50% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">Paul John Mwakoro</h3>
+            <p class="artist-site">paul.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="price/" data-artist="price">
+          <img src="img/price.jpg" alt="Artwork by Price Deodatus Tarimo" loading="lazy" style="object-position:40% 50%">
+          <div class="card-text">
+            <h3 class="artist-name">Price Deodatus Tarimo</h3>
+            <p class="artist-site">price.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+      <li class="artist-card">
+        <a href="simon/" data-artist="simon">
+          <img src="img/simon.jpg" alt="Artwork by Simon Venance Mussa" loading="lazy" style="object-position:50% 30%">
+          <div class="card-text">
+            <h3 class="artist-name">Simon Venance Mussa</h3>
+            <p class="artist-site">simon.voiceofpiece.org</p>
+            <span class="go">Visit site</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== Numbers ===== -->
+  <section class="numbers" aria-label="Voice of Piece in numbers">
+    <div class="wrap">
+      <ul>
+        <li><span class="num">17</span><p class="eyebrow">Tanzanian</p><p class="title">Artists</p></li>
+        <li><span class="num">17</span><p class="eyebrow">Artist</p><p class="title">Websites</p></li>
+        <li><span class="num">3</span><p class="eyebrow">Written in</p><p class="title">Languages</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Join / artist application ===== -->
+  <section class="join" id="join">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">For artists</p>
+        <h2 class="title">Join Voice of Piece</h2>
+        <div class="two-col">
+          <p>Voice of Piece warmly welcomes new Tanzanian artists. If you are a painter who dreams of sharing your art with the world, we would love to hear from you.</p>
+          <p>To apply, send us photos of a few recent works, your name, and a short note about how and where you paint. We read every message and will write back.</p>
+        </div>
+        <a class="link-line" href="mailto:voiceofpiece2024@gmail.com?subject=Artist%20application">Apply now</a>
+      </div>
+      <ol class="offer" aria-label="What artists receive">
+        <li><span class="n">01</span><div><h4>A website of your own</h4><p>Your name, your story and your work, on your own page under voiceofpiece.org.</p></div></li>
+        <li><span class="n">02</span><div><h4>A place in our shop</h4><p>Your work offered to buyers around the world through voiceofpiece.com.</p></div></li>
+        <li><span class="n">03</span><div><h4>A written agreement</h4><p>Clear terms on credit, pricing and payment, agreed before anything is sold.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="title">Contact</h2>
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:voiceofpiece2024@gmail.com">voiceofpiece2024@gmail.com</a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/voiceofpiece/" target="_blank" rel="noopener">@voiceofpiece</a></li>
+          <li><span>Facebook</span><a href="https://www.facebook.com/voiceofpiece2024" target="_blank" rel="noopener">Voice of Piece</a></li>
+        </ul>
+      </div>
+      <!-- Opens the visitor's email app with the message filled in. -->
+      <form id="contact-form" novalidate>
+        <div class="field"><label for="fn">First name</label><input id="fn" name="first" autocomplete="given-name" required></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" name="last" autocomplete="family-name"></div>
+        <div class="field full"><label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email" required></div>
+        <div class="field full"><label for="msg">Message</label><textarea id="msg" name="message" required></textarea></div>
+        <button class="btn-gold" type="submit">Send message</button>
+        <p class="form-note" id="form-note" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="social">
+      <a href="https://www.instagram.com/voiceofpiece/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/voiceofpiece2024" target="_blank" rel="noopener" aria-label="Facebook"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+    </div>
+    <a class="logo" href="#top">Voice <b>of</b> Piece</a>
+    <small>Voice of Piece © 2023–2026. All rights reserved.<br><a href="https://voiceofpiece.com/">voiceofpiece.com</a><br><a class="vop-login" href="/studio/" style="display:inline-block;margin-top:8px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none">Studio</a></small>
+  </div>
+</footer>
+
+<script>
+  function imgFallback(el) {
+    var fb = el.getAttribute('data-fallback');
+    if (fb && el.getAttribute('src') !== fb) { el.setAttribute('src', fb); el.style.filter = 'grayscale(1)'; }
+    else { el.remove(); }
+  }
+
+  /* ---------- Header + menu ---------- */
+  (function () {
+    var header = document.getElementById('header'), menu = document.getElementById('menu');
+    var openBtn = document.getElementById('menu-open'), closeBtn = document.getElementById('menu-close');
+    function onScroll() { header.classList.toggle('solid', scrollY > 80); }
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    function setMenu(open) {
+      menu.classList.toggle('open', open); openBtn.setAttribute('aria-expanded', open);
+      if (open) closeBtn.focus(); else openBtn.focus();
+    }
+    openBtn.addEventListener('click', function () { setMenu(true); });
+    closeBtn.addEventListener('click', function () { setMenu(false); });
+    menu.addEventListener('click', function (e) { if (e.target.tagName === 'A') setMenu(false); });
+    addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
+  })();
+
+  /* ---------- Manifesto text (three languages) ---------- */
+  var MANIFESTO = {"en": [["<strong>They do not say much.</strong>", "No long stories about who they are.<br>No long explanations of their paintings.", "They simply look at me with a smile,<br>waiting to hear what I have to say about their work."], ["I had grown accustomed to a world that could draw a single line and surround it with a hundred words.", "For me, art had been like the content on a smartphone—kindly telling me what to look at and what to feel, without asking me to think too hard for myself.", "I thought the proper order was to read the words beside a work of art first, then look at the work.", "I would search for how others interpreted it, trying to understand and share in their interpretations. I thought that was what it meant to take an interest in a work of art. A kind of respect."], ["At first, it was difficult to have nothing but the resources within myself with which to understand.", "Instead of words, I answered by looking at their paintings a little longer."], ["Within them, countless movements of the hand.<br>A talent not yet given a name.", "I could not put it into words."], ["The harder I searched for the right words, the more frustrating it became—like having a friend standing right in front of me and somehow being unable to remember their name.", "So I gave up trying to connect it to language.", "Just looking, listening, smelling,<br>feeling the temperature and the presence,<br>letting my feelings about the work exist simply as an image of their own."], ["May a good painting be discovered as a good painting.<br>May talent be recognized for the talent it is.", "May the hands that have quietly painted for so long<br>receive the opportunities and compensation they deserve.", "So that the quietness of their voices<br>never makes their value seem smaller."], ["We are not trying to make them speak louder.", "<strong>We want to create a place<br>where they can speak just as they do now, and still be heard.</strong>"]], "ko": [["<strong>그들은 많은 말을 하지 않는다.</strong>", "자신이 어떤 사람인지 길게 이야기하지 않고,<br>자신의 그림에 대해서도 긴 설명이 없다.", "그저 나를 바라보며 미소 짓고,<br>자신의 그림에 대한 나의 말을 기다린다."], ["선 하나를 그어놓고도 백 마디 말을 늘어놓는 세상에 익숙했다.", "그동안 나에게 예술은, 스마트폰 속 콘텐츠처럼, 내가 애써 생각하지 않아도 무엇을 보고 무엇을 느껴야 하는지 친절하게 설명해주는 것이었다.", "미술 작품 옆에 쓰인 설명을 먼저 읽고, 그다음 작품을 바라보는 것이 올바른 순서라고 생각했다.", "다른 사람들은 이 작품을 어떻게 해석하는지 찾아보고, 그 해석을 이해하고 공감하려 애쓰는 것이 그 작품에 대한 관심이고 예의라고 생각했다."], ["내 속에 있는 자원들만 가지고 스스로 이해해야 하는 이 상황이 처음에는 어려웠다.", "말 대신, 그들의 그림을 더 오래 바라보는 것으로 대답을 대신했다."], ["그 안에는 수없이 지나간 손길이 있고,<br>아직 이름 붙여지지 않은 재능이 있었다.", "그것을 말로 표현할 수가 없었다."], ["적당한 어휘를 찾으려고 애쓰면 애쓸수록, 눈앞에 친구가 있는데 도무지 그 이름이 생각나지 않을 때처럼 답답해졌다.", "그래서 언어와 연결시키는 일을 포기했다.", "그냥 보고, 듣고, 냄새 맡고,<br>온도와 기운을 느끼면서,<br>그 작품에 대한 나의 감정을 그저 하나의 형상으로 인식하기로 했다."], ["좋은 그림이 좋은 그림으로 발견되고,<br>재능이 그 재능만큼 인정받기를 바란다.", "오랫동안 조용히 그림을 그려온 손에<br>그에 걸맞은 기회와 대가가 돌아가기를.", "그들의 목소리가 작아서<br>그들의 가치까지 작아지는 일은 없도록."], ["우리는 그들이 더 크게 말하게 하려는 것이 아니다.", "<strong>그들이 지금처럼 말해도<br>충분히 들릴 수 있는 자리를 만들고 싶다.</strong>"]], "sw": [["<strong>Hawazungumzi sana.</strong>", "Hakuna maelezo marefu kuhusu wao ni watu wa aina gani.<br>Hakuna maelezo marefu kuhusu michoro yao.", "Wananitazama tu kwa tabasamu,<br>wakisubiri kusikia ninachosema kuhusu kazi zao."], ["Nilikuwa nimezoea dunia inayoweza kuchora mstari mmoja na kuuzungushia maneno mia moja.", "Kwangu, sanaa ilikuwa kama maudhui kwenye simu—ikinieleza kwa upole niangalie nini na nihisi nini, bila kunilazimisha kufikiri sana mwenyewe.", "Nilidhani mpangilio sahihi ulikuwa kusoma kwanza maelezo yaliyoandikwa pembeni ya kazi ya sanaa, kisha kuitazama kazi yenyewe.", "Nilitafuta jinsi wengine walivyoitafsiri, nikijaribu kuelewa na kuhisi kile walichokiona. Nilidhani huo ndio ulikuwa umakini unaostahili kazi ya sanaa. Aina fulani ya heshima."], ["Mwanzoni ilikuwa vigumu kuelewa kwa kutumia tu yale niliyokuwa nayo ndani yangu.", "Badala ya maneno, nikajibu kwa kuitazama michoro yao kwa muda mrefu zaidi."], ["Ndani yake, miguso mingi isiyohesabika ya mikono.<br>Kipaji ambacho bado hakijapewa jina.", "Sikuweza kukiweka katika maneno."], ["Kadiri nilivyojaribu kutafuta maneno yanayofaa, ndivyo nilivyozidi kuhisi hali ya kutatanisha—kama rafiki amesimama mbele yangu, lakini kwa namna fulani jina lake halikumbukiki.", "Nikaacha kujaribu kukiunganisha na lugha.", "Kutazama tu, kusikiliza, kunusa,<br>kuhisi joto na uwepo wake,<br>na kuiacha hisia yangu kuhusu kazi hiyo iwe tu kama taswira yake yenyewe."], ["Mchoro mzuri na ugunduliwe kwa kuwa ni mchoro mzuri.<br>Kipaji na kitambuliwe kwa thamani ya kipaji chenyewe.", "Mikono ambayo imechora kwa utulivu kwa muda mrefu<br>na ipate fursa na malipo yanayoistahili.", "Ili utulivu wa sauti zao<br>usifanye thamani yao ionekane ndogo."], ["Hatujaribu kuwafanya wazungumze kwa sauti kubwa zaidi.", "<strong>Tunataka kujenga nafasi<br>ambapo wanaweza kuzungumza kama walivyo sasa, na bado wakasikika.</strong>"]]};
+  (function () {
+    var box = document.getElementById('manifesto-text'), body = document.getElementById('manifesto-body');
+    var btns = box.querySelectorAll('.lang button');
+    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -12% 0px' }) : null;
+    function render(lang) {
+      box.setAttribute('lang', lang);
+      body.innerHTML = MANIFESTO[lang].map(function (g) {
+        return '<div class="m-group reveal">' + g.map(function (p) { return '<p>' + p + '</p>'; }).join('') + '</div>';
+      }).join('');
+      box.querySelectorAll('.reveal').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+      btns.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang ? 'true' : 'false'); });
+    }
+    btns.forEach(function (b) { b.addEventListener('click', function () { render(b.dataset.lang); }); });
+    render('en');
+  })();
+
+  /* ---------- Hero: artwork from every artist gallery fades in and out at staggered times ---------- */
+  (function () {
+    var gallery = document.getElementById('hero-gallery');
+    if (!gallery) return;
+    var sources = ["aggrey/gallery/01.jpg", "aggrey/gallery/02.jpg", "aggrey/gallery/03.jpg", "aggrey/gallery/04.jpg", "aggrey/gallery/05.jpg", "aggrey/gallery/06.jpg", "aggrey/gallery/07.jpg", "aggrey/gallery/08.jpg", "aggrey/gallery/09.jpg", "alto/gallery/01.jpg", "alto/gallery/02.jpg", "alto/gallery/03.jpg", "alto/gallery/04.jpg", "alto/gallery/05.jpg", "alto/gallery/06.jpg", "alto/gallery/07.jpg", "alto/gallery/08.jpg", "alto/gallery/09.jpg", "alto/gallery/10.jpg", "elichilia/gallery/01.jpg", "elichilia/gallery/02.jpg", "evarist/gallery/01.jpg", "evarist/gallery/02.jpg", "evarist/gallery/03.jpg", "evodius/gallery/01.jpg", "ezekiel/gallery/01.jpg", "ezekiel/gallery/02.jpg", "ezekiel/gallery/03.jpg", "ezekiel/gallery/04.jpg", "ezekiel/gallery/05.jpg", "ezekiel/gallery/06.jpg", "ezekiel/gallery/07.jpg", "ezekiel/gallery/08.jpg", "ezekiel/gallery/09.jpg", "ezekiel/gallery/10.jpg", "ezekiel/gallery/11.jpg", "godwin/gallery/01.jpg", "godwin/gallery/02.jpg", "godwin/gallery/03.jpg", "godwin/gallery/04.jpg", "hedwiga/gallery/01.jpg", "hedwiga/gallery/02.jpg", "hedwiga/gallery/03.jpg", "hedwiga/gallery/04.jpg", "hedwiga/gallery/05.jpg", "hedwiga/gallery/06.jpg", "hedwiga/gallery/07.jpg", "hedwiga/gallery/08.jpg", "james/gallery/01.jpg", "james/gallery/02.jpg", "james/gallery/03.jpg", "james/gallery/04.jpg", "james/gallery/05.jpg", "john/gallery/01.jpg", "john/gallery/02.jpg", "john/gallery/03.jpg", "john/gallery/04.jpg", "john/gallery/05.jpg", "kipara/gallery/01.jpg", "kipara/gallery/02.jpg", "kipara/gallery/03.jpg", "kipara/gallery/04.jpg", "kipara/gallery/05.jpg", "kipara/gallery/06.jpg", "kipara/gallery/07.jpg", "kipara/gallery/08.jpg", "kipara/gallery/09.jpg", "kipara/gallery/10.jpg", "kipara/gallery/11.jpg", "ladislaus/gallery/01.jpg", "lutengano/gallery/01.jpg", "lutengano/gallery/02.jpg", "lutengano/gallery/03.jpg", "lutengano/gallery/04.jpg", "lutengano/gallery/05.jpg", "lutengano/gallery/06.jpg", "lutengano/gallery/07.jpg", "lutengano/gallery/08.jpg", "lutengano/gallery/09.jpg", "mitole/gallery/01.jpg", "mitole/gallery/02.jpg", "mitole/gallery/03.jpg", "mitole/gallery/04.jpg", "mitole/gallery/05.jpg", "mitole/gallery/06.jpg", "mitole/gallery/07.jpg", "mitole/gallery/08.jpg", "mitole/gallery/09.jpg", "paul/gallery/01.jpg", "paul/gallery/02.jpg", "paul/gallery/03.jpg", "paul/gallery/04.jpg", "price/gallery/01.jpg", "simon/gallery/01.jpg", "simon/gallery/02.jpg", "simon/gallery/03.jpg", "simon/gallery/04.jpg", "simon/gallery/05.jpg", "simon/gallery/06.jpg", "simon/gallery/07.jpg", "simon/gallery/08.jpg"];
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var slots = [
+      {l:3,t:8,w:22,h:34,o:.76}, {l:28,t:5,w:15,h:25,o:.64}, {l:68,t:7,w:25,h:31,o:.74},
+      {l:7,t:58,w:18,h:29,o:.67}, {l:30,t:67,w:20,h:27,o:.58}, {l:72,t:60,w:20,h:31,o:.68},
+      {l:49,t:12,w:14,h:22,o:.48}, {l:51,t:69,w:14,h:22,o:.48}
+    ];
+    var used = {}, cursor = Math.floor(Math.random() * sources.length);
+    function nextSource() {
+      var tries = 0, src;
+      do { src = sources[cursor++ % sources.length]; tries++; } while (used[src] && tries < sources.length);
+      used[src] = true; setTimeout(function(){ delete used[src]; }, 12000); return src;
+    }
+    function make(slot, i) {
+      var f = document.createElement('figure'), img = document.createElement('img');
+      f.className = 'hero-art'; f.style.left = slot.l+'%'; f.style.top = slot.t+'%';
+      f.style.width = slot.w+'vw'; f.style.height = slot.h+'vh'; f.style.setProperty('--art-opacity', slot.o);
+      img.alt = ''; img.decoding = 'async'; f.appendChild(img); gallery.appendChild(f);
+      function cycle(first) {
+        f.classList.remove('on');
+        setTimeout(function () {
+          img.onload = function () { requestAnimationFrame(function(){ f.classList.add('on'); }); };
+          img.src = nextSource();
+          var visible = 4300 + Math.random()*2600;
+          setTimeout(function () { f.classList.remove('on'); setTimeout(function(){ cycle(false); }, 1900 + Math.random()*1800); }, visible);
+        }, first ? i*720 + Math.random()*450 : 0);
+      }
+      cycle(true);
+    }
+    if (reduce) slots = slots.slice(0,4);
+    slots.forEach(make);
+  })();
+
+  /* ---------- Drawing stages: pencil reveals a sketch in an S, then turns into a brush and paints it back up ---------- */
+  (function () {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var DPR = Math.min(devicePixelRatio || 1, 1.5);
+    var ROWS = 3, TURN = .34;                                  // S-path: 5 passes, short turns between them
+    var TOTAL = ROWS + (ROWS - 1) * TURN;
+    function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+    function span(p, a, b) { return clamp((p - a) / (b - a)); }
+    function load(src) { return new Promise(function (r) { var i = new Image(); i.onload = function () { r(i); }; i.onerror = function () { r(null); }; i.src = src; }); }
+
+    // Position on the S path for progress q, and (optionally) paint everything already passed onto a mask.
+    function walk(q, c, mw, mh) {
+      var t = q * TOTAL, rh = mh / ROWS, tail = mw * .62;
+      if (c) { c.clearRect(0, 0, mw, mh); c.fillStyle = '#000'; }
+      for (var i = 0; i < ROWS; i++) {
+        var ltr = i % 2 === 0;
+        if (t >= 1) {
+          if (c) c.fillRect(0, i * rh - .5, mw, rh + 1);
+          t -= 1;
+          if (i < ROWS - 1) {
+            if (t < TURN) { var k = t / TURN; return { x: (ltr ? 1 : 0) + (ltr ? 1 : -1) * .035 * Math.sin(Math.PI * k), y: (i + .5 + k) / ROWS }; }
+            t -= TURN;
+          } else return { x: ltr ? 1 : 0, y: (i + .5) / ROWS };
+        } else {
+          var x = ltr ? t : 1 - t;
+          if (c) {
+            var px = x * mw, g;
+            if (ltr) { g = c.createLinearGradient(px - tail, 0, px + tail * .35, 0); g.addColorStop(0, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)'); c.fillStyle = g; c.fillRect(0, i * rh - .5, px + tail * .35, rh + 1); }
+            else { g = c.createLinearGradient(px + tail, 0, px - tail * .35, 0); g.addColorStop(0, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)'); c.fillStyle = g; c.fillRect(px - tail * .35, i * rh - .5, mw - px + tail * .35, rh + 1); }
+          }
+          return { x: x, y: (i + .5) / ROWS + Math.sin(t * Math.PI * 2) * .012 };
+        }
+      }
+      return { x: 1, y: 1 };
+    }
+
+    function Stage(sec) {
+      this.sec = sec; this.canvas = sec.querySelector('canvas'); this.ctx = this.canvas.getContext('2d');
+      this.tool = sec.querySelector('.tool'); this.pencil = sec.querySelector('.pencil'); this.brush = sec.querySelector('.brush');
+      this.bristle = sec.querySelector('.bristle'); this.credit = sec.querySelector('.credit'); this.shade = sec.querySelector('.shade');
+      this.heroText = sec.id === 'hero' ? document.getElementById('hero-text') : null;
+      var m = sec.dataset.map.split(',').map(Number);            // mode, sketchStart, sketchEnd, morphStart, morphEnd, colourStart, colourEnd
+      this.mode = m[0]; this.map = m.slice(1); this.last = -1;
+      this.mS = document.createElement('canvas'); this.mC = document.createElement('canvas'); this.tmp = document.createElement('canvas');
+      this.layer = document.createElement('canvas');
+      this.sampler = document.createElement('canvas');
+    }
+    Stage.prototype.init = function () {
+      var s = this;
+      return Promise.all([load(s.sec.dataset.sketch), load(s.sec.dataset.color)]).then(function (r) {
+        s.sketch = r[0]; s.color = r[1]; if (!s.sketch || !s.color) return false;
+        s.sampler.width = 64; s.sampler.height = Math.max(1, Math.round(64 * s.color.height / s.color.width));
+        var sc = s.sampler.getContext('2d');
+        sc.drawImage(s.color, 0, 0, s.sampler.width, s.sampler.height);
+        try { s.px = sc.getImageData(0, 0, s.sampler.width, s.sampler.height).data; }   // colours for the brush tip
+        catch (e) { s.px = null; }                                                     // e.g. opened from disk: keep the default tip colour
+        s.resize(); return true;
+      });
+    };
+    Stage.prototype.resize = function () {
+      var r = this.canvas.getBoundingClientRect();
+      this.cw = r.width; this.ch = r.height;
+      this.W = this.canvas.width = Math.round(r.width * DPR); this.H = this.canvas.height = Math.round(r.height * DPR);
+      this.layer.width = this.W; this.layer.height = this.H;
+      var mw = 24, mh = Math.max(14, Math.round(24 * this.H / this.W));
+      [this.mS, this.mC, this.tmp].forEach(function (c) { c.width = mw; c.height = mh; });
+      this.mw = mw; this.mh = mh; this.last = -1;
+    };
+    Stage.prototype.progress = function () {
+      var r = this.sec.getBoundingClientRect(), range = r.height - innerHeight;
+      return range > 0 ? clamp(-r.top / range) : 0;
+    };
+    Stage.prototype.cover = function (img) {
+      var s = Math.max(this.W / img.width, this.H / img.height), w = img.width * s, h = img.height * s;
+      return [(this.W - w) / 2, (this.H - h) / 2, w, h];
+    };
+    Stage.prototype.masked = function (img, mask) {
+      var l = this.layer.getContext('2d');
+      l.globalCompositeOperation = 'source-over'; l.clearRect(0, 0, this.W, this.H);
+      l.imageSmoothingEnabled = true; l.imageSmoothingQuality = 'high';
+      l.drawImage(mask, 0, 0, this.W, this.H);                 // tiny mask scaled up = soft edges
+      l.globalCompositeOperation = 'source-in';
+      var c = this.cover(img); l.drawImage(img, c[0], c[1], c[2], c[3]);
+      l.globalCompositeOperation = 'source-over';
+      this.ctx.drawImage(this.layer, 0, 0);
+    };
+    Stage.prototype.draw = function (p) {
+      if (Math.abs(p - this.last) < .0005) return; this.last = p;
+      var M = this.map, qs = span(p, M[0], M[1]), morph = span(p, M[2], M[3]), qc = span(p, M[4], M[5]);
+      if (reduce) { qs = 1; qc = 1; }
+
+      /* Our Story sequence: BLACK → broad PURPLE FILTER → ELEPHANT → BLACK.
+         No white/light flash; every transition is a slow full-frame crossfade. */
+      if (this.sec.id === 'manifesto') {
+        var ctx = this.ctx;
+        var smooth = function(x) { x = clamp(x); return x * x * (3 - 2 * x); };
+
+        /* phase timing across the section */
+        var purpleIn  = smooth((p - 0.05) / 0.18);  // black → purple
+        var elephantIn = smooth((p - 0.25) / 0.22); // purple → elephant
+        var elephantOut = smooth((p - 0.72) / 0.22);// elephant → black
+
+        /* Keep the elephant visible underneath EVERY phase. */
+        var b = this.cover(this.color);
+        ctx.globalAlpha = 1;
+        ctx.drawImage(this.color, b[0], b[1], b[2], b[3]);
+
+        /* BLACK phase = a translucent dark veil, not an opaque black screen. */
+        var darkBefore = 0.76 * (1 - purpleIn);
+        if (darkBefore > 0) {
+          ctx.save();
+          ctx.globalAlpha = darkBefore;
+          ctx.fillStyle = '#08070A';
+          ctx.fillRect(0, 0, this.W, this.H);
+          ctx.restore();
+        }
+
+        /* PURPLE phase = broad translucent filter; elephant still shows through. */
+        var purpleAlpha = purpleIn * (1 - elephantIn) * (1 - elephantOut);
+        if (purpleAlpha > 0) {
+          ctx.save();
+          ctx.globalAlpha = 0.68 * purpleAlpha;
+          var g = ctx.createLinearGradient(0, 0, this.W, this.H);
+          g.addColorStop(0, '#160D21');
+          g.addColorStop(0.45, '#5A2B70');
+          g.addColorStop(1, '#24102F');
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, this.W, this.H);
+          ctx.restore();
+        }
+
+        /* ELEPHANT phase = artwork becomes clearer, with only a light purple cast. */
+        var elephantAlpha = elephantIn * (1 - elephantOut);
+        if (elephantAlpha > 0) {
+          ctx.save();
+          ctx.globalAlpha = 0.12 * elephantAlpha;
+          ctx.fillStyle = '#5A2B70';
+          ctx.fillRect(0, 0, this.W, this.H);
+          ctx.restore();
+        }
+
+        /* Return to BLACK with a translucent veil so the elephant remains visible. */
+        if (elephantOut > 0) {
+          ctx.save();
+          ctx.globalAlpha = 0.78 * elephantOut;
+          ctx.fillStyle = '#08070A';
+          ctx.fillRect(0, 0, this.W, this.H);
+          ctx.restore();
+        }
+
+        if (this.tool) this.tool.style.display = 'none';
+        if (this.credit) this.credit.style.opacity = (p > .08 && p < .90) ? 1 : 0;
+        if (this.shade) this.shade.style.opacity = .18;
+        return;
+      }
+
+      // sketch: forward along the S (top → bottom)
+      var ps = walk(qs, this.mS.getContext('2d'), this.mw, this.mh);
+      // colour: the brush walks the same S back up, so colour spreads from the bottom
+      var t = this.tmp.getContext('2d'), mc = this.mC.getContext('2d');
+      var pc = walk(1 - qc, t, this.mw, this.mh);
+      mc.globalCompositeOperation = 'source-over'; mc.clearRect(0, 0, this.mw, this.mh);
+      if (qc > 0) { mc.fillStyle = '#000'; mc.fillRect(0, 0, this.mw, this.mh); mc.globalCompositeOperation = 'destination-out'; mc.drawImage(this.tmp, 0, 0); mc.globalCompositeOperation = 'source-over'; }
+      var ctx = this.ctx; ctx.fillStyle = '#161616'; ctx.fillRect(0, 0, this.W, this.H);
+      if (qs > 0) this.masked(this.sketch, this.mS);
+      if (qc > 0) this.masked(this.color, this.mC);
+
+      // tool: pencil while sketching, turns into the brush, brush while painting
+      var drawingSketch = qs > 0 && qs < 1, painting = qc > 0 && qc < 1, morphing = qs >= 1 && qc === 0 && morph > 0;
+      var pos = qc > 0 ? pc : ps;
+      var showP = !reduce && (drawingSketch || (qs >= 1 && morph < 1 && qc === 0));
+      var showB = !reduce && (painting || (morphing && morph > 0));
+      this.pencil.style.opacity = showP ? (morphing ? 1 - morph : 1) : 0;
+      this.pencil.style.transform = morphing ? 'rotate(' + (morph * 25) + 'deg) scale(' + (1 - morph * .4) + ')' : '';
+      this.brush.style.opacity = showB ? (painting ? 1 : morph) : 0;
+      this.brush.style.transform = (morphing && !painting) ? 'scale(' + (.6 + morph * .4) + ')' : '';
+      this.pencil.style.transformOrigin = this.brush.style.transformOrigin = '0 100%';
+      var x = Math.min(.97, Math.max(.03, pos.x)) * this.cw, y = pos.y * this.ch;
+      this.tool.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
+      if (painting && this.px) {
+        var sw = this.sampler.width, i = (Math.round(clamp(pos.y) * (this.sampler.height - 1)) * sw + Math.round(clamp(pos.x) * (sw - 1))) * 4;
+        this.bristle.setAttribute('fill', 'rgb(' + this.px[i] + ',' + this.px[i + 1] + ',' + this.px[i + 2] + ')');
+      }
+      if (this.credit) this.credit.style.opacity = qc >= .98 ? 1 : 0;
+      if (this.heroText) {
+        var fade = span(p, .8, .95);
+        this.heroText.style.opacity = 1 - fade;
+        this.shade.style.opacity = 1 - fade * .75;          // lighten the painting once the title has gone
+      }
+    };
+
+    var stages = Array.prototype.map.call(document.querySelectorAll('.stage-wrap[data-sketch][data-color]'), function (s) { return new Stage(s); });
+    Promise.all(stages.map(function (s) { return s.init(); })).then(function () {
+      var ready = stages.filter(function (s) { return s.sketch && s.color; });
+      var ticking = false;
+      function tick() {
+        ticking = false;
+        ready.forEach(function (s) {
+          var r = s.sec.getBoundingClientRect();
+          if (r.bottom > 0 && r.top < innerHeight) s.draw(s.progress());
+        });
+      }
+      function req() { if (!ticking) { ticking = true; requestAnimationFrame(tick); } }
+      addEventListener('scroll', req, { passive: true });
+      var rt; addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { ready.forEach(function (s) { s.resize(); }); req(); }, 120); });
+      req();
+    });
+  })();
+
+  /* ---------- Contact form ---------- */
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = e.target, note = document.getElementById('form-note');
+    var first = f.first.value.trim(), email = f.email.value.trim(), msg = f.message.value.trim();
+    if (!first || !email || !msg || !f.email.checkValidity()) { note.textContent = 'Add your first name, a valid email and a message, then send again.'; return; }
+    var name = (first + ' ' + f.last.value.trim()).trim();
+    location.href = 'mailto:voiceofpiece2024@gmail.com?subject=' + encodeURIComponent('Message from ' + name) + '&body=' + encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+    note.textContent = 'Your email app is opening with the message ready to send.';
+  });
+</script>
+<script>
+  /* On voiceofpiece.org, artist links open the artist's own subdomain (https://<slug>.voiceofpiece.org/).
+     Anywhere else (test address), they stay as folders so everything still works. */
+  (function () {
+    var h = location.hostname;
+    if (h !== 'voiceofpiece.org' && h !== 'www.voiceofpiece.org') return;
+    document.querySelectorAll('a[data-artist]').forEach(function (a) {
+      a.href = 'https://' + a.dataset.artist + '.voiceofpiece.org/';
+    });
+  })();
+</script>
+<script id="vop-i18n-data">window.__VOP_I18N={"ko": {"of African art and culture": "아프리카의 예술과 문화", "Voice of Piece connects Tanzanian artists with people around the world who want to live with their work.": "Voice of Piece는 탄자니아 화가들과, 그들의 작품과 함께 살아가고 싶은 세계의 사람들을 잇습니다.", "Apply now": "지금 신청하기", "Get in touch": "연락하기", "Websites": "웹사이트", "Our vision": "우리의 비전", "Clear terms on credit, pricing and payment, agreed before anything is sold.": "판매 전에 작가 표기, 가격, 대금 지급에 관한 조건을 분명하게 합의합니다.", "For artists": "작가를 위한 안내", "Voice of Piece — Fair resonance of African art and culture": "Voice of Piece — 아프리카 예술과 문화의 공정한 울림", "Tanzanian": "탄자니아", "We do not ask them to speak louder. We build the place where their work can be found, credited and fairly paid, so that talent is recognised for the talent it is.": "우리는 그들에게 더 크게 말하라고 하지 않습니다. 그들의 작품이 발견되고, 이름이 명시되고, 공정한 대가를 받는 자리를 만들어 재능이 그 재능만큼 인정받게 합니다.", "Many of the painters we work with have painted quietly for years, with little recognition and limited materials. Their work deserves to be seen for what it is, not for how loudly it is explained.": "우리가 함께하는 화가들 중 많은 이들이 인정도, 충분한 재료도 없이 수년간 조용히 그림을 그려 왔습니다. 그들의 작품은 얼마나 큰 목소리로 설명되느냐가 아니라, 작품 그 자체로 보여야 합니다.", "SCROLL": "스크롤", "To apply, send us photos of a few recent works, your name, and a short note about how and where you paint. We read every message and will write back.": "최근 작품 사진 몇 장과 이름, 그리고 어디서 어떻게 그리는지 짧은 소개를 보내 주세요. 모든 메시지를 읽고 답장을 드립니다.", "They do not say much": "그들은 많은 말을 하지 않는다", "Fair Resonance": "공정한 울림", "Your work offered to buyers around the world through voiceofpiece.com.": "voiceofpiece.com을 통해 세계의 구매자에게 작품을 선보입니다.", "A written agreement": "서면 계약", "Drawing · <b>Ezekiel Charles Loishooki<\/b>, Bound by Love": "드로잉 · <b>Ezekiel Charles Loishooki<\/b>, Bound by Love", "Written in": "지원", "Voice of Piece © 2023–2026. All rights reserved.": "Voice of Piece © 2023–2026. 모든 권리 보유.", "First name": "이름", "Email": "이메일", "Close": "닫기", "Each artist has a home of their own online, with their name, their story and their paintings. Their work reaches buyers through our shop, and their name, rights and fair payment travel with every piece.": "작가마다 이름과 이야기, 그림이 담긴 자신만의 온라인 공간이 있습니다. 작품은 우리 숍을 통해 구매자에게 닿고, 모든 작품에는 작가의 이름과 권리, 공정한 대가가 함께합니다.", "Contact": "연락", "Visit the shop": "숍 둘러보기", "Join Voice of Piece": "Voice of Piece와 함께하세요", "They do not say much. They simply smile, and wait to hear what you see in their work.": "그들은 많은 말을 하지 않습니다. 그저 미소 지으며, 당신이 그들의 그림에서 무엇을 보는지 듣기를 기다립니다.", "Heard as they are": "있는 그대로 들리도록", "Last name": "성", "Our story": "우리의 이야기", "Shop": "숍", "Visit site": "사이트 방문", "Every artist has a site of their own. Step into their world.": "모든 작가에게는 자신만의 사이트가 있습니다. 그들의 세계로 들어가 보세요.", "Languages": "언어", "Voice of Piece warmly welcomes new Tanzanian artists. If you are a painter who dreams of sharing your art with the world, we would love to hear from you.": "Voice of Piece는 새로운 탄자니아 작가를 따뜻하게 환영합니다. 세상과 그림을 나누고 싶은 화가라면 언제든 연락 주세요.", "Join us": "함께하기", "About": "소개", "Message": "메시지", "A place in our shop": "숍 입점", "Artists": "작가", "Your name, your story and your work, on your own page under voiceofpiece.org.": "voiceofpiece.org 아래 나만의 페이지에 이름과 이야기, 작품을 담습니다.", "Artist": "작가", "A website of your own": "나만의 웹사이트", "Vision": "비전", "Meet the": "만나 보세요", "Send message": "메시지 보내기", "Contact us": "문의하기", "Donate": "후원하기"}, "sw": {"of African art and culture": "wa sanaa na utamaduni wa Afrika", "Voice of Piece connects Tanzanian artists with people around the world who want to live with their work.": "Voice of Piece inawaunganisha wasanii wa Tanzania na watu duniani kote wanaotaka kuishi na kazi zao.", "Apply now": "Omba sasa", "Get in touch": "Wasiliana", "Websites": "Wasanii", "Our vision": "Maono yetu", "Clear terms on credit, pricing and payment, agreed before anything is sold.": "Masharti yaliyo wazi kuhusu utambuzi, bei na malipo, yanayokubaliwa kabla ya kuuza chochote.", "For artists": "Kwa wasanii", "Voice of Piece — Fair resonance of African art and culture": "Voice of Piece — Mwangwi wa haki wa sanaa na utamaduni wa Afrika", "Tanzanian": "Kutoka Tanzania", "We do not ask them to speak louder. We build the place where their work can be found, credited and fairly paid, so that talent is recognised for the talent it is.": "Hatuwaombi wazungumze kwa sauti kubwa zaidi. Tunajenga mahali ambapo kazi zao zinaweza kupatikana, kutambuliwa na kulipwa kwa haki, ili kipaji kitambuliwe kwa thamani yake halisi.", "Many of the painters we work with have painted quietly for years, with little recognition and limited materials. Their work deserves to be seen for what it is, not for how loudly it is explained.": "Wachoraji wengi tunaofanya nao kazi wamechora kwa utulivu kwa miaka mingi, bila kutambuliwa na wakiwa na vifaa vichache. Kazi zao zinastahili kuonekana kwa jinsi zilivyo, si kwa jinsi zinavyoelezwa kwa sauti kubwa.", "SCROLL": "SOGEZA", "To apply, send us photos of a few recent works, your name, and a short note about how and where you paint. We read every message and will write back.": "Kuomba, tutumie picha za kazi zako chache za karibuni, jina lako, na maelezo mafupi kuhusu jinsi na mahali unapochora. Tunasoma kila ujumbe na tutakujibu.", "They do not say much": "Hawazungumzi sana", "Fair Resonance": "Mwangwi wa Haki", "Your work offered to buyers around the world through voiceofpiece.com.": "Kazi zako zinatolewa kwa wanunuzi duniani kote kupitia voiceofpiece.com.", "A written agreement": "Makubaliano ya maandishi", "Drawing · <b>Ezekiel Charles Loishooki<\/b>, Bound by Love": "Mchoro · <b>Ezekiel Charles Loishooki<\/b>, Bound by Love", "Written in": "Imeandikwa kwa", "Voice of Piece © 2023–2026. All rights reserved.": "Voice of Piece © 2023–2026. Haki zote zimehifadhiwa.", "First name": "Jina la kwanza", "Email": "Barua pepe", "Close": "Funga", "Each artist has a home of their own online, with their name, their story and their paintings. Their work reaches buyers through our shop, and their name, rights and fair payment travel with every piece.": "Kila msanii ana nyumba yake mtandaoni, yenye jina lake, hadithi yake na michoro yake. Kazi zao huwafikia wanunuzi kupitia duka letu, na jina, haki na malipo ya haki ya msanii huambatana na kila kazi.", "Contact": "Mawasiliano", "Visit the shop": "Tembelea duka", "Join Voice of Piece": "Jiunge na Voice of Piece", "They do not say much. They simply smile, and wait to hear what you see in their work.": "Hawazungumzi sana. Wanatabasamu tu, na kusubiri kusikia unachokiona katika kazi zao.", "Heard as they are": "Wasikike kama walivyo", "Last name": "Jina la mwisho", "Our story": "Hadithi yetu", "Shop": "Duka", "Visit site": "Tembelea tovuti", "Every artist has a site of their own. Step into their world.": "Kila msanii ana tovuti yake mwenyewe. Ingia katika ulimwengu wao.", "Languages": "Lugha", "Voice of Piece warmly welcomes new Tanzanian artists. If you are a painter who dreams of sharing your art with the world, we would love to hear from you.": "Voice of Piece inawakaribisha kwa moyo mkunjufu wasanii wapya wa Tanzania. Kama wewe ni mchoraji unayeota kushiriki sanaa yako na dunia, tungependa kusikia kutoka kwako.", "Join us": "Jiunge nasi", "About": "Kuhusu", "Message": "Ujumbe", "A place in our shop": "Nafasi katika duka letu", "Artists": "Wasanii", "Your name, your story and your work, on your own page under voiceofpiece.org.": "Jina lako, hadithi yako na kazi zako, kwenye ukurasa wako ndani ya voiceofpiece.org.", "Artist": "Tovuti za", "A website of your own": "Tovuti yako mwenyewe", "Vision": "Maono", "Meet the": "Wafahamu", "Send message": "Tuma ujumbe", "Contact us": "Wasiliana nasi", "Donate": "Changia"}};</script>
+<script id="vop-i18n">(function(){
+  var D=window.__VOP_I18N||{ko:{},sw:{}};
+  var LANGS=['en','ko','sw'], LABEL={en:'EN',ko:'한국어',sw:'SW'}, NAME={en:'English',ko:'한국어',sw:'Kiswahili'};
+  var PAT=[
+    [/^Artist (\d+) \/ (\d+)$/,{ko:'작가 $1 / $2',sw:'Msanii $1 / $2'}],
+    [/^(\d+) works?$/,{ko:'작품 $1점',sw:'Kazi $1'}],
+    [/^Painting for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Drawing for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Interested in (.+)'s work\?$/,{ko:'$1의 작품에 관심이 있으신가요?',sw:'Unavutiwa na kazi za $1?'}],
+    [/^Artwork © (.+)\. Shared through Voice of Piece\.$/,{ko:'작품 © $1. Voice of Piece를 통해 소개합니다.',sw:'Kazi za sanaa © $1. Zinashirikishwa kupitia Voice of Piece.'}],
+    [/^Work (\d+)<small>(.+)<\/small>$/,{ko:'작품 $1<small>$2</small>',sw:'Kazi $1<small>$2</small>'}]
+  ];
+  var INL={EM:1,B:1,STRONG:1,I:1,BR:1,SMALL:1,SUP:1,SPAN:1}, SK={SCRIPT:1,STYLE:1,SVG:1,IFRAME:1,NOSCRIPT:1,TEMPLATE:1};
+  function lc(el){var c=el.classList;return !!(c&&(c.contains('en')||c.contains('ko')||c.contains('sw')));}
+  function skip(el){var t=el.tagName.toUpperCase(),l=el.getAttribute('lang');return SK[t]||lc(el)||l==='ko'||l==='sw'||el.id==='manifesto-body'||el.id==='words'||el.id==='vop-lang'||el.hasAttribute('data-no-i18n');}
+  function isBlock(el){var has=false,kid=false,w=document.createTreeWalker(el,5),n;
+    while((n=w.nextNode())){if(n.nodeType===1){if(!INL[n.tagName.toUpperCase()]||lc(n))return false;}else if(n.nodeValue.trim())has=true;}
+    for(var c=el.firstChild;c;c=c.nextSibling)if(c.nodeType===1)kid=true;return has&&kid;}
+  function norm(s){return s.replace(/<br\s*\/?>/gi,'<br>').replace(/\s+/g,' ').trim();}
+  var U=[];
+  function walk(el){for(var c=el.firstChild;c;c=c.nextSibling){
+    if(c.nodeType===3){if(c.nodeValue.trim())U.push({t:c,en:c.nodeValue});}
+    else if(c.nodeType===1){if(skip(c))continue;if(isBlock(c))U.push({e:c,en:c.innerHTML});else walk(c);}}}
+  function tr(key,lang){if(lang==='en')return null;var d=D[lang]||{};if(d[key])return d[key];
+    for(var i=0;i<PAT.length;i++){var m=key.match(PAT[i][0]);if(m)return key.replace(PAT[i][0],PAT[i][1][lang]);}return null;}
+  var TITLE=document.title, cur='en', miss=[];
+  function apply(lang){miss=[];
+    U.forEach(function(u){var key=norm(u.en),v=tr(key,lang);
+      if(u.t){if(lang==='en'||!v){u.t.nodeValue=u.en;if(lang!=='en'&&!v)miss.push(key);}else{var a=u.en.match(/^\s*/)[0],b=u.en.match(/\s*$/)[0];u.t.nodeValue=a+v+b;}}
+      else{if(lang==='en'||!v){u.e.innerHTML=u.en;if(lang!=='en'&&!v)miss.push(key);}else u.e.innerHTML=v;}});
+    var tt=tr(norm(TITLE),lang);document.title=tt||TITLE;window.__vopMissing=miss;}
+  function setLang(lang,from){if(LANGS.indexOf(lang)<0)lang='en';if(lang===cur&&from!=='init')return;cur=lang;
+    document.documentElement.setAttribute('lang',lang);apply(lang);
+    try{localStorage.setItem('vop-lang',lang);}catch(e){}
+    var wb=document.getElementById('words-body');
+    if(wb&&from!=='words'){var b=wb.querySelector('.lang button[data-set="'+lang+'"]');if(b)b.click();}
+    var mt=document.getElementById('manifesto-text');
+    if(mt&&from!=='manifesto'){var mb=mt.querySelector('.lang button[data-lang="'+lang+'"]');if(mb)mb.click();}
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===lang?'true':'false');});}
+  // switcher
+  var st=document.createElement('style');
+  st.textContent='#vop-lang{position:fixed;z-index:80;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,20,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25);font:500 11px/1 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif}'+
+  '#vop-lang button{border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:none;color:#E8E3DA;font:inherit;letter-spacing:.12em}'+
+  '#vop-lang button[aria-pressed="true"]{background:#C9A46A;color:#161412}'+
+  '#vop-lang button:focus-visible{outline:2px solid #C9A46A;outline-offset:2px}'+
+  'html[lang="ko"] body{word-break:keep-all}'+
+  'html[lang="ko"] body *:not(svg):not(path):not(#vop-lang):not(#vop-lang *){letter-spacing:.02em!important}';
+  document.head.appendChild(st);
+  var sw=document.createElement('div');sw.id='vop-lang';sw.setAttribute('role','group');sw.setAttribute('aria-label','Language / 언어 / Lugha');
+  LANGS.forEach(function(l){var b=document.createElement('button');b.type='button';b.dataset.l=l;b.textContent=LABEL[l];b.setAttribute('aria-label',NAME[l]);b.setAttribute('lang',l);b.addEventListener('click',function(){setLang(l);});sw.appendChild(b);});
+  document.body.appendChild(sw);
+  walk(document.body);
+  // keep section toggles in sync
+  var wb=document.getElementById('words-body');
+  if(wb)wb.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set,'words');});});
+  var mt=document.getElementById('manifesto-text');
+  if(mt)mt.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,'manifesto');});});
+  // carry language to other Voice of Piece pages
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||cur==='en')return;
+    try{var u=new URL(a.href,location.href);if(!/(^|\.)voiceofpiece\.org$/.test(u.hostname)&&u.origin!==location.origin)return;
+      if(u.hash&&u.pathname===location.pathname&&u.origin===location.origin)return;u.searchParams.set('lang',cur);a.href=u.toString();}catch(x){}},true);
+  var q=null;try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var saved=null;try{saved=localStorage.getItem('vop-lang');}catch(e){}
+  var nav=(navigator.language||'').slice(0,2);
+  var init=q||saved||'en';
+  cur='';setLang(init,'init');
+})();
+</script>
+</body>
+</html>
+<style>
+/* They do not say much — another 20% smaller */
+</style>

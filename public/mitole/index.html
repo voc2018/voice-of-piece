@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Omary Said Mitole — Voice of Piece</title>
+<meta name="description" content="Omary Said Mitole paints panoramas of Tanzanian civic life in the Tingatinga tradition — schools, markets, hospitals and the railway to Moshi.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Barlow:ital,wght@0,400;0,500;1,400&family=Kaushan+Script&family=DM+Mono:wght@400;500&family=Gowun+Batang:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --clay:#B5654A; --rose:#CFA3A3; --sage:#8FAE92; --peri:#A3ADEE; --char:#2A2A2A;
+  --violet:#5237DB; --lav:#B9A8F4; --pink:#F2A7D3; --mint:#A4DED8; --citron:#D2C43A; --white:#FFFFFF;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --sans:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,monospace;
+  --script:"Kaushan Script",cursive;
+  --jg-h:clamp(160px,22vw,280px);
+  --pad:clamp(22px,3.6vw,52px);
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:16px;background:#B97C34}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:#B97C34;color:var(--white);font:400 15px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+html[lang="ko"] body{font-family:"Barlow","Gowun Batang",sans-serif}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--citron);outline-offset:3px}
+
+/* film behind, turned into a violet duotone */
+.bgv{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:grayscale(.15) contrast(1.05) brightness(1.05);background:#777 url(hero-poster.jpg) center/cover}
+.bgv-m{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(160deg,#F2D39A 0%,#D9A55B 50%,#EBC47F 100%);mix-blend-mode:multiply;opacity:.6}
+.bgv-l{position:fixed;inset:0;z-index:0;pointer-events:none;background:#6B4318;mix-blend-mode:lighten;opacity:.12}
+
+.sheet{position:relative;z-index:1;width:min(1160px,calc(100% - 2*clamp(12px,6vw,96px)));margin:clamp(20px,6vw,80px) auto;box-shadow:0 2px 4px rgba(0,0,0,.25),0 14px 28px rgba(20,10,0,.45),0 40px 80px rgba(20,10,0,.6),0 90px 180px 20px rgba(10,5,0,.65);background:var(--char)}
+
+/* shared type */
+.mono{margin:0;font:400 11px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.cond{font-family:var(--cond);font-weight:300;letter-spacing:.005em}
+h1,h2{margin:0}
+.h1{font:300 clamp(54px,7.6vw,104px)/.95 var(--cond)}
+.h2{font:300 clamp(36px,4.2vw,58px)/1 var(--cond)}
+.h3{font:400 clamp(22px,2.2vw,28px)/1.1 var(--cond)}
+.script{position:absolute;z-index:3;margin:0;font:400 clamp(44px,6vw,86px)/1 var(--script);color:var(--white);white-space:nowrap;pointer-events:none;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.btn{display:inline-block;padding:9px 16px;border:1px solid currentColor;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;background:none;cursor:pointer}
+.btn:hover{background:var(--white);color:var(--char);border-color:var(--white)}
+.sq{display:block;width:14px;height:14px;background:var(--citron)}
+
+/* poster rows: flat colour half + black-and-white photo half */
+.row{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:clamp(340px,36vw,440px)}
+.blk{position:relative;padding:clamp(34px,4vw,56px) var(--pad);display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.clay{background:var(--clay)}.rose{background:var(--rose)}.sage{background:var(--sage)}.peri{background:var(--peri)}.char{background:var(--char)}
+.photo{position:relative;overflow:hidden;background:var(--char)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bw img{filter:grayscale(1) contrast(1.2) brightness(.95)}
+.dark-text{color:var(--char)}
+.dark-text .h1,.dark-text .h2,.dark-text .h3{color:var(--white)}
+
+/* header */
+.top{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--pad);font:400 11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.top a{text-decoration:none}
+.top > a b{font-weight:400;color:var(--citron)}
+.top nav{display:flex;gap:22px}
+.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* hero */
+.hero{min-height:min(88vh,640px)}
+.hero .blk{justify-content:flex-end;padding-bottom:clamp(40px,5vw,64px)}
+.hero .script{position:static;margin:0 0 auto;padding-top:56px;font-size:clamp(62px,8vw,112px)}
+.hero .where{margin:22px 0 14px}
+.hero .lede{margin:18px 0 0;max-width:26em;font-size:15px}
+.hero .photo img{object-position:60% 25%}
+.hero .tag{position:absolute;right:var(--pad);bottom:var(--pad);z-index:2;text-align:right}
+.hero .tag b{display:block;font:300 36px/1 var(--cond)}
+
+/* artist words */
+.words .photo img{object-position:45% 35%}
+.ring{position:absolute;z-index:2;left:58%;top:6%;width:clamp(150px,17vw,220px);aspect-ratio:1;border-radius:50%;border:clamp(12px,1.4vw,18px) solid var(--rose);opacity:.9;pointer-events:none}
+.q{margin:18px 0 0}
+.q p{display:none;margin:0 0 16px;max-width:34em;font:400 15.5px/1.7 var(--sans)}
+html[lang="en"] .q .en,html[lang="ko"] .q .ko,html[lang="sw"] .q .sw{display:block}
+.q .ko{font-family:"Gowun Batang",serif;word-break:keep-all}
+.q cite{display:block;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;font-style:normal}
+
+/* scenes */
+.scenes{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:14px}
+.scenes li{display:grid;grid-template-columns:110px 1fr;gap:4px 16px;padding-top:12px;border-top:1px solid rgba(42,42,42,.25)}
+.scenes .mono{grid-row:span 2;padding-top:5px}
+.scenes .h3{margin:0;color:var(--white)}
+.scenes .mono{margin:0}
+.scenes .d{margin:0;font-size:14px}
+.scn .photo img{object-position:50% 60%}
+.scn .script{left:calc(50% - .9em);bottom:10%;transform:rotate(-6deg)}
+
+/* tradition */
+.trad .photo img{object-position:40% 50%}
+.trad p.body{margin:16px 0 24px;max-width:34em;font-size:15px}
+
+/* duotone blocks */
+.duo{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(var(--da,135deg),var(--d1,#FFC0E6),var(--d2,#A092FF))}
+.duo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.2) brightness(1.2);mix-blend-mode:multiply}
+.duo::after{content:"";position:absolute;inset:0;background:var(--dd,#4B30D4);mix-blend-mode:lighten;pointer-events:none}
+.duo.yl{--d1:#FFF27A;--d2:#B2A6FF;--dd:#3B22B4;--da:120deg}
+.duo.yl{background:linear-gradient(120deg,#FFF27A 0%,#FFEB70 45%,#A99BFF 100%)}
+.duo.yl img{filter:grayscale(1) contrast(1.1) brightness(1.45)}
+.duo.mt{--d1:#C4F2EC;--d2:#A092FF;--dd:#4B30D4}
+
+.studio{display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(120deg,#6A4FE6,var(--violet))}
+.studio .txt{padding:clamp(40px,5vw,72px) var(--pad);display:flex;flex-direction:column;justify-content:center}
+.studio .txt p{margin:16px 0 22px;max-width:34em;font-size:14.5px}
+.studio .txt .sq{margin-top:18px}
+.studio .duo{min-height:360px}
+.filmrow{position:relative;display:grid;place-items:center;padding:clamp(40px,6vw,80px) var(--pad);min-height:420px}
+.filmrow .frame{position:relative;z-index:1;width:min(720px,100%);aspect-ratio:16/9;background:#000;box-shadow:0 30px 70px rgba(30,10,90,.4)}
+.filmrow iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.filmrow small{position:relative;z-index:1;display:block;margin-top:14px;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+/* gallery */
+.gallery{position:relative;background:linear-gradient(120deg,#B3732C 0%,#C48A3F 55%,#CF9A52 100%);padding:clamp(48px,6vw,80px) 0}
+.g-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding:0 var(--pad);margin-bottom:clamp(28px,4vw,44px)}
+.g-head .h2 em{font-style:normal}
+.g-head .count{display:block;margin-top:10px;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.g-head .sq{margin-bottom:10px;background:var(--char)}
+.wrap{padding:0 var(--pad)}
+.group{margin-top:34px}
+.group:first-of-type{margin-top:0}
+.group h3{margin:0 0 16px;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.jg{display:flex;flex-wrap:wrap;gap:clamp(12px,1.4vw,18px)}
+.jg::after{content:"";flex-grow:999999}
+.jg button{position:relative;display:block;padding:10px 10px 0;border:0;background:var(--white);cursor:zoom-in;text-align:left;color:var(--char);box-shadow:0 14px 30px rgba(40,20,120,.18)}
+.jg .ph{position:relative;display:block;background:#eee;overflow:hidden}
+.jg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.jg button:hover img{transform:scale(1.03)}
+.jg .cap{display:block;height:34px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:400 11px/34px var(--mono);letter-spacing:.08em;color:#6a6a6a}
+@media (prefers-reduced-motion:reduce){.jg img{transition:none}}
+/* gallery: paintings edge to edge, no mats, no gaps */
+.gallery{padding-bottom:0}
+.gallery .wrap{padding:0}
+.group{margin-top:0}
+.group h3{padding:18px var(--pad) 14px;margin:0}
+.jg{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.jg::after{display:none}
+.jg button{padding:0;background:none;box-shadow:none;grid-column:span 1;min-width:0}
+.jg button.big{grid-column:1/-1}
+.jg .ph{background:var(--char)}
+.jg button:not(.big) .ph{padding-bottom:0!important;aspect-ratio:4/3}
+.jg .cap{position:absolute;left:0;bottom:0;height:auto;max-width:100%;padding:8px 12px;background:rgba(42,42,42,.72);color:#fff;font:400 11px/1.4 var(--mono);opacity:0;transition:opacity .2s}
+.jg button:hover .cap,.jg button:focus-visible .cap{opacity:1}
+.jg button:hover img{transform:none}
+.jg button:focus-visible{outline:3px solid var(--citron);outline-offset:-3px}
+@media (max-width:560px){.jg{grid-template-columns:1fr}.jg button:not(.big) .ph{aspect-ratio:auto;padding-bottom:var(--pb)!important}}
+
+
+/* contact */
+.contact{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.contact .duo img{object-position:40% 25%}
+.contact .txt{position:relative;padding:clamp(44px,5vw,72px) var(--pad);background:linear-gradient(150deg,var(--lav),#8C7BF2);display:flex;flex-direction:column;justify-content:center;text-align:right;align-items:flex-end}
+.contact .txt p.body{margin:16px 0 24px;max-width:26em}
+.contact .back{display:inline-block;margin-top:16px;font:400 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.contact .back:hover{text-decoration:underline;text-underline-offset:4px}
+.contact .script{left:50%;top:14%;transform:translateX(-50%) rotate(-5deg)}
+.social{display:flex;gap:10px;margin-top:26px}
+.social a{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--white);color:var(--violet)}
+.social a:hover{background:var(--citron);color:var(--char)}
+.contact .sq{position:absolute;right:var(--pad);bottom:24px}
+
+.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;padding:22px var(--pad);background:var(--char);font-size:12px;color:rgba(255,255,255,.62)}
+.foot > a{font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--white)}
+.foot > a b{font-weight:400;color:var(--citron)}
+.foot .vop-login{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(32,22,90,.97);padding:60px 70px}
+.lb.open{display:grid}
+.lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.lb p{margin:16px 0 0;text-align:center;font:400 11px var(--mono);letter-spacing:.1em;color:rgba(255,255,255,.8)}
+.lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font:300 40px/1 var(--cond);padding:12px 16px;opacity:.85}
+.lb button:hover{opacity:1;color:var(--citron)}
+.lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:18px;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.lb .prev{left:10px;top:50%;transform:translateY(-50%)}
+.lb .next{right:10px;top:50%;transform:translateY(-50%)}
+@media (max-width:600px){.lb{padding:60px 12px 80px}.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}}
+#vop-lang{background:rgba(42,42,42,.88)!important}
+#vop-lang button[aria-pressed="true"]{background:var(--citron)!important;color:var(--char)!important}
+
+@media (max-width:760px){
+  .row,.studio,.contact{grid-template-columns:1fr}
+  .row .photo,.studio .duo,.contact .duo{min-height:78vw}
+  .row.flip .photo{order:-1}
+  .words .photo{order:-1}
+  .scn .photo{order:-1}
+  .hero .photo{order:-1;min-height:92vw}
+  .hero .script{padding-top:0;margin-bottom:10px}
+  .ring{left:auto;right:8%;top:8%}
+  .scn .script{left:var(--pad);bottom:auto;top:calc(78vw - 1.2em)}
+  .top nav .opt{display:none}
+  .contact .txt{text-align:left;align-items:flex-start}
+  .contact .script{top:8%}
+  .scenes li{grid-template-columns:1fr}
+  .scenes .mono{grid-row:auto}
+}
+</style>
+</head>
+<body>
+<video class="bgv" autoplay muted loop playsinline preload="metadata" poster="hero-poster.jpg" aria-hidden="true"><source src="hero.mp4" type="video/mp4"></video>
+<div class="bgv-m" aria-hidden="true"></div><div class="bgv-l" aria-hidden="true"></div>
+
+<main class="sheet">
+<header class="top"><a href="../">Voice <b>of</b> Piece</a><nav aria-label="Page"><a class="opt" href="#gallery">Gallery</a><a href="#contact">Contact</a></nav></header>
+
+<section class="row hero">
+  <div class="blk clay">
+    <p class="script" aria-hidden="true" data-no-i18n>Mitole</p>
+    <p class="mono where">Dar es Salaam, Tanzania</p>
+    <h1 class="h1">Omary Said Mitole</h1>
+    <p class="lede">Crowded, busy panoramas of Tanzanian civic life — schools, markets, hospitals and the railway to Moshi.</p>
+  </div>
+  <div class="photo bw"><img src="portrait-2.jpg" alt="Omary Said Mitole">
+    <p class="tag mono">Tingatinga painter</p></div>
+</section>
+
+<section class="row words" id="words">
+  <div class="photo bw"><img src="portrait-1.jpg" alt="Omary Said Mitole" loading="lazy"><span class="ring" aria-hidden="true"></span></div>
+  <div class="blk rose dark-text">
+    <p class="mono">The artist</p>
+    <h2 class="h2">In his own words</h2>
+    <blockquote class="q">
+      <p class="en">“I hope that people can experience many things through my art and my paintings. When they look at my work, I hope they find the good rather than the bad, and come away with positive thoughts. And I hope my work can be a good influence on Tanzanian society — and beyond it, on Africa as a whole.”</p>
+      <p class="sw" lang="sw">“Natumaini watu wataweza kupata uzoefu wa mambo mengi kupitia sanaa yangu na michoro yangu. Wanapotazama kazi zangu, natumaini wataona mema kuliko mabaya, na kuondoka na mawazo chanya.”</p>
+      <p class="ko" lang="ko">“제 그림을 통해 사람들이 많은 것을 경험하기를 바랍니다. 제 작품을 볼 때 나쁜 것보다 좋은 것을 보고, 긍정적인 생각을 안고 돌아가기를 바랍니다. 그리고 제 작품이 탄자니아 사회, 나아가 아프리카 전체에 좋은 영향을 주기를 바랍니다.”</p>
+      <cite data-no-i18n>Omary Said Mitole</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section class="row scn">
+  <div class="blk sage dark-text">
+    <h2 class="h2">What he paints</h2>
+    <ul class="scenes">
+      <li><p class="mono">The hospital</p><p class="h3" data-no-i18n>Muhimbili National Hospital</p><p class="d">Tanzania's national hospital in Dar es Salaam, painted ward by ward.</p></li>
+      <li><p class="mono">The railway</p><p class="h3" lang="sw">Moshi</p><p class="d">The train to Moshi, with Kilimanjaro behind.</p></li>
+      <li><p class="mono">The school</p><p class="h3" lang="sw">Twende Tukasome!</p><p class="d">“Let's go and study!” An invitation to school.</p></li>
+      <li><p class="mono">The market</p><p class="h3" lang="sw">Soko la Matunda</p><p class="d">The fruit market, stall after stall.</p></li>
+    </ul>
+  </div>
+  <div class="photo"><img src="details/sign-school.jpg" alt="Detail of a painting: a sign reading Twende Tukasome" loading="lazy"></div>
+  <p class="script" lang="sw" aria-hidden="true">Twende!</p>
+</section>
+
+<section class="row trad flip">
+  <div class="photo"><img src="details/railway.jpg" alt="Detail of a painting: the train to Moshi" loading="lazy"></div>
+  <div class="blk peri dark-text">
+    <p class="mono">The Tingatinga tradition</p>
+    <h2 class="h2">From one animal to a whole city</h2>
+    <p class="body">Mitole works within the Tingatinga school — the movement of bold enamel colour and black outline founded in Dar es Salaam by Edward Saidi Tingatinga in 1968 — and has extended it into territory entirely his own. Where the tradition typically isolates a single animal against flat colour, Mitole composes panoramas of civic life: the primary school, the fruit market, the national hospital, the railway to Moshi.</p>
+    <p><a class="btn" href="#gallery">See the gallery</a></p>
+  </div>
+</section>
+
+<section class="studio">
+  <div class="txt">
+    <h2 class="h2">Line first, colour after</h2>
+    <p>Each work begins as weeks of patient black-line drawing before any colour is laid in. Hand-lettered Swahili signs — <em>Shule ya Msingi</em>, <em>Soko la Matunda</em>, <em>Twende Tukasome!</em> — anchor every scene in a real, working Tanzania, observed with humour and tenderness. His paintings are held by collectors internationally. Through Voice of Piece, they travel directly from his studio in Dar es Salaam to homes and galleries worldwide.</p>
+    <p><a class="btn" href="https://youtu.be/zW2D5CxI3mo" target="_blank" rel="noopener">Watch the film</a></p>
+    <span class="sq" aria-hidden="true"></span>
+  </div>
+  <div class="duo"><img src="details/film-3.jpg" alt="" loading="lazy" style="filter:grayscale(1) contrast(1.3) brightness(1.9)"></div>
+</section>
+
+<section class="filmrow duo yl">
+  <img src="details/film-10.jpg" alt="" loading="lazy">
+  <div class="frame"><iframe src="https://www.youtube-nocookie.com/embed/zW2D5CxI3mo" title="Film: Omary Said Mitole in the studio" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+  <small>Film: in the studio</small>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="g-head">
+    <div><span class="sq" aria-hidden="true"></span><p class="mono">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div>
+    <span class="count">9 works</span>
+  </div>
+  <div class="wrap">
+  <div class="group"><div class="jg">
+
+<button type="button" style="flex-grow:121.0;flex-basis:calc(var(--jg-h) * 1.210)" data-cap="75 × 62 cm" aria-label="View larger: 75 × 62 cm"><span class="ph" style="padding-bottom:82.667%"><img src="gallery/01.jpg" width="1800" height="1488" alt="Artwork by Omary Said Mitole: 75 × 62 cm" loading="lazy"></span><span class="cap">75 × 62 cm</span></button>
+<button type="button" style="flex-grow:133.3;flex-basis:calc(var(--jg-h) * 1.333)" data-cap="80 × 60 cm" aria-label="View larger: 80 × 60 cm"><span class="ph" style="padding-bottom:75.000%"><img src="gallery/02.jpg" width="1800" height="1350" alt="Artwork by Omary Said Mitole: 80 × 60 cm" loading="lazy"></span><span class="cap">80 × 60 cm</span></button>
+<button type="button" style="flex-grow:127.3;flex-basis:calc(var(--jg-h) * 1.273)" data-cap="140 × 110 cm" aria-label="View larger: 140 × 110 cm"><span class="ph" style="padding-bottom:78.556%"><img src="gallery/03.jpg" width="1800" height="1414" alt="Artwork by Omary Said Mitole: 140 × 110 cm" loading="lazy"></span><span class="cap">140 × 110 cm</span></button>
+<button type="button" style="flex-grow:127.3;flex-basis:calc(var(--jg-h) * 1.273)" data-cap="140 × 110 cm" aria-label="View larger: 140 × 110 cm"><span class="ph" style="padding-bottom:78.556%"><img src="gallery/04.jpg" width="1800" height="1414" alt="Artwork by Omary Said Mitole: 140 × 110 cm" loading="lazy"></span><span class="cap">140 × 110 cm</span></button>
+<button type="button" style="flex-grow:137.9;flex-basis:calc(var(--jg-h) * 1.379)" data-cap="80 × 60 cm" aria-label="View larger: 80 × 60 cm"><span class="ph" style="padding-bottom:72.500%"><img src="gallery/05.jpg" width="1800" height="1305" alt="Artwork by Omary Said Mitole: 80 × 60 cm" loading="lazy"></span><span class="cap">80 × 60 cm</span></button>
+<button type="button" style="flex-grow:133.3;flex-basis:calc(var(--jg-h) * 1.333)" data-cap="80 × 60 cm" aria-label="View larger: 80 × 60 cm"><span class="ph" style="padding-bottom:75.000%"><img src="gallery/06.jpg" width="1800" height="1350" alt="Artwork by Omary Said Mitole: 80 × 60 cm" loading="lazy"></span><span class="cap">80 × 60 cm</span></button>
+<button type="button" style="flex-grow:133.3;flex-basis:calc(var(--jg-h) * 1.333)" data-cap="80 × 60 cm" aria-label="View larger: 80 × 60 cm"><span class="ph" style="padding-bottom:75.000%"><img src="gallery/07.jpg" width="1800" height="1350" alt="Artwork by Omary Said Mitole: 80 × 60 cm" loading="lazy"></span><span class="cap">80 × 60 cm</span></button>
+<button type="button" style="flex-grow:133.3;flex-basis:calc(var(--jg-h) * 1.333)" data-cap="80 × 60 cm" aria-label="View larger: 80 × 60 cm"><span class="ph" style="padding-bottom:75.000%"><img src="gallery/08.jpg" width="1800" height="1350" alt="Artwork by Omary Said Mitole: 80 × 60 cm" loading="lazy"></span><span class="cap">80 × 60 cm</span></button>
+<button type="button" style="flex-grow:127.3;flex-basis:calc(var(--jg-h) * 1.273)" data-cap="140 × 110 cm" aria-label="View larger: 140 × 110 cm"><span class="ph" style="padding-bottom:78.556%"><img src="gallery/09.jpg" width="1800" height="1414" alt="Artwork by Omary Said Mitole: 140 × 110 cm" loading="lazy"></span><span class="cap">140 × 110 cm</span></button></div></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="duo mt"><img src="portrait-1.jpg" alt="" loading="lazy"></div>
+  <div class="txt">
+    <p class="mono">Voice of Piece</p>
+    <h2 class="h2">Interested in Omary's work?</h2>
+    <p class="body">Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.</p>
+    <a class="btn" href="mailto:voiceofpiece2024@gmail.com?subject=About%20Omary%20Said%20Mitole">Enquire about this work</a>
+    <a class="back" href="../#artists">← All artists</a>
+    <div class="social">
+      <a href="https://www.facebook.com/omary.jqmbqz" target="_blank" rel="noopener" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg></a>
+      <a href="https://youtu.be/zW2D5CxI3mo" target="_blank" rel="noopener" aria-label="YouTube"><svg width="16" height="12" viewBox="0 0 24 18" aria-hidden="true"><rect width="24" height="18" rx="4" fill="currentColor"/><path d="M10 5l6 4-6 4z" fill="#fff"/></svg></a>
+    </div>
+  </div>
+  <p class="script" lang="sw" aria-hidden="true">Karibu</p>
+</section>
+
+<footer class="foot"><a href="../">Voice <b>of</b> Piece</a><small>Artwork © Omary Said Mitole. Shared through Voice of Piece.</small><a class="vop-login" href="/studio/#mitole">Studio</a></footer>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button type="button" class="x" id="lb-x">Close</button>
+  <button type="button" class="prev" id="lb-prev" aria-label="Previous work">‹</button>
+  <figure style="margin:0;text-align:center"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+  <button type="button" class="next" id="lb-next" aria-label="Next work">›</button>
+</div>
+<script>(function(){var v=document.querySelector('.bgv');if(!v)return;
+  var m=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)');
+  function set(){if(m&&m.matches){v.pause();v.removeAttribute('autoplay');}else{var p=v.play();if(p&&p.catch)p.catch(function(){});}}
+  set();if(m&&m.addEventListener)m.addEventListener('change',set);
+  document.addEventListener('visibilitychange',function(){if(document.hidden)v.pause();else set();});})();</script>
+<script>
+(function(){
+  var box=document.getElementById('words-body');
+  if(box) box.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){box.setAttribute('data-lang',b.dataset.set);box.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  var items=Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0,opener=null,NAME="Omary Said Mitole";
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur],im=b.querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+items.length}
+  function open(i){opener=items[i];show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus()}
+  items.forEach(function(b,i){b.addEventListener('click',function(){open(i)})});
+  document.getElementById('lb-x').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+})();
+</script>
+<script>
+  /* On <slug>.voiceofpiece.org, links back to the main site go to https://voiceofpiece.org/. */
+  (function () {
+    var h = location.hostname;
+    if (!/\.voiceofpiece\.org$/.test(h) || h === 'www.voiceofpiece.org') return;
+    document.querySelectorAll('a[href^="../"]').forEach(function (a) {
+      a.href = 'https://voiceofpiece.org/' + a.getAttribute('href').slice(3);
+    });
+  })();
+</script>
+<script id="vop-works-data">window.__VOP_WORKS={"gallery/01.jpg": {"id": "VOP-MIT-001", "artist": "Omary Said Mitole", "w": "75", "h": "62", "unit": "cm"}, "gallery/02.jpg": {"id": "VOP-MIT-002", "artist": "Omary Said Mitole", "w": "80", "h": "60", "unit": "cm"}, "gallery/03.jpg": {"id": "VOP-MIT-003", "artist": "Omary Said Mitole", "w": "140", "h": "110", "unit": "cm"}, "gallery/04.jpg": {"id": "VOP-MIT-004", "artist": "Omary Said Mitole", "w": "140", "h": "110", "unit": "cm"}, "gallery/05.jpg": {"id": "VOP-MIT-005", "artist": "Omary Said Mitole", "w": "80", "h": "60", "unit": "cm"}, "gallery/06.jpg": {"id": "VOP-MIT-006", "artist": "Omary Said Mitole", "w": "80", "h": "60", "unit": "cm"}, "gallery/07.jpg": {"id": "VOP-MIT-007", "artist": "Omary Said Mitole", "w": "80", "h": "60", "unit": "cm"}, "gallery/08.jpg": {"id": "VOP-MIT-008", "artist": "Omary Said Mitole", "w": "80", "h": "60", "unit": "cm"}, "gallery/09.jpg": {"id": "VOP-MIT-009", "artist": "Omary Said Mitole", "w": "140", "h": "110", "unit": "cm"}};</script>
+<script id="vop-works">(function(){
+  var W=window.__VOP_WORKS||{}, lb=document.getElementById('lb'), img=document.getElementById('lb-img');
+  if(!lb||!img)return;
+  var L={
+   en:{title:'Title',artist:'Artist',year:'Year',size:'Size',medium:'Medium',place:'Made in',desc:'About the work',words:"In the artist's words",signed:'Signed',framed:'Framed',exhibited:'Exhibited',id:'Catalogue no.',shop:'View on voiceofpiece.com',yes:'Yes',no:'No',ask:'Ask about this work'},
+   ko:{title:'제목',artist:'작가',year:'제작 연도',size:'크기',medium:'재료',place:'제작 지역',desc:'작품 설명',words:'작가의 말',signed:'서명',framed:'액자',exhibited:'전시 이력',id:'작품 번호',shop:'voiceofpiece.com에서 보기',yes:'있음',no:'없음',ask:'이 작품 문의하기'},
+   sw:{title:'Jina la kazi',artist:'Msanii',year:'Mwaka',size:'Ukubwa',medium:'Malighafi',place:'Imetengenezwa',desc:'Kuhusu kazi',words:'Kwa maneno ya msanii',signed:'Sahihi',framed:'Fremu',exhibited:'Imeonyeshwa',id:'Namba ya katalogi',shop:'Tazama kwenye voiceofpiece.com',yes:'Ndiyo',no:'Hapana',ask:'Uliza kuhusu kazi hii'}};
+  var st=document.createElement('style');
+  st.textContent='.lb{background:rgba(8,8,8,.98)!important}#lb-info p,#lb-info dd,#lb-info a{text-transform:none!important}#lb-info .t,#lb-info .a,#lb-info dd,#lb-info .p p{letter-spacing:normal!important}#lb-info .acts a{text-transform:uppercase!important}.lb.open{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:clamp(20px,3vw,48px);align-items:center}'+
+  '.lb figure{min-width:0}.lb #lb-img{max-height:calc(100vh - 150px)}'+
+  '#lb-info{align-self:stretch;overflow:auto;max-height:calc(100vh - 120px);padding:clamp(18px,2vw,28px);border-left:1px solid rgba(255,255,255,.1);color:#E9E4DC;font:300 14px/1.7 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;justify-content:flex-start}#lb-info>:first-child{margin-top:auto}#lb-info>:last-child{margin-bottom:auto}'+
+  '#lb-info .t{margin:0 0 4px;font:400 clamp(24px,2.2vw,32px)/1.2 "Cormorant Garamond","Playfair Display","Gowun Batang",Georgia,serif;color:#E4C27E}'+
+  '#lb-info .a{margin:0 0 22px;font:italic 400 18px/1.4 "Cormorant Garamond",Georgia,serif;color:#BDB7AD}'+
+  '#lb-info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}'+
+  '#lb-info dt{font:500 10px/1.9 "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F;white-space:nowrap}'+
+  '#lb-info dd{margin:0;color:#E9E4DC}'+
+  '#lb-info .p{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}'+
+  '#lb-info .p h4{margin:0 0 8px;font:500 10px "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F}'+
+  '#lb-info .p p{margin:0;font:400 16px/1.7 "Cormorant Garamond","Gowun Batang",Georgia,serif;color:#DCD6CC}'+
+  '#lb-info .acts{display:flex;flex-direction:column;gap:10px;margin-top:24px}'+
+  '#lb-info .acts a{display:block;padding:12px 16px;border:1px solid rgba(201,164,106,.6);color:#E4C27E;text-align:center;text-decoration:none;font:500 10px "Montserrat",sans-serif;letter-spacing:.3em;text-transform:uppercase}'+
+  '#lb-info .acts a:hover{background:#C9A46A;color:#111}'+
+  'html[lang="ko"] #lb-info dt,html[lang="ko"] #lb-info .p h4{letter-spacing:.08em!important}'+
+  '@media (max-width:860px){.lb.open{grid-template-columns:1fr;align-content:start;overflow:auto;padding-top:64px}.lb #lb-img{max-height:60vh}#lb-info{border-left:0;border-top:1px solid rgba(255,255,255,.1);max-height:none;overflow:visible}}';
+  document.head.appendChild(st);
+  var box=document.createElement('aside');box.id='lb-info';box.setAttribute('aria-live','polite');
+  var fig=lb.querySelector('figure'); if(fig&&fig.nextSibling)lb.insertBefore(box,fig.nextSibling);else lb.appendChild(box);
+  function lang(){var l=document.documentElement.getAttribute('lang');return L[l]?l:'en';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pick(v,l){if(!v)return '';if(typeof v==='string')return v;return v[l]||v.en||'';}
+  function size(r){if(!r.w||!r.h)return '';var s=r.w+' × '+r.h;if(r.unit==='cm'){var i=function(x){return (parseFloat(x)/2.54).toFixed(1).replace(/\.0$/,'');};return s+' cm ('+i(r.w)+' × '+i(r.h)+' in)';}if(r.unit==='in')return s+' in';return s;}
+  function render(){var src=img.getAttribute('src')||'';var key=null;
+    for(var k in W){if(src===k||src.slice(-k.length-1)==='/'+k){key=k;break;}}
+    var r=W[key]||{};var l=lang(),T=L[l],h='';
+    var title=pick(r.title,l);
+    h+= title?'<p class="t">'+esc(title)+'</p>':'';
+    h+='<p class="a">'+esc(r.artist||window.__VOP_ARTIST||'')+'</p><dl>';
+    function row(lbl,v){if(v)h+='<dt>'+esc(lbl)+'</dt><dd>'+esc(v)+'</dd>';}
+    row(T.year,r.year);row(T.size,size(r));row(T.medium,pick(r.medium,l));row(T.place,pick(r.place,l));
+    if(r.signed)row(T.signed,r.signed==='yes'?T.yes:T.no); if(r.framed)row(T.framed,r.framed==='yes'?T.yes:T.no);
+    row(T.exhibited,pick(r.exhibited,l));row(T.id,r.id);h+='</dl>';
+    var d=pick(r.desc,l);if(d)h+='<div class="p"><h4>'+esc(T.desc)+'</h4><p>'+esc(d)+'</p></div>';
+    var w=pick(r.words,l);if(w)h+='<div class="p"><h4>'+esc(T.words)+'</h4><p>'+esc(w)+'</p></div>';
+    h+='<div class="acts">';
+    if(r.shop)h+='<a href="'+esc(r.shop)+'" target="_blank" rel="noopener">'+esc(T.shop)+' ↗</a>';
+    var subj=encodeURIComponent((r.id?r.id+' — ':'')+(title||'Artwork')+' — '+(r.artist||''));
+    h+='<a href="mailto:voiceofpiece2024@gmail.com?subject='+subj+'">'+esc(T.ask)+'</a>';
+    if(ADMIN&&r.id)h+='<a href="/studio/#'+SLUG+'/'+encodeURIComponent(r.id)+'" target="_blank" rel="noopener" style="border-style:dashed;color:#9E988F">Edit ✎</a>';
+    h+='</div>';
+    box.innerHTML=h;}
+  // Admin only: if signed in to the studio, show an Edit button (visitors never see it).
+  var ADMIN=false,SLUG=location.pathname.split('/').filter(Boolean)[0]||'';
+  if(SLUG&&window.fetch)fetch('/api/studio/me',{credentials:'same-origin',headers:{accept:'application/json'}})
+    .then(function(r){if(r.ok){ADMIN=true;galleryEdit();if(lb.classList.contains('open'))render();}}).catch(function(){});
+  function galleryEdit(){
+    var h=[].filter.call(document.querySelectorAll('h2'),function(x){return /^\s*(the\s+gallery|갤러리|matunzio)\s*$/i.test(x.textContent.replace(/Studio/,''));})[0];
+    if(!h)h=document.querySelector('h1');   // pages without a gallery heading: next to the artist's name
+    if(!h)return;
+    var a=document.createElement('a');a.className='vop-edit';a.href='/studio/#'+SLUG;a.target='_blank';a.rel='noopener';a.textContent='Studio';
+    a.style.cssText='display:inline-block;margin-left:16px;padding:6px 12px;border:1px dashed rgba(201,164,106,.6);color:#C9A46A;text-decoration:none;font:500 11px/1.4 Montserrat,sans-serif;font-style:normal;letter-spacing:.2em;text-transform:uppercase;vertical-align:middle';
+    function keep(){if(!h.querySelector('.vop-edit'))h.appendChild(a);}
+    keep();new MutationObserver(keep).observe(h,{childList:true});
+    // also in the top menu
+    var nav=document.querySelector('nav[aria-label="Page"]');if(!nav)return;
+    var n=document.createElement('a');n.className='vop-studio';n.href='/studio/#'+SLUG;n.target='_blank';n.rel='noopener';n.textContent='Studio';n.style.color='#C9A46A';
+    function keepNav(){if(!nav.querySelector('.vop-studio'))nav.appendChild(n);}
+    keepNav();new MutationObserver(keepNav).observe(nav,{childList:true});}
+  new MutationObserver(render).observe(img,{attributes:true,attributeFilter:['src']});
+  new MutationObserver(function(){if(lb.classList.contains('open'))render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+<script id="vop-live">(function(){
+  // Rebuild the gallery from the database (/api). If anything fails,
+  // the static gallery already in the page stays exactly as it is.
+  var h=location.hostname, m=h.match(/^([a-z0-9-]+)\.voiceofpiece\.org$/);
+  var slug=(m&&m[1]!=='www')?m[1]:(location.pathname.split('/').filter(Boolean)[0]||'');
+  if(!slug||location.protocol==='file:')return;
+  var W=window.__VOP_WORKS||(window.__VOP_WORKS={});
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function lang(){var l=document.documentElement.getAttribute('lang');return /^(en|ko|sw)$/.test(l)?l:'en';}
+  function tx(w,f,l){var t=w.texts||{};return (t[l]&&t[l][f])||(t.en&&t.en[f])||(t.sw&&t.sw[f])||'';}
+  function perLang(w,f){var o={};['en','ko','sw'].forEach(function(l){var t=w.texts&&w.texts[l];if(t&&t[f])o[l]=t[f];});return Object.keys(o).length?o:null;}
+  function num(n){return n==null?'':String(+n);}
+  fetch('/api/artists/'+slug+'/artworks',{headers:{accept:'application/json'}})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(function(data){
+    var works=(data.artworks||[]).filter(function(w){return w.images&&w.images.length;});
+    if(!works.length)return;
+    var name=data.artist.name;
+    // info-panel data, keyed by photo URL (and old static path, for featured images)
+    Object.keys(W).forEach(function(k){delete W[k];});
+    works.forEach(function(w){
+      var rec={id:w.catalogue_no,artist:name,title:perLang(w,'title'),year:w.year||'',w:num(w.width),h:num(w.height),unit:w.unit||'',
+        medium:perLang(w,'medium'),place:w.place?{en:w.place}:null,desc:perLang(w,'description'),words:perLang(w,'artist_words'),
+        signed:w.signed==null?'':(w.signed?'yes':'no'),framed:w.framed==null?'':(w.framed?'yes':'no'),
+        exhibited:w.exhibited?{en:w.exhibited}:null,shop:w.shop_url||''};
+      W[w.images[0].url]=rec;
+      var sp=w.images[0].source_path; if(sp)W[sp.split('/').slice(1).join('/')]=rec;
+    });
+    var gal=document.getElementById('gallery'), oldGroups=gal?gal.querySelectorAll('.group'):[];
+    var jgExists=gal&&gal.querySelector('.jg');
+    if(!jgExists&&works.length<2){rebind();return;}   // single-work page: keep the featured frame
+    var grouped=oldGroups.length>1, groups=[], idx={};
+    works.forEach(function(w){
+      var label='';
+      if(grouped){label=(w.year||'');if(w.width&&w.height&&!w.unit)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height);else if(w.width&&w.height)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height)+' '+w.unit;}
+      if(!(label in idx)){idx[label]=groups.length;groups.push({label:label,items:[]});}
+      groups[idx[label]].items.push(w);
+    });
+    var html=groups.map(function(g){
+      return '<div class="group">'+(g.label?'<h3>'+esc(g.label)+'</h3>':'')+'<div class="jg">'+g.items.map(function(w){
+        var im=w.images[0],iw=im.width||1000,ih=im.height||1000,r=iw/ih,t=tx(w,'title','en');
+        var alt=t?(t+', by '+name):('Artwork by '+name);
+        return '<button type="button" style="flex-grow:'+(r*100).toFixed(1)+';flex-basis:calc(var(--jg-h) * '+r.toFixed(3)+')" data-cap="'+esc(t)+'" aria-label="View larger: '+esc(alt)+'">'+
+          '<span class="ph" style="padding-bottom:'+(100/r).toFixed(3)+'%"><img src="'+esc(im.url)+'" width="'+iw+'" height="'+ih+'" alt="'+esc(alt)+'" loading="lazy"></span>'+
+          (t?'<span class="cap">'+esc(t)+'</span>':'')+'</button>';
+      }).join('\n')+'</div></div>';
+    }).join('\n');
+    if(jgExists){
+      oldGroups.forEach(function(g){g.parentNode.removeChild(g);});
+      gal.querySelector('.wrap').insertAdjacentHTML('beforeend',html);
+    }else{
+      var sec=document.createElement('section');sec.className='gallery';sec.id='gallery-db';
+      sec.innerHTML='<div class="wrap"><div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count"></span></div>'+html+'</div>';
+      var c=document.getElementById('contact');c.parentNode.insertBefore(sec,c);gal=sec;
+    }
+    var cnt=gal.querySelector('.count');
+    if(cnt){var fresh=document.createElement('span');fresh.className='count';fresh.setAttribute('data-no-i18n','');cnt.parentNode.replaceChild(fresh,cnt);
+      var n=works.length,setC=function(){var l=lang();fresh.textContent=l==='ko'?'작품 '+n+'점':l==='sw'?'Kazi '+n:(n+' work'+(n===1?'':'s'));};
+      setC();new MutationObserver(setC).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});}
+    rebind(name);
+  }).catch(function(e){console.warn('Gallery from database unavailable, using the static gallery.',e);});
+
+  // Lightbox that always uses the current gallery items.
+  function rebind(name){
+    var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+    if(!lb||!img)return;
+    ['lb-x','lb-prev','lb-next'].forEach(function(id){var b=document.getElementById(id);if(b)b.replaceWith(b.cloneNode(true));});
+    document.querySelectorAll('[data-lb]').forEach(function(b){b.replaceWith(b.cloneNode(true));});
+    var NAME=name||'',cur=0,opener=null;
+    function items(){return Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));}
+    function show(i){var it=items();if(!it.length)return;cur=(i+it.length)%it.length;var b=it[cur],im=b.querySelector('img');img.src=im.getAttribute('src');img.alt=im.alt;
+      cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+it.length;}
+    function open(b){opener=b;show(items().indexOf(b));lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus();}
+    function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus();}
+    document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.jg button, [data-lb]');if(b){e.preventDefault();open(b);}});
+    document.getElementById('lb-x').addEventListener('click',close);
+    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
+    window.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape'||e.key==='ArrowRight'||e.key==='ArrowLeft'){e.stopImmediatePropagation();e.preventDefault();}
+      if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);},true);
+  }
+})();
+</script>
+<script id="vop-i18n-data">window.__VOP_I18N={"ko": {"Close": "닫기", "Contact": "연락", "Mitole works within the Tingatinga school — the movement of bold enamel colour and black outline founded in Dar es Salaam by Edward Saidi Tingatinga in 1968 — and has extended it into territory entirely his own. Where the tradition typically isolates a single animal against flat colour, Mitole composes panoramas of civic life: the primary school, the fruit market, the national hospital, the railway to Moshi.": "Mitole는 1968년 다르에스살람에서 에드워드 사이디 팅가팅가가 시작한, 강렬한 에나멜 색과 검은 윤곽선의 팅가팅가 화파 안에서 작업하며 그 전통을 자신만의 영역으로 넓혀 왔습니다. 전통적인 팅가팅가가 단색 배경 위에 동물 한 마리를 그린다면, Mitole는 초등학교, 과일 시장, 국립병원, 모시로 가는 철도처럼 도시의 삶 전체를 파노라마로 담아냅니다.", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "연락 주시면 작가와 연결해 드립니다. 모든 판매는 공정한 조건으로 이루어지며, 작가의 이름이 명시되고 정당한 대가가 지급됩니다.", "← All artists": "← 전체 작가", "Artist · Voice of Piece": "작가 · Voice of Piece", "The <em>gallery<\/em>": "<em>갤러리<\/em>", "Each work begins as weeks of patient black-line drawing before any colour is laid in. Hand-lettered Swahili signs — <em>Shule ya Msingi<\/em>, <em>Soko la Matunda<\/em>, <em>Twende Tukasome!<\/em> — anchor every scene in a real, working Tanzania, observed with humour and tenderness. His paintings are held by collectors internationally. Through Voice of Piece, they travel directly from his studio in Dar es Salaam to homes and galleries worldwide.": "모든 작품은 색을 입히기 전, 몇 주에 걸친 인내심 있는 검은 선 드로잉에서 시작됩니다. <em>Shule ya Msingi<\/em>(초등학교), <em>Soko la Matunda<\/em>(과일 시장), <em>Twende Tukasome!<\/em>(공부하러 가자!) 같은 손글씨 스와힐리어 간판이 장면마다 살아 숨 쉬는 실제 탄자니아를 담고, 유머와 다정함으로 그것을 바라봅니다. 그의 그림은 세계 곳곳의 컬렉터들이 소장하고 있으며, Voice of Piece를 통해 다르에스살람의 작업실에서 세계의 집과 갤러리로 곧장 전해집니다.", "Selected works": "선별 작품", "Gallery": "갤러리", "Enquire about this work": "작품 문의하기", "The Tingatinga tradition": "팅가팅가 전통", "Tingatinga painter": "팅가팅가 화가", "Dar es Salaam, Tanzania": "탄자니아 다르에스살람", "Crowded, busy panoramas of Tanzanian civic life — schools, markets, hospitals and the railway to Moshi.": "학교, 시장, 병원, 모시로 가는 철도까지 — 사람들로 북적이는 탄자니아 일상의 파노라마.", "The artist": "작가", "In his own words": "작가의 말", "The hospital": "병원", "The railway": "철도", "The school": "학교", "The market": "시장", "Tanzania's national hospital in Dar es Salaam, painted ward by ward.": "다르에스살람의 탄자니아 국립병원을 병동 하나하나 그렸습니다.", "The train to Moshi, with Kilimanjaro behind.": "킬리만자로를 뒤로한 모시행 기차.", "“Let's go and study!” An invitation to school.": "“공부하러 가자!” 학교로 부르는 말.", "The fruit market, stall after stall.": "과일 시장, 가판대가 끝없이 이어집니다.", "From one animal to a whole city": "동물 한 마리에서 도시 전체로", "See the gallery": "갤러리 보기", "Line first, colour after": "선 먼저, 색은 나중에", "Watch the film": "영상 보기", "Film: in the studio": "영상: 작업실에서", "Voice of Piece": "Voice of Piece", "What he paints": "그가 그리는 것"}, "sw": {"Close": "Funga", "Contact": "Mawasiliano", "Mitole works within the Tingatinga school — the movement of bold enamel colour and black outline founded in Dar es Salaam by Edward Saidi Tingatinga in 1968 — and has extended it into territory entirely his own. Where the tradition typically isolates a single animal against flat colour, Mitole composes panoramas of civic life: the primary school, the fruit market, the national hospital, the railway to Moshi.": "Mitole anafanya kazi ndani ya shule ya Tingatinga — mtindo wa rangi angavu za enameli na mistari myeusi ulioanzishwa Dar es Salaam na Edward Saidi Tingatinga mwaka 1968 — na ameupanua hadi eneo lake mwenyewe kabisa. Pale ambapo utamaduni huu kwa kawaida humchora mnyama mmoja juu ya rangi tupu, Mitole huchora mandhari pana ya maisha ya mjini: shule ya msingi, soko la matunda, hospitali ya taifa, reli ya kwenda Moshi.", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "Tuandikie nasi tutakuunganisha na msanii. Kila mauzo hufanyika kwa masharti ya haki, msanii akitambuliwa na kulipwa.", "← All artists": "← Wasanii wote", "Artist · Voice of Piece": "Msanii · Voice of Piece", "The <em>gallery<\/em>": "<em>Matunzio<\/em>", "Each work begins as weeks of patient black-line drawing before any colour is laid in. Hand-lettered Swahili signs — <em>Shule ya Msingi<\/em>, <em>Soko la Matunda<\/em>, <em>Twende Tukasome!<\/em> — anchor every scene in a real, working Tanzania, observed with humour and tenderness. His paintings are held by collectors internationally. Through Voice of Piece, they travel directly from his studio in Dar es Salaam to homes and galleries worldwide.": "Kila kazi huanza kwa wiki kadhaa za kuchora kwa subira mistari myeusi kabla rangi yoyote haijawekwa. Mabango ya Kiswahili yaliyoandikwa kwa mkono — <em>Shule ya Msingi<\/em>, <em>Soko la Matunda<\/em>, <em>Twende Tukasome!<\/em> — huifanya kila picha iwe Tanzania halisi, inayotazamwa kwa ucheshi na upole. Michoro yake inamilikiwa na wakusanyaji kimataifa. Kupitia Voice of Piece, husafiri moja kwa moja kutoka studio yake Dar es Salaam hadi majumbani na kwenye matunzio duniani kote.", "Selected works": "Kazi teule", "Gallery": "Matunzio", "Enquire about this work": "Uliza kuhusu kazi hii", "The Tingatinga tradition": "Utamaduni wa Tingatinga", "Tingatinga painter": "Mchoraji wa Tingatinga", "Dar es Salaam, Tanzania": "Dar es Salaam, Tanzania", "Crowded, busy panoramas of Tanzanian civic life — schools, markets, hospitals and the railway to Moshi.": "Mandhari pana, yenye watu wengi, ya maisha ya kila siku Tanzania — shule, masoko, hospitali na reli ya kwenda Moshi.", "The artist": "Msanii", "In his own words": "Kwa maneno yake mwenyewe", "The hospital": "Hospitali", "The railway": "Reli", "The school": "Shule", "The market": "Soko", "Tanzania's national hospital in Dar es Salaam, painted ward by ward.": "Hospitali ya taifa ya Tanzania, Dar es Salaam, imechorwa wodi kwa wodi.", "The train to Moshi, with Kilimanjaro behind.": "Treni ya kwenda Moshi, Kilimanjaro ikiwa nyuma.", "“Let's go and study!” An invitation to school.": "Mwaliko wa kwenda shule.", "The fruit market, stall after stall.": "Soko la matunda, meza baada ya meza.", "From one animal to a whole city": "Kutoka mnyama mmoja hadi mji mzima", "See the gallery": "Tazama matunzio", "Line first, colour after": "Mistari kwanza, rangi baadaye", "Watch the film": "Tazama filamu", "Film: in the studio": "Filamu: studioni", "Voice of Piece": "Voice of Piece", "What he paints": "Anachokichora"}};</script>
+<script id="vop-i18n">(function(){
+  var D=window.__VOP_I18N||{ko:{},sw:{}};
+  var LANGS=['en','ko','sw'], LABEL={en:'EN',ko:'한국어',sw:'SW'}, NAME={en:'English',ko:'한국어',sw:'Kiswahili'};
+  var PAT=[
+    [/^Artist (\d+) \/ (\d+)$/,{ko:'작가 $1 / $2',sw:'Msanii $1 / $2'}],
+    [/^(\d+) works?$/,{ko:'작품 $1점',sw:'Kazi $1'}],
+    [/^Painting for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Drawing for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Interested in (.+)'s work\?$/,{ko:'$1의 작품에 관심이 있으신가요?',sw:'Unavutiwa na kazi za $1?'}],
+    [/^Artwork © (.+)\. Shared through Voice of Piece\.$/,{ko:'작품 © $1. Voice of Piece를 통해 소개합니다.',sw:'Kazi za sanaa © $1. Zinashirikishwa kupitia Voice of Piece.'}],
+    [/^Work (\d+)<small>(.+)<\/small>$/,{ko:'작품 $1<small>$2</small>',sw:'Kazi $1<small>$2</small>'}]
+  ];
+  var INL={EM:1,B:1,STRONG:1,I:1,BR:1,SMALL:1,SUP:1,SPAN:1}, SK={SCRIPT:1,STYLE:1,SVG:1,IFRAME:1,NOSCRIPT:1,TEMPLATE:1};
+  function lc(el){var c=el.classList;return !!(c&&(c.contains('en')||c.contains('ko')||c.contains('sw')));}
+  function skip(el){var t=el.tagName.toUpperCase(),l=el.getAttribute('lang');return SK[t]||lc(el)||l==='ko'||l==='sw'||el.id==='manifesto-body'||el.id==='words'||el.id==='vop-lang'||el.hasAttribute('data-no-i18n');}
+  function isBlock(el){var has=false,kid=false,w=document.createTreeWalker(el,5),n;
+    while((n=w.nextNode())){if(n.nodeType===1){if(!INL[n.tagName.toUpperCase()]||lc(n))return false;}else if(n.nodeValue.trim())has=true;}
+    for(var c=el.firstChild;c;c=c.nextSibling)if(c.nodeType===1)kid=true;return has&&kid;}
+  function norm(s){return s.replace(/<br\s*\/?>/gi,'<br>').replace(/\s+/g,' ').trim();}
+  var U=[];
+  function walk(el){for(var c=el.firstChild;c;c=c.nextSibling){
+    if(c.nodeType===3){if(c.nodeValue.trim())U.push({t:c,en:c.nodeValue});}
+    else if(c.nodeType===1){if(skip(c))continue;if(isBlock(c))U.push({e:c,en:c.innerHTML});else walk(c);}}}
+  function tr(key,lang){if(lang==='en')return null;var d=D[lang]||{};if(d[key])return d[key];
+    for(var i=0;i<PAT.length;i++){var m=key.match(PAT[i][0]);if(m)return key.replace(PAT[i][0],PAT[i][1][lang]);}return null;}
+  var TITLE=document.title, cur='en', miss=[];
+  function apply(lang){miss=[];
+    U.forEach(function(u){var key=norm(u.en),v=tr(key,lang);
+      if(u.t){if(lang==='en'||!v){u.t.nodeValue=u.en;if(lang!=='en'&&!v)miss.push(key);}else{var a=u.en.match(/^\s*/)[0],b=u.en.match(/\s*$/)[0];u.t.nodeValue=a+v+b;}}
+      else{if(lang==='en'||!v){u.e.innerHTML=u.en;if(lang!=='en'&&!v)miss.push(key);}else u.e.innerHTML=v;}});
+    var tt=tr(norm(TITLE),lang);document.title=tt||TITLE;window.__vopMissing=miss;}
+  function setLang(lang,from){if(LANGS.indexOf(lang)<0)lang='en';if(lang===cur&&from!=='init')return;cur=lang;
+    document.documentElement.setAttribute('lang',lang);apply(lang);
+    try{localStorage.setItem('vop-lang',lang);}catch(e){}
+    var wb=document.getElementById('words-body');
+    if(wb&&from!=='words'){var b=wb.querySelector('.lang button[data-set="'+lang+'"]');if(b)b.click();}
+    var mt=document.getElementById('manifesto-text');
+    if(mt&&from!=='manifesto'){var mb=mt.querySelector('.lang button[data-lang="'+lang+'"]');if(mb)mb.click();}
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===lang?'true':'false');});}
+  // switcher
+  var st=document.createElement('style');
+  st.textContent='#vop-lang{position:fixed;z-index:80;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,20,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25);font:500 11px/1 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif}'+
+  '#vop-lang button{border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:none;color:#E8E3DA;font:inherit;letter-spacing:.12em}'+
+  '#vop-lang button[aria-pressed="true"]{background:#C9A46A;color:#161412}'+
+  '#vop-lang button:focus-visible{outline:2px solid #C9A46A;outline-offset:2px}'+
+  'html[lang="ko"] body{word-break:keep-all}'+
+  'html[lang="ko"] body *:not(svg):not(path):not(#vop-lang):not(#vop-lang *){letter-spacing:.02em!important}';
+  document.head.appendChild(st);
+  var sw=document.createElement('div');sw.id='vop-lang';sw.setAttribute('role','group');sw.setAttribute('aria-label','Language / 언어 / Lugha');
+  LANGS.forEach(function(l){var b=document.createElement('button');b.type='button';b.dataset.l=l;b.textContent=LABEL[l];b.setAttribute('aria-label',NAME[l]);b.setAttribute('lang',l);b.addEventListener('click',function(){setLang(l);});sw.appendChild(b);});
+  document.body.appendChild(sw);
+  walk(document.body);
+  // keep section toggles in sync
+  var wb=document.getElementById('words-body');
+  if(wb)wb.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set,'words');});});
+  var mt=document.getElementById('manifesto-text');
+  if(mt)mt.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,'manifesto');});});
+  // carry language to other Voice of Piece pages
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||cur==='en')return;
+    try{var u=new URL(a.href,location.href);if(!/(^|\.)voiceofpiece\.org$/.test(u.hostname)&&u.origin!==location.origin)return;
+      if(u.hash&&u.pathname===location.pathname&&u.origin===location.origin)return;u.searchParams.set('lang',cur);a.href=u.toString();}catch(x){}},true);
+  var q=null;try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var saved=null;try{saved=localStorage.getItem('vop-lang');}catch(e){}
+  var nav=(navigator.language||'').slice(0,2);
+  var init=q||saved||'en';
+  cur='';setLang(init,'init');
+})();
+</script>
+<script id="mitole-layout">(function(){
+  // Paintings 120 cm or larger span the full width; smaller ones sit two to a row.
+  // An odd one out at the end of a run of smaller paintings spans the full width.
+  function rec(src){var W=window.__VOP_WORKS||{};for(var k in W){if(src===k||src.slice(-k.length-1)==='/'+k)return W[k];}return null;}
+  function sizeOf(b){var im=b.querySelector('img');if(!im)return 0;var r=rec(im.getAttribute('src')||'');
+    if(r&&r.w&&r.h){var f=r.unit==='in'?2.54:1;return Math.max(parseFloat(r.w),parseFloat(r.h))*f;}
+    var m=(b.dataset.cap||'').match(/(\d+(?:\.\d+)?)\s*[×x]\s*(\d+(?:\.\d+)?)/);return m?Math.max(+m[1],+m[2]):0;}
+  function lay(){document.querySelectorAll('#gallery .jg').forEach(function(g){
+    var run=[];function flush(){if(run.length%2)run[run.length-1].classList.add('big');run=[];}
+    [].slice.call(g.children).forEach(function(b){if(b.tagName!=='BUTTON')return;b.classList.remove('big');
+      var ph=b.querySelector('.ph');if(ph&&ph.style.paddingBottom)ph.style.setProperty('--pb',ph.style.paddingBottom);
+      if(sizeOf(b)>=120){flush();b.classList.add('big');}else run.push(b);});
+    flush();});}
+  lay();var gal=document.getElementById('gallery'),t;
+  if(gal)new MutationObserver(function(){clearTimeout(t);t=setTimeout(lay,30);}).observe(gal,{childList:true,subtree:true});
+})();</script>
+</body>
+</html>

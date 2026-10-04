@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elichilia Ezekiel Mcharo — Voice of Piece</title>
+<meta name="description" content="Elichilia Ezekiel Mcharo paints realistic scenes of East African wildlife, above all the great migration.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#F6F4F0; --ink:#1F1D1A; --soft:#6F6A62; --line:rgba(31,29,26,.14); --accent:#8C6A2A; --gold:#C9A46A;
+    --serif:"Cormorant Garamond","Cormorant",Garamond,Georgia,serif; --sans:"Montserrat","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+    --jg-h:250px;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px); }
+  *,*::before,*::after{box-sizing:inherit}
+  html{scroll-behavior:smooth;scroll-padding-top:16px}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--ink);font:300 15px/1.8 var(--sans);-webkit-font-smoothing:antialiased}
+  img,video{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  .eyebrow{margin:0 0 10px;font:500 10.5px/1.6 var(--sans);letter-spacing:.45em;text-transform:uppercase}
+  .h2{margin:0;font:300 clamp(36px,4.6vw,64px)/1.02 var(--serif);letter-spacing:.02em;text-transform:uppercase}
+  .h2 em{font-style:italic;text-transform:none;letter-spacing:0}
+  .btn{display:inline-block;padding:14px 28px;border:1px solid currentColor;font:500 10.5px/1 var(--sans);letter-spacing:.4em;text-transform:uppercase;text-decoration:none;transition:background-color .2s,color .2s,border-color .2s;background:none;cursor:pointer}
+  .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+  .facts{list-style:none;margin:0;padding:0;display:grid;gap:8px;font:500 10.5px/1.6 var(--sans);letter-spacing:.24em;text-transform:uppercase}
+  .facts li{display:flex;align-items:center;gap:14px}
+  .facts li::before{content:"";flex:0 0 22px;height:1px;background:var(--accent)}
+  .rule{width:40px;height:1px;background:var(--accent);margin:22px 0}
+  .top{position:relative;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:16px;height:64px;padding:0 clamp(20px,3vw,44px);font:500 10.5px var(--sans);letter-spacing:.35em;text-transform:uppercase}
+  .top a{text-decoration:none}
+  .top a:hover{color:var(--accent)}
+  .top b{font-weight:500;color:var(--gold)}
+  .top nav{display:flex;gap:24px}
+  @media (max-width:640px){.top nav .opt{display:none}}
+
+  /* Words (white) */
+  .words{background:#FFFFFF;color:#1F1D1A;border-top:1px solid rgba(31,29,26,.1);padding:clamp(80px,9vw,130px) 0 clamp(60px,7vw,100px)}
+  .words-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:50px}
+  .words-head .note{margin:14px 0 0;font-size:13px;color:#6F6A62}
+  .lang{display:inline-flex;gap:4px;border:1px solid rgba(31,29,26,.14);padding:4px}
+  .lang button{background:none;border:0;cursor:pointer;padding:8px 16px;font:500 10.5px var(--sans);letter-spacing:.25em;text-transform:uppercase;color:#1F1D1A}
+  .lang button[aria-pressed="true"]{background:#1F1D1A;color:#fff}
+  .entry{display:grid;grid-template-columns:260px 1fr;gap:48px;padding:34px 0;border-top:1px solid rgba(31,29,26,.12)}
+  .entry h3{margin:0;font:italic 400 22px/1.3 var(--serif);color:var(--accent)}
+  .entry p{margin:0;max-width:38em;font:400 clamp(20px,1.7vw,23px)/1.7 var(--serif)}
+  [data-lang="en"] .ko,[data-lang="en"] .sw,[data-lang="ko"] .en,[data-lang="ko"] .sw,[data-lang="sw"] .en,[data-lang="sw"] .ko{display:none}
+  .words [lang="ko"]{font-family:"Gowun Batang","Noto Serif KR",serif;word-break:keep-all}
+  .entry p[lang="ko"]{font-size:clamp(17px,1.4vw,19.5px);line-height:1.95}
+  .words-head .h2 span[lang="ko"]{font-size:.72em}
+
+  @media (max-width:760px){.entry{grid-template-columns:1fr;gap:10px}}
+
+  /* Gallery: justified rows — every picture in a row shares top and bottom lines */
+  .gallery{padding:clamp(80px,9vw,120px) 0}
+  .gallery-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,60px)}
+  .gallery-head .count{font:italic 300 22px var(--serif);color:var(--soft)}
+  .group{margin-top:56px}
+  .group:first-of-type{margin-top:0}
+  .group h3{margin:0 0 22px;padding-bottom:12px;border-bottom:1px solid var(--line);font:500 10.5px var(--sans);letter-spacing:.45em;text-transform:uppercase}
+  .jg{display:flex;flex-wrap:wrap;gap:clamp(12px,1.4vw,20px)}
+  .jg::after{content:"";flex-grow:999999}
+  .jg button{position:relative;display:block;padding:0;border:0;background:none;cursor:zoom-in;text-align:left;color:inherit}
+  .jg .ph{position:relative;display:block;background:rgba(0,0,0,.05);overflow:hidden}
+  .jg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .jg button:hover img{transform:scale(1.03)}
+  .jg .cap{display:block;height:22px;margin-top:10px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:italic 400 16px/22px var(--serif);color:var(--soft)}
+  @media (max-width:700px){:root{--jg-h:170px}}
+  @media (prefers-reduced-motion:reduce){.jg img{transition:none}}
+
+  .lb{position:fixed;inset:0;z-index:50;display:none;place-items:center;background:rgba(18,17,16,.95);padding:60px 70px}
+  .lb.open{display:grid}
+  .lb img{max-width:100%;max-height:calc(100vh - 150px);width:auto;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .lb p{margin:16px 0 0;text-align:center;font:500 10.5px var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+  .lb button{position:absolute;background:none;border:0;color:#fff;cursor:pointer;font:300 40px/1 var(--serif);padding:12px 16px;opacity:.8}
+  .lb button:hover{opacity:1;color:var(--gold)}
+  .lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:18px;font:500 10.5px var(--sans);letter-spacing:.4em}
+  .lb .prev{left:10px;top:50%;transform:translateY(-50%)}
+  .lb .next{right:10px;top:50%;transform:translateY(-50%)}
+  @media (max-width:600px){.lb{padding:60px 12px 80px}.lb .prev,.lb .next{top:auto;bottom:18px;transform:none}}
+
+  .record{padding:clamp(70px,8vw,110px) 0;border-top:1px solid var(--line)}
+  .cv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:48px;margin-top:44px}
+  .cv-grid h3{margin:0 0 14px;font:500 10.5px var(--sans);letter-spacing:.45em;text-transform:uppercase;color:var(--accent)}
+  .cv-grid ul{list-style:none;margin:0;padding:0}
+  .cv-grid li{padding:12px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.7}
+
+  .enquire{padding:clamp(80px,9vw,120px) 0;text-align:center;border-top:1px solid var(--line)}
+  .enquire h2{margin:0 0 16px;font:italic 300 clamp(34px,4vw,54px)/1.15 var(--serif)}
+  .enquire p{max-width:34em;margin:0 auto 34px;color:var(--soft)}
+  .enquire .back{display:inline-block;margin-top:28px;font:500 10.5px var(--sans);letter-spacing:.35em;text-transform:uppercase;text-decoration:none;color:var(--soft)}
+  .foot{background:#1E1E1E;color:#D6D3CE;border-top:1px solid rgba(201,164,106,.45)}
+  .foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:34px;padding-bottom:34px}
+  .foot a{font:400 11px var(--sans);letter-spacing:.5em;text-transform:uppercase;text-decoration:none}
+  .foot a b{font-weight:400;color:var(--gold)}
+  .foot small{font-size:12px;color:#9C9891}
+  .social{display:flex;gap:14px;flex-wrap:wrap}
+  .social a{display:inline-flex;align-items:center;gap:12px}
+
+  body{--bg:#E8ECE7;--accent:#6E8578}
+  .t-hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(84vh,820px)}
+  .t-hero .txt{padding:clamp(40px,6vw,90px) clamp(20px,5vw,70px);display:flex;flex-direction:column;justify-content:center}
+  .t-hero h1{margin:0 0 26px;font:300 clamp(58px,8vw,124px)/.92 var(--serif)}
+  .t-hero h1 span{display:block;color:#3E5147}
+  .t-hero h1 span+span{color:#B59A76}
+  .t-hero .tag{font:500 11px/2 var(--sans);letter-spacing:.35em;text-transform:uppercase;color:#3E5147}
+  .t-hero .line{width:1px;height:50px;background:#9AA9A0;margin:24px 0}
+  .t-hero .pic{position:relative;overflow:hidden;border-radius:0 0 0 45% / 0 0 0 30%}
+  .t-hero .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  @media (max-width:820px){.t-hero{grid-template-columns:1fr}.t-hero .pic{height:60vh}}
+  .t-feat{padding:clamp(70px,8vw,110px) 0}
+  .t-feat .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,40px);max-width:820px;margin:34px auto 0}
+  .t-arch img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:999px 999px 0 0}
+  .t-arch p{margin:16px 0 0;text-align:center;font:500 10.5px var(--sans);letter-spacing:.35em;text-transform:uppercase;color:#3E5147}
+  .t-quote{background:#6E8578;color:#F2F4F1;padding:clamp(60px,7vw,100px) 20px;text-align:center}
+  .t-quote p{max-width:28em;margin:0 auto;font:italic 400 clamp(22px,2.4vw,32px)/1.45 var(--serif)}
+  .t-quote cite{display:block;margin-top:20px;font:500 10.5px var(--sans);letter-spacing:.4em;text-transform:uppercase;font-style:normal;opacity:.8}</style>
+<style id="vop-dark">
+html,body{background:#0b0b0b!important;color:#ECE7DF!important}
+body{--bg:#0b0b0b;--ink:#ECE7DF;--soft:#A9A399;--line:rgba(255,255,255,.12);--accent:#C9A46A;--gold:#C9A46A}
+:root{--jg-h:clamp(240px,31vw,430px)!important}
+.jg .ph{background:rgba(255,255,255,.04)!important}
+.lang{border-color:rgba(255,255,255,.12)!important}
+.lang button{color:#A9A399!important}
+.lang button[aria-pressed="true"]{background:#C9A46A!important;color:#111!important}
+.btn:hover{background:#C9A46A!important;border-color:#C9A46A!important;color:#111!important}
+.foot{background:#070707!important}
+::selection{background:#C9A46A;color:#111}
+body > header:nth-child(1){color:#ECE7DF!important}
+body > section:nth-child(2){color:#ECE7DF!important}
+body > section:nth-child(2) > div:nth-child(1) > h1:nth-child(2) > span:nth-child(1){color:#ECE7DF!important}
+body > section:nth-child(2) > div:nth-child(1) > h1:nth-child(2) > span:nth-child(2){color:#C9A46A!important}
+body > section:nth-child(2) > div:nth-child(1) > p:nth-child(3){color:#ECE7DF!important}
+body > section:nth-child(2) > div:nth-child(1) > div:nth-child(4){background-color:#1a1a1a!important;color:#ECE7DF!important}
+body > section:nth-child(3){color:#ECE7DF!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p:nth-child(2){color:#ECE7DF!important}
+body > section:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > p:nth-child(2){color:#ECE7DF!important}
+body > section:nth-child(4){background-color:#1a1a1a!important}
+body > section:nth-child(5){background-color:#101010!important;color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(3){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(4){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(5){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(2){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(3){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(3) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(4) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(5){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(5) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(6){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(6) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(7){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(5) > div:nth-child(1) > div:nth-child(7) > h3:nth-child(1){color:#A9A399!important}
+body > section:nth-child(6){color:#ECE7DF!important}
+body > section:nth-child(6) > div:nth-child(1) > div:nth-child(1) > span:nth-child(2){color:#A9A399!important}
+body > section:nth-child(7){color:#ECE7DF!important;border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(7) > div:nth-child(1) > p:nth-child(1){color:#A9A399!important}
+body > section:nth-child(7) > div:nth-child(1) > p:nth-child(3){color:#A9A399!important}
+body > section:nth-child(7) > div:nth-child(1) > a:nth-child(4){border-color:rgba(255,255,255,.12)!important}
+body > section:nth-child(7) > div:nth-child(1) > a:nth-child(6){color:#A9A399!important}
+body > footer:nth-child(8){border-color:rgba(255,255,255,.12)!important}
+body > footer:nth-child(8) > div:nth-child(1) > small:nth-child(2){color:#A9A399!important}
+.t-hero .pic,.t-arch img,.t-hero .pic img{border-radius:0!important}</style>
+
+<style id="enquire-gold-final">
+/* Final override: gold contact section, all text black */
+html body section.enquire#contact{
+  background:#C9A46A !important;
+  color:#000 !important;
+  border-color:rgba(0,0,0,.18) !important;
+}
+html body section.enquire#contact,
+html body section.enquire#contact *,
+html body section.enquire#contact h2,
+html body section.enquire#contact p,
+html body section.enquire#contact .eyebrow,
+html body section.enquire#contact .back,
+html body section.enquire#contact a,
+html body section.enquire#contact .btn{
+  color:#000 !important;
+}
+html body section.enquire#contact .btn{
+  background:transparent !important;
+  border-color:#000 !important;
+}
+html body section.enquire#contact .btn:hover{
+  background:#000 !important;
+  color:#C9A46A !important;
+}
+</style>
+</head>
+<body class="v7">
+<header class="top"><a href="../">Voice <b>of</b> Piece</a><nav aria-label="Page"><a class="opt" href="#words">Words</a><a class="opt" href="#gallery">Gallery</a><a href="#contact">Contact</a></nav></header>
+<section class="t-hero"><div class="txt"><p class="eyebrow">Artist · Voice of Piece</p><h1><span>Elichilia</span><span>Mcharo</span></h1><p class="tag">Realistic painting<br>Inspired by the migration</p><div class="line"></div><ul class="facts"><li>Arusha</li><li>Painting for 2 years</li><li>Acrylic on canvas</li></ul></div><div class="pic"><img src="gallery/02.jpg" alt="The migration, by Elichilia Ezekiel Mcharo" loading="lazy"></div></section>
+<section class="t-feat"><div class="wrap" style="text-align:center"><p class="eyebrow">Featured work</p><div class="row">
+  <div class="t-arch"><img src="gallery/02.jpg" alt="The migration, by Elichilia Ezekiel Mcharo" loading="lazy"><p>The migration</p></div>
+  <div class="t-arch"><img src="gallery/01.jpg" alt="Artwork by Elichilia Ezekiel Mcharo" loading="lazy"><p>Acrylic on canvas</p></div>
+</div></div></section>
+<section class="t-quote"><p>“My favourite work is about the migration. What drives it is how much I love the way wildebeest and zebras migrate from one place to another.”</p><cite>Elichilia Ezekiel Mcharo</cite></section>
+
+<section class="words" id="words"><div class="wrap" id="words-body" data-lang="en">
+  <div class="words-head"><div><p class="eyebrow"><span class="en">In the artist's words</span><span class="ko" lang="ko">작가의 말</span><span class="sw" lang="sw">Kwa maneno ya msanii</span></p><h2 class="h2"><span class="en">About <em>the work</em></span><span class="ko" lang="ko">작품 <em>이야기</em></span><span class="sw" lang="sw">Kuhusu <em>kazi</em></span></h2>
+    <p class="note en">Translated from the artist's own answers in Kiswahili, lightly edited for clarity.</p><p class="note ko" lang="ko">작가가 스와힐리어로 직접 쓴 답변을 옮기고 읽기 쉽게 다듬었습니다.</p><p class="note sw" lang="sw">Kwa maneno ya msanii mwenyewe, yamehaririwa kidogo ili yasomeke vizuri.</p></div>
+    <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en" aria-pressed="true">English</button><button type="button" data-set="ko" aria-pressed="false" lang="ko">한국어</button><button type="button" data-set="sw" aria-pressed="false" lang="sw">Kiswahili</button></div></div>
+<div class="entry"><h3><span class="en">How it began</span><span class="ko" lang="ko">시작</span><span class="sw" lang="sw">Nilivyoanza</span></h3><div><p class="en">I began when I discovered I had a talent for drawing, and I have kept developing it so that I can learn more.</p><p class="ko" lang="ko">그림에 재능이 있다는 걸 알게 되었을 때 시작했고, 더 많이 배우기 위해 계속 실력을 키워 왔습니다.</p><p class="sw" lang="sw">Nilianza nilipogundua kwamba nina kipaji cha kuchora, na nikaanza kujiendeleza ili niweze kujua zaidi.</p></div></div>
+<div class="entry"><h3><span class="en">Style</span><span class="ko" lang="ko">화풍</span><span class="sw" lang="sw">Mtindo</span></h3><div><p class="en">Realistic painting.</p><p class="ko" lang="ko">사실적인 그림을 그립니다.</p><p class="sw" lang="sw">Mtindo wangu wa kisanii ni picha halisi.</p></div></div>
+<div class="entry"><h3><span class="en">How I work</span><span class="ko" lang="ko">작업 방식</span><span class="sw" lang="sw">Jinsi ninavyofanya kazi</span></h3><div><p class="en">When an idea for a picture comes to me, I have to carry it onto the canvas until it becomes a painting.</p><p class="ko" lang="ko">어떤 그림이 떠오르면 반드시 캔버스로 옮겨 한 점의 그림으로 완성해야 합니다.</p><p class="sw" lang="sw">Ninapopata wazo la picha fulani, lazima nilihamishie kwenye turubai mpaka liwe picha kamili.</p></div></div>
+<div class="entry"><h3><span class="en">What moves me</span><span class="ko" lang="ko">영감</span><span class="sw" lang="sw">Kinachonihamasisha</span></h3><div><p class="en">Watching great artists at work. I long to reach that level too.</p><p class="ko" lang="ko">훌륭한 화가들이 그림 그리는 모습을 보는 것입니다. 저도 언젠가 그 자리에 닿고 싶습니다.</p><p class="sw" lang="sw">Chanzo cha hamasa yangu ni kuona wasanii wakubwa wanavyochora, na mimi pia ninatamani kufika huko.</p></div></div>
+<div class="entry"><h3><span class="en">A work I love</span><span class="ko" lang="ko">아끼는 작품</span><span class="sw" lang="sw">Kazi ninayoipenda</span></h3><div><p class="en">My favourite work is about the great migration. What drives it is how much I love watching wildebeest and zebras travel from one place to another.</p><p class="ko" lang="ko">가장 아끼는 작품은 대이동을 그린 그림입니다. 누 떼와 얼룩말이 한곳에서 다른 곳으로 이동하는 모습을 정말 좋아해서 그리게 되었습니다.</p><p class="sw" lang="sw">Kazi ninayoipenda zaidi ni ya uhamaji wa wanyama. Msukumo wake ni jinsi ninavyopenda kuona nyumbu na pundamilia wakihama kutoka sehemu moja kwenda nyingine.</p></div></div>
+<div class="entry"><h3><span class="en">Looking ahead</span><span class="ko" lang="ko">앞으로의 꿈</span><span class="sw" lang="sw">Malengo yangu</span></h3><div><p class="en">To become a great artist and to build a successful life through my art.</p><p class="ko" lang="ko">훌륭한 화가가 되어 그림으로 성공하는 것입니다.</p><p class="sw" lang="sw">Malengo yangu ni kuwa msanii mkubwa na kupata mafanikio kupitia kazi ya sanaa.</p></div></div>
+</div></section>
+<section class="gallery" id="gallery"><div class="wrap">
+  <div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count">2 works</span></div>
+  <div class="group"><div class="jg"><button type="button" style="flex-grow:100.0;flex-basis:calc(var(--jg-h) * 1.000)" data-cap="" aria-label="View larger: artwork by Elichilia Ezekiel Mcharo"><span class="ph" style="padding-bottom:100.000%"><img src="gallery/01.jpg" width="1800" height="1800" alt="Artwork by Elichilia Ezekiel Mcharo" loading="lazy"></span></button>
+<button type="button" style="flex-grow:100.0;flex-basis:calc(var(--jg-h) * 1.000)" data-cap="" aria-label="View larger: artwork by Elichilia Ezekiel Mcharo"><span class="ph" style="padding-bottom:100.000%"><img src="gallery/02.jpg" width="1800" height="1800" alt="Artwork by Elichilia Ezekiel Mcharo" loading="lazy"></span></button></div></div>
+</div></section>
+<section class="enquire" id="contact"><div class="wrap"><p class="eyebrow">Voice of Piece</p>
+  <h2>Interested in Elichilia's work?</h2>
+  <p>Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.</p>
+  <a class="btn" href="mailto:voiceofpiece2024@gmail.com?subject=About%20Elichilia%20Ezekiel%20Mcharo">Enquire about this work</a><br><a class="back" href="../#artists">← All artists</a>
+</div></section>
+<footer class="foot"><div class="wrap"><a href="../">Voice <b>of</b> Piece</a><small>Artwork © Elichilia Ezekiel Mcharo. Shared through Voice of Piece.</small><a class="vop-login" href="/studio/#elichilia" style="display:table;margin-left:auto;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none">Studio</a></div></footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+  <button type="button" class="x" id="lb-x">Close</button>
+  <button type="button" class="prev" id="lb-prev" aria-label="Previous work">‹</button>
+  <figure style="margin:0;text-align:center"><img id="lb-img" alt=""><p id="lb-cap"></p></figure>
+  <button type="button" class="next" id="lb-next" aria-label="Next work">›</button>
+</div>
+<script>
+(function(){
+  var box=document.getElementById('words-body');
+  if(box) box.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){box.setAttribute('data-lang',b.dataset.set);box.querySelectorAll('.lang button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')})})});
+  var items=Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));
+  var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),cur=0,opener=null,NAME="Elichilia Ezekiel Mcharo";
+  function show(i){cur=(i+items.length)%items.length;var b=items[cur],im=b.querySelector('img');img.src=im.src;img.alt=im.alt;cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+items.length}
+  function open(i){opener=items[i];show(i);lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus()}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus()}
+  items.forEach(function(b,i){b.addEventListener('click',function(){open(i)})});
+  document.getElementById('lb-x').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1)});
+})();
+</script>
+<script>
+  /* On <slug>.voiceofpiece.org, links back to the main site go to https://voiceofpiece.org/. */
+  (function () {
+    var h = location.hostname;
+    if (!/\.voiceofpiece\.org$/.test(h) || h === 'www.voiceofpiece.org') return;
+    document.querySelectorAll('a[href^="../"]').forEach(function (a) {
+      a.href = 'https://voiceofpiece.org/' + a.getAttribute('href').slice(3);
+    });
+  })();
+</script>
+<script id="vop-works-data">window.__VOP_WORKS={"gallery/01.jpg": {"id": "VOP-ELI-001", "artist": "Elichilia Ezekiel Mcharo"}, "gallery/02.jpg": {"id": "VOP-ELI-002", "artist": "Elichilia Ezekiel Mcharo"}};</script>
+<script id="vop-works">(function(){
+  var W=window.__VOP_WORKS||{}, lb=document.getElementById('lb'), img=document.getElementById('lb-img');
+  if(!lb||!img)return;
+  var L={
+   en:{title:'Title',artist:'Artist',year:'Year',size:'Size',medium:'Medium',place:'Made in',desc:'About the work',words:"In the artist's words",signed:'Signed',framed:'Framed',exhibited:'Exhibited',id:'Catalogue no.',shop:'View on voiceofpiece.com',yes:'Yes',no:'No',ask:'Ask about this work'},
+   ko:{title:'제목',artist:'작가',year:'제작 연도',size:'크기',medium:'재료',place:'제작 지역',desc:'작품 설명',words:'작가의 말',signed:'서명',framed:'액자',exhibited:'전시 이력',id:'작품 번호',shop:'voiceofpiece.com에서 보기',yes:'있음',no:'없음',ask:'이 작품 문의하기'},
+   sw:{title:'Jina la kazi',artist:'Msanii',year:'Mwaka',size:'Ukubwa',medium:'Malighafi',place:'Imetengenezwa',desc:'Kuhusu kazi',words:'Kwa maneno ya msanii',signed:'Sahihi',framed:'Fremu',exhibited:'Imeonyeshwa',id:'Namba ya katalogi',shop:'Tazama kwenye voiceofpiece.com',yes:'Ndiyo',no:'Hapana',ask:'Uliza kuhusu kazi hii'}};
+  var st=document.createElement('style');
+  st.textContent='.lb{background:rgba(8,8,8,.98)!important}#lb-info p,#lb-info dd,#lb-info a{text-transform:none!important}#lb-info .t,#lb-info .a,#lb-info dd,#lb-info .p p{letter-spacing:normal!important}#lb-info .acts a{text-transform:uppercase!important}.lb.open{grid-template-columns:minmax(0,1fr) minmax(280px,360px);gap:clamp(20px,3vw,48px);align-items:center}'+
+  '.lb figure{min-width:0}.lb #lb-img{max-height:calc(100vh - 150px)}'+
+  '#lb-info{align-self:stretch;overflow:auto;max-height:calc(100vh - 120px);padding:clamp(18px,2vw,28px);border-left:1px solid rgba(255,255,255,.1);color:#E9E4DC;font:300 14px/1.7 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif;display:flex;flex-direction:column;justify-content:flex-start}#lb-info>:first-child{margin-top:auto}#lb-info>:last-child{margin-bottom:auto}'+
+  '#lb-info .t{margin:0 0 4px;font:400 clamp(24px,2.2vw,32px)/1.2 "Cormorant Garamond","Playfair Display","Gowun Batang",Georgia,serif;color:#E4C27E}'+
+  '#lb-info .a{margin:0 0 22px;font:italic 400 18px/1.4 "Cormorant Garamond",Georgia,serif;color:#BDB7AD}'+
+  '#lb-info dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}'+
+  '#lb-info dt{font:500 10px/1.9 "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F;white-space:nowrap}'+
+  '#lb-info dd{margin:0;color:#E9E4DC}'+
+  '#lb-info .p{margin:20px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.1)}'+
+  '#lb-info .p h4{margin:0 0 8px;font:500 10px "Montserrat",sans-serif;letter-spacing:.28em;text-transform:uppercase;color:#8E887F}'+
+  '#lb-info .p p{margin:0;font:400 16px/1.7 "Cormorant Garamond","Gowun Batang",Georgia,serif;color:#DCD6CC}'+
+  '#lb-info .acts{display:flex;flex-direction:column;gap:10px;margin-top:24px}'+
+  '#lb-info .acts a{display:block;padding:12px 16px;border:1px solid rgba(201,164,106,.6);color:#E4C27E;text-align:center;text-decoration:none;font:500 10px "Montserrat",sans-serif;letter-spacing:.3em;text-transform:uppercase}'+
+  '#lb-info .acts a:hover{background:#C9A46A;color:#111}'+
+  'html[lang="ko"] #lb-info dt,html[lang="ko"] #lb-info .p h4{letter-spacing:.08em!important}'+
+  '@media (max-width:860px){.lb.open{grid-template-columns:1fr;align-content:start;overflow:auto;padding-top:64px}.lb #lb-img{max-height:60vh}#lb-info{border-left:0;border-top:1px solid rgba(255,255,255,.1);max-height:none;overflow:visible}}';
+  document.head.appendChild(st);
+  var box=document.createElement('aside');box.id='lb-info';box.setAttribute('aria-live','polite');
+  var fig=lb.querySelector('figure'); if(fig&&fig.nextSibling)lb.insertBefore(box,fig.nextSibling);else lb.appendChild(box);
+  function lang(){var l=document.documentElement.getAttribute('lang');return L[l]?l:'en';}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function pick(v,l){if(!v)return '';if(typeof v==='string')return v;return v[l]||v.en||'';}
+  function size(r){if(!r.w||!r.h)return '';var s=r.w+' × '+r.h;if(r.unit==='cm'){var i=function(x){return (parseFloat(x)/2.54).toFixed(1).replace(/\.0$/,'');};return s+' cm ('+i(r.w)+' × '+i(r.h)+' in)';}if(r.unit==='in')return s+' in';return s;}
+  function render(){var src=img.getAttribute('src')||'';var key=null;
+    for(var k in W){if(src===k||src.slice(-k.length-1)==='/'+k){key=k;break;}}
+    var r=W[key]||{};var l=lang(),T=L[l],h='';
+    var title=pick(r.title,l);
+    h+= title?'<p class="t">'+esc(title)+'</p>':'';
+    h+='<p class="a">'+esc(r.artist||window.__VOP_ARTIST||'')+'</p><dl>';
+    function row(lbl,v){if(v)h+='<dt>'+esc(lbl)+'</dt><dd>'+esc(v)+'</dd>';}
+    row(T.year,r.year);row(T.size,size(r));row(T.medium,pick(r.medium,l));row(T.place,pick(r.place,l));
+    if(r.signed)row(T.signed,r.signed==='yes'?T.yes:T.no); if(r.framed)row(T.framed,r.framed==='yes'?T.yes:T.no);
+    row(T.exhibited,pick(r.exhibited,l));row(T.id,r.id);h+='</dl>';
+    var d=pick(r.desc,l);if(d)h+='<div class="p"><h4>'+esc(T.desc)+'</h4><p>'+esc(d)+'</p></div>';
+    var w=pick(r.words,l);if(w)h+='<div class="p"><h4>'+esc(T.words)+'</h4><p>'+esc(w)+'</p></div>';
+    h+='<div class="acts">';
+    if(r.shop)h+='<a href="'+esc(r.shop)+'" target="_blank" rel="noopener">'+esc(T.shop)+' ↗</a>';
+    var subj=encodeURIComponent((r.id?r.id+' — ':'')+(title||'Artwork')+' — '+(r.artist||''));
+    h+='<a href="mailto:voiceofpiece2024@gmail.com?subject='+subj+'">'+esc(T.ask)+'</a>';
+    if(ADMIN&&r.id)h+='<a href="/studio/#'+SLUG+'/'+encodeURIComponent(r.id)+'" target="_blank" rel="noopener" style="border-style:dashed;color:#9E988F">Edit ✎</a>';
+    h+='</div>';
+    box.innerHTML=h;}
+  // Admin only: if signed in to the studio, show an Edit button (visitors never see it).
+  var ADMIN=false,SLUG=location.pathname.split('/').filter(Boolean)[0]||'';
+  if(SLUG&&window.fetch)fetch('/api/studio/me',{credentials:'same-origin',headers:{accept:'application/json'}})
+    .then(function(r){if(r.ok){ADMIN=true;galleryEdit();if(lb.classList.contains('open'))render();}}).catch(function(){});
+  function galleryEdit(){
+    var h=[].filter.call(document.querySelectorAll('h2'),function(x){return /^\s*(the\s+gallery|갤러리|matunzio)\s*$/i.test(x.textContent.replace(/Studio/,''));})[0];
+    if(!h)h=document.querySelector('h1');   // pages without a gallery heading: next to the artist's name
+    if(!h)return;
+    var a=document.createElement('a');a.className='vop-edit';a.href='/studio/#'+SLUG;a.target='_blank';a.rel='noopener';a.textContent='Studio';
+    a.style.cssText='display:inline-block;margin-left:16px;padding:6px 12px;border:1px dashed rgba(201,164,106,.6);color:#C9A46A;text-decoration:none;font:500 11px/1.4 Montserrat,sans-serif;font-style:normal;letter-spacing:.2em;text-transform:uppercase;vertical-align:middle';
+    function keep(){if(!h.querySelector('.vop-edit'))h.appendChild(a);}
+    keep();new MutationObserver(keep).observe(h,{childList:true});
+    // also in the top menu
+    var nav=document.querySelector('nav[aria-label="Page"]');if(!nav)return;
+    var n=document.createElement('a');n.className='vop-studio';n.href='/studio/#'+SLUG;n.target='_blank';n.rel='noopener';n.textContent='Studio';n.style.color='#C9A46A';
+    function keepNav(){if(!nav.querySelector('.vop-studio'))nav.appendChild(n);}
+    keepNav();new MutationObserver(keepNav).observe(nav,{childList:true});}
+  new MutationObserver(render).observe(img,{attributes:true,attributeFilter:['src']});
+  new MutationObserver(function(){if(lb.classList.contains('open'))render();}).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+})();
+</script>
+<script id="vop-live">(function(){
+  // Rebuild the gallery from the database (/api). If anything fails,
+  // the static gallery already in the page stays exactly as it is.
+  var h=location.hostname, m=h.match(/^([a-z0-9-]+)\.voiceofpiece\.org$/);
+  var slug=(m&&m[1]!=='www')?m[1]:(location.pathname.split('/').filter(Boolean)[0]||'');
+  if(!slug||location.protocol==='file:')return;
+  var W=window.__VOP_WORKS||(window.__VOP_WORKS={});
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function lang(){var l=document.documentElement.getAttribute('lang');return /^(en|ko|sw)$/.test(l)?l:'en';}
+  function tx(w,f,l){var t=w.texts||{};return (t[l]&&t[l][f])||(t.en&&t.en[f])||(t.sw&&t.sw[f])||'';}
+  function perLang(w,f){var o={};['en','ko','sw'].forEach(function(l){var t=w.texts&&w.texts[l];if(t&&t[f])o[l]=t[f];});return Object.keys(o).length?o:null;}
+  function num(n){return n==null?'':String(+n);}
+  fetch('/api/artists/'+slug+'/artworks',{headers:{accept:'application/json'}})
+  .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+  .then(function(data){
+    var works=(data.artworks||[]).filter(function(w){return w.images&&w.images.length;});
+    if(!works.length)return;
+    var name=data.artist.name;
+    // info-panel data, keyed by photo URL (and old static path, for featured images)
+    Object.keys(W).forEach(function(k){delete W[k];});
+    works.forEach(function(w){
+      var rec={id:w.catalogue_no,artist:name,title:perLang(w,'title'),year:w.year||'',w:num(w.width),h:num(w.height),unit:w.unit||'',
+        medium:perLang(w,'medium'),place:w.place?{en:w.place}:null,desc:perLang(w,'description'),words:perLang(w,'artist_words'),
+        signed:w.signed==null?'':(w.signed?'yes':'no'),framed:w.framed==null?'':(w.framed?'yes':'no'),
+        exhibited:w.exhibited?{en:w.exhibited}:null,shop:w.shop_url||''};
+      W[w.images[0].url]=rec;
+      var sp=w.images[0].source_path; if(sp)W[sp.split('/').slice(1).join('/')]=rec;
+    });
+    var gal=document.getElementById('gallery'), oldGroups=gal?gal.querySelectorAll('.group'):[];
+    var jgExists=gal&&gal.querySelector('.jg');
+    if(!jgExists&&works.length<2){rebind();return;}   // single-work page: keep the featured frame
+    var grouped=oldGroups.length>1, groups=[], idx={};
+    works.forEach(function(w){
+      var label='';
+      if(grouped){label=(w.year||'');if(w.width&&w.height&&!w.unit)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height);else if(w.width&&w.height)label+=(label?' · ':'')+num(w.width)+' × '+num(w.height)+' '+w.unit;}
+      if(!(label in idx)){idx[label]=groups.length;groups.push({label:label,items:[]});}
+      groups[idx[label]].items.push(w);
+    });
+    var html=groups.map(function(g){
+      return '<div class="group">'+(g.label?'<h3>'+esc(g.label)+'</h3>':'')+'<div class="jg">'+g.items.map(function(w){
+        var im=w.images[0],iw=im.width||1000,ih=im.height||1000,r=iw/ih,t=tx(w,'title','en');
+        var alt=t?(t+', by '+name):('Artwork by '+name);
+        return '<button type="button" style="flex-grow:'+(r*100).toFixed(1)+';flex-basis:calc(var(--jg-h) * '+r.toFixed(3)+')" data-cap="'+esc(t)+'" aria-label="View larger: '+esc(alt)+'">'+
+          '<span class="ph" style="padding-bottom:'+(100/r).toFixed(3)+'%"><img src="'+esc(im.url)+'" width="'+iw+'" height="'+ih+'" alt="'+esc(alt)+'" loading="lazy"></span>'+
+          (t?'<span class="cap">'+esc(t)+'</span>':'')+'</button>';
+      }).join('\n')+'</div></div>';
+    }).join('\n');
+    if(jgExists){
+      oldGroups.forEach(function(g){g.parentNode.removeChild(g);});
+      gal.querySelector('.wrap').insertAdjacentHTML('beforeend',html);
+    }else{
+      var sec=document.createElement('section');sec.className='gallery';sec.id='gallery-db';
+      sec.innerHTML='<div class="wrap"><div class="gallery-head"><div><p class="eyebrow">Selected works</p><h2 class="h2">The <em>gallery</em></h2></div><span class="count"></span></div>'+html+'</div>';
+      var c=document.getElementById('contact');c.parentNode.insertBefore(sec,c);gal=sec;
+    }
+    var cnt=gal.querySelector('.count');
+    if(cnt){var fresh=document.createElement('span');fresh.className='count';fresh.setAttribute('data-no-i18n','');cnt.parentNode.replaceChild(fresh,cnt);
+      var n=works.length,setC=function(){var l=lang();fresh.textContent=l==='ko'?'작품 '+n+'점':l==='sw'?'Kazi '+n:(n+' work'+(n===1?'':'s'));};
+      setC();new MutationObserver(setC).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});}
+    rebind(name);
+  }).catch(function(e){console.warn('Gallery from database unavailable, using the static gallery.',e);});
+
+  // Lightbox that always uses the current gallery items.
+  function rebind(name){
+    var lb=document.getElementById('lb'),img=document.getElementById('lb-img'),cap=document.getElementById('lb-cap');
+    if(!lb||!img)return;
+    ['lb-x','lb-prev','lb-next'].forEach(function(id){var b=document.getElementById(id);if(b)b.replaceWith(b.cloneNode(true));});
+    document.querySelectorAll('[data-lb]').forEach(function(b){b.replaceWith(b.cloneNode(true));});
+    var NAME=name||'',cur=0,opener=null;
+    function items(){return Array.prototype.slice.call(document.querySelectorAll('.jg button, [data-lb]'));}
+    function show(i){var it=items();if(!it.length)return;cur=(i+it.length)%it.length;var b=it[cur],im=b.querySelector('img');img.src=im.getAttribute('src');img.alt=im.alt;
+      cap.textContent=(b.dataset.cap?b.dataset.cap+' · ':'')+NAME+' · '+(cur+1)+' / '+it.length;}
+    function open(b){opener=b;show(items().indexOf(b));lb.classList.add('open');document.body.style.overflow='hidden';document.getElementById('lb-x').focus();}
+    function close(){lb.classList.remove('open');document.body.style.overflow='';if(opener)opener.focus();}
+    document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.jg button, [data-lb]');if(b){e.preventDefault();open(b);}});
+    document.getElementById('lb-x').addEventListener('click',close);
+    document.getElementById('lb-prev').addEventListener('click',function(){show(cur-1);});
+    document.getElementById('lb-next').addEventListener('click',function(){show(cur+1);});
+    window.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape'||e.key==='ArrowRight'||e.key==='ArrowLeft'){e.stopImmediatePropagation();e.preventDefault();}
+      if(e.key==='Escape')close();if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);},true);
+  }
+})();
+</script>
+<script id="vop-i18n-data">window.__VOP_I18N={"ko": {"Arusha": "아루샤", "Close": "닫기", "Contact": "연락", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "연락 주시면 작가와 연결해 드립니다. 모든 판매는 공정한 조건으로 이루어지며, 작가의 이름이 명시되고 정당한 대가가 지급됩니다.", "← All artists": "← 전체 작가", "Realistic painting<br>Inspired by the migration": "사실주의 회화<br>대이동에서 받은 영감", "Words": "작가의 말", "Artist · Voice of Piece": "작가 · Voice of Piece", "The <em>gallery<\/em>": "<em>갤러리<\/em>", "Acrylic on canvas": "캔버스에 아크릴", "Featured work": "대표 작품", "Selected works": "선별 작품", "“My favourite work is about the migration. What drives it is how much I love the way wildebeest and zebras migrate from one place to another.”": "“가장 아끼는 작품은 대이동을 그린 그림입니다. 누 떼와 얼룩말이 한곳에서 다른 곳으로 이동하는 모습을 정말 좋아해서 그리게 되었습니다.”", "The migration": "대이동", "Gallery": "갤러리", "Enquire about this work": "작품 문의하기"}, "sw": {"Arusha": "Arusha", "Close": "Funga", "Contact": "Mawasiliano", "Write to us and we will connect you with the artist. Every sale is made on fair terms, with the artist credited and paid.": "Tuandikie nasi tutakuunganisha na msanii. Kila mauzo hufanyika kwa masharti ya haki, msanii akitambuliwa na kulipwa.", "← All artists": "← Wasanii wote", "Realistic painting<br>Inspired by the migration": "Uchoraji wa uhalisia<br>Uliohamasishwa na uhamaji wa wanyama", "Words": "Maneno", "Artist · Voice of Piece": "Msanii · Voice of Piece", "The <em>gallery<\/em>": "<em>Matunzio<\/em>", "Acrylic on canvas": "Akriliki kwenye turubai", "Featured work": "Kazi teule", "Selected works": "Kazi teule", "“My favourite work is about the migration. What drives it is how much I love the way wildebeest and zebras migrate from one place to another.”": "“Kazi ninayoipenda zaidi ni ya uhamaji wa wanyama. Msukumo wake ni jinsi ninavyopenda kuona nyumbu na pundamilia wakihama kutoka sehemu moja kwenda nyingine.”", "The migration": "Uhamaji wa wanyama", "Gallery": "Matunzio", "Enquire about this work": "Uliza kuhusu kazi hii"}};</script>
+<script id="vop-i18n">(function(){
+  var D=window.__VOP_I18N||{ko:{},sw:{}};
+  var LANGS=['en','ko','sw'], LABEL={en:'EN',ko:'한국어',sw:'SW'}, NAME={en:'English',ko:'한국어',sw:'Kiswahili'};
+  var PAT=[
+    [/^Artist (\d+) \/ (\d+)$/,{ko:'작가 $1 / $2',sw:'Msanii $1 / $2'}],
+    [/^(\d+) works?$/,{ko:'작품 $1점',sw:'Kazi $1'}],
+    [/^Painting for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Drawing for (\d+) years$/,{ko:'작업 경력 $1년',sw:'Anachora kwa miaka $1'}],
+    [/^Interested in (.+)'s work\?$/,{ko:'$1의 작품에 관심이 있으신가요?',sw:'Unavutiwa na kazi za $1?'}],
+    [/^Artwork © (.+)\. Shared through Voice of Piece\.$/,{ko:'작품 © $1. Voice of Piece를 통해 소개합니다.',sw:'Kazi za sanaa © $1. Zinashirikishwa kupitia Voice of Piece.'}],
+    [/^Work (\d+)<small>(.+)<\/small>$/,{ko:'작품 $1<small>$2</small>',sw:'Kazi $1<small>$2</small>'}]
+  ];
+  var INL={EM:1,B:1,STRONG:1,I:1,BR:1,SMALL:1,SUP:1,SPAN:1}, SK={SCRIPT:1,STYLE:1,SVG:1,IFRAME:1,NOSCRIPT:1,TEMPLATE:1};
+  function lc(el){var c=el.classList;return !!(c&&(c.contains('en')||c.contains('ko')||c.contains('sw')));}
+  function skip(el){var t=el.tagName.toUpperCase(),l=el.getAttribute('lang');return SK[t]||lc(el)||l==='ko'||l==='sw'||el.id==='manifesto-body'||el.id==='words'||el.id==='vop-lang'||el.hasAttribute('data-no-i18n');}
+  function isBlock(el){var has=false,kid=false,w=document.createTreeWalker(el,5),n;
+    while((n=w.nextNode())){if(n.nodeType===1){if(!INL[n.tagName.toUpperCase()]||lc(n))return false;}else if(n.nodeValue.trim())has=true;}
+    for(var c=el.firstChild;c;c=c.nextSibling)if(c.nodeType===1)kid=true;return has&&kid;}
+  function norm(s){return s.replace(/<br\s*\/?>/gi,'<br>').replace(/\s+/g,' ').trim();}
+  var U=[];
+  function walk(el){for(var c=el.firstChild;c;c=c.nextSibling){
+    if(c.nodeType===3){if(c.nodeValue.trim())U.push({t:c,en:c.nodeValue});}
+    else if(c.nodeType===1){if(skip(c))continue;if(isBlock(c))U.push({e:c,en:c.innerHTML});else walk(c);}}}
+  function tr(key,lang){if(lang==='en')return null;var d=D[lang]||{};if(d[key])return d[key];
+    for(var i=0;i<PAT.length;i++){var m=key.match(PAT[i][0]);if(m)return key.replace(PAT[i][0],PAT[i][1][lang]);}return null;}
+  var TITLE=document.title, cur='en', miss=[];
+  function apply(lang){miss=[];
+    U.forEach(function(u){var key=norm(u.en),v=tr(key,lang);
+      if(u.t){if(lang==='en'||!v){u.t.nodeValue=u.en;if(lang!=='en'&&!v)miss.push(key);}else{var a=u.en.match(/^\s*/)[0],b=u.en.match(/\s*$/)[0];u.t.nodeValue=a+v+b;}}
+      else{if(lang==='en'||!v){u.e.innerHTML=u.en;if(lang!=='en'&&!v)miss.push(key);}else u.e.innerHTML=v;}});
+    var tt=tr(norm(TITLE),lang);document.title=tt||TITLE;window.__vopMissing=miss;}
+  function setLang(lang,from){if(LANGS.indexOf(lang)<0)lang='en';if(lang===cur&&from!=='init')return;cur=lang;
+    document.documentElement.setAttribute('lang',lang);apply(lang);
+    try{localStorage.setItem('vop-lang',lang);}catch(e){}
+    var wb=document.getElementById('words-body');
+    if(wb&&from!=='words'){var b=wb.querySelector('.lang button[data-set="'+lang+'"]');if(b)b.click();}
+    var mt=document.getElementById('manifesto-text');
+    if(mt&&from!=='manifesto'){var mb=mt.querySelector('.lang button[data-lang="'+lang+'"]');if(mb)mb.click();}
+    sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.l===lang?'true':'false');});}
+  // switcher
+  var st=document.createElement('style');
+  st.textContent='#vop-lang{position:fixed;z-index:80;left:calc(14px + env(safe-area-inset-left,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(20,20,20,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 6px 24px rgba(0,0,0,.25);font:500 11px/1 "Montserrat","Segoe UI",Helvetica,Arial,sans-serif}'+
+  '#vop-lang button{border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:none;color:#E8E3DA;font:inherit;letter-spacing:.12em}'+
+  '#vop-lang button[aria-pressed="true"]{background:#C9A46A;color:#161412}'+
+  '#vop-lang button:focus-visible{outline:2px solid #C9A46A;outline-offset:2px}'+
+  'html[lang="ko"] body{word-break:keep-all}'+
+  'html[lang="ko"] body *:not(svg):not(path):not(#vop-lang):not(#vop-lang *){letter-spacing:.02em!important}';
+  document.head.appendChild(st);
+  var sw=document.createElement('div');sw.id='vop-lang';sw.setAttribute('role','group');sw.setAttribute('aria-label','Language / 언어 / Lugha');
+  LANGS.forEach(function(l){var b=document.createElement('button');b.type='button';b.dataset.l=l;b.textContent=LABEL[l];b.setAttribute('aria-label',NAME[l]);b.setAttribute('lang',l);b.addEventListener('click',function(){setLang(l);});sw.appendChild(b);});
+  document.body.appendChild(sw);
+  walk(document.body);
+  // keep section toggles in sync
+  var wb=document.getElementById('words-body');
+  if(wb)wb.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set,'words');});});
+  var mt=document.getElementById('manifesto-text');
+  if(mt)mt.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang,'manifesto');});});
+  // carry language to other Voice of Piece pages
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||cur==='en')return;
+    try{var u=new URL(a.href,location.href);if(!/(^|\.)voiceofpiece\.org$/.test(u.hostname)&&u.origin!==location.origin)return;
+      if(u.hash&&u.pathname===location.pathname&&u.origin===location.origin)return;u.searchParams.set('lang',cur);a.href=u.toString();}catch(x){}},true);
+  var q=null;try{q=new URLSearchParams(location.search).get('lang');}catch(e){}
+  var saved=null;try{saved=localStorage.getItem('vop-lang');}catch(e){}
+  var nav=(navigator.language||'').slice(0,2);
+  var init=q||saved||'en';
+  cur='';setLang(init,'init');
+})();
+</script>
+</body>
+</html>
