@@ -32,8 +32,7 @@
     { "pattern": "mitole.voiceofpiece.org", "custom_domain": true },
     { "pattern": "paul.voiceofpiece.org", "custom_domain": true },
     { "pattern": "price.voiceofpiece.org", "custom_domain": true },
-    { "pattern": "simon.voiceofpiece.org", "custom_domain": true },
-    { "pattern": "artbridge.voiceofpiece.org", "custom_domain": true }
+    { "pattern": "simon.voiceofpiece.org", "custom_domain": true }
   ],
 
   "d1_databases": [

@@ -1,4 +1,17 @@
+# Dependencies
 node_modules/
+
+# Cloudflare Wrangler local state
 .wrangler/
+.dev.vars
+.dev.vars.*
+
+# Environment files / local secrets
 .env
 .env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
